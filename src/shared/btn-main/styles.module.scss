@@ -1,0 +1,33 @@
+.button {
+  text-align: center;
+  color: var(--white-color);
+  position: relative;
+  border-color: transparent;
+  background-color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  min-width: 294px;
+  min-height: 54px;
+  font-size: 16px;
+  padding: 14px 0 16px 0;
+
+  &.red {
+    background-color: var(--red-color);
+
+    &:hover {
+      background: linear-gradient(to right, #ffaa00, #f94233);
+    }
+  }
+
+  &:not(:disabled):active {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    cursor: auto;
+    user-select: none;
+    background-color: var(--light-grey-color);
+    border: 0;
+    color: white;
+  }
+}

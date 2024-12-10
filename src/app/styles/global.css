@@ -1,10 +1,19 @@
 :root {
+  --white-color: rgba(255, 255, 255, 1);
+  --black-color: rgba(2, 2, 2, 1);
   --red-color: #F94233;
+  --red-orange-gradient: linear-gradient(to right, #FFAA00, #F94233);
   --yellow-color: #FFAA00;
+  --light-grey-color: #E1ECED;
   --grey-color: #BCCDD1;
   --blue-color: #2E09E6;
   --font-inter: 'Inter Variable', sans-serif;
   --font-alshaus: 'ALS Hauss', sans-serif;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
 }
 
 h1.inter {
