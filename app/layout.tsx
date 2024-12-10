@@ -1,10 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "../src/app/styles/global.css";
-import { Button } from "../src/shared/btn-main";
+import { ButtonCounter } from "../src/shared/ui/btn-counter";
+import { ButtonMain } from "../src/shared/ui/btn-main";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Button>В корзину</Button>
+    <ButtonCounter>1</ButtonCounter>
+    <ButtonMain>В корзину</ButtonMain>
   </StrictMode>
 );

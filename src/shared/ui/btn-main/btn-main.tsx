@@ -3,7 +3,7 @@
 import React from "react";
 import classes from "./styles.module.scss";
 import cn from "classnames";
-import { typeButtonProps } from "./types";
+import { typeButtonProps } from "../item-icon/types";
 
 export const ButtonMain: React.FC<typeButtonProps> = (props) => {
   const {
