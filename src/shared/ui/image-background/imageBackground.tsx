@@ -23,11 +23,17 @@ export const ImageBackground: React.FC<typeImageBackgroundProps> = (props) => {
   ];
 
   return (
-    <div className={cn(classes.layoutContainer, classes[layout], classes[variant])}>
+    <div
+      className={cn(classes.layoutContainer, classes[layout], classes[variant])}
+    >
       {imageData.map((image, index) => (
         <div
           key={image.id}
-          className={cn(classes.imageContainer, classes[variant], classes[layout])}
+          className={cn(
+            classes.imageContainer,
+            classes[variant],
+            classes[layout]
+          )}
           onClick={handler}
         >
           <img src={image.src} alt={image.name} />

@@ -1,12 +1,15 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "../src/app/styles/global.css";
-import { ButtonCounter } from "../src/shared/ui/btn-counter";
-import { ButtonMain } from "../src/shared/ui/btn-main";
+import { ImageBackground } from "../src/shared/ui/image-background";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ButtonCounter>1</ButtonCounter>
-    <ButtonMain>В корзину</ButtonMain>
+    <ImageBackground
+      variant="grey"
+      saleName="осенний сейл"
+      saleValue="30%"
+      layout="two"
+    />
   </StrictMode>
 );
