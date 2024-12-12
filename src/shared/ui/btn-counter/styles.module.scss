@@ -1,0 +1,48 @@
+.buttonCounter {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  color: var(--black-color);
+  position: relative;
+  border-color: transparent;
+  background-color: var(--light-grey-color);
+  cursor: default;
+  border-radius: 8px;
+  max-width: 294px;
+  max-height: 54px;
+  padding: 16px 0 16px 0;
+}
+
+button {
+  cursor: pointer;
+  position: relative;
+  border-color: transparent;
+  background-color: transparent;
+  min-height: 16px;
+
+  &:not(:disabled):active {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    cursor: auto;
+    user-select: none;
+    background-color: var(--light-grey-color);
+    border: 0;
+    color: white;
+  }
+}
+
+.plus {
+  background-image: url(../../images/for-btn-counter/plus.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px;
+}
+
+.minus {
+  background-image: url(../../images/for-btn-counter/minus.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px;
+}

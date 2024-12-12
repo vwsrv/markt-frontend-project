@@ -1,18 +1,88 @@
-
-
 :root {
+  --white-color: rgba(255, 255, 255, 1);
+  --black-color: rgba(2, 2, 2, 1);
   --red-color: #F94233;
+  --red-orange-gradient: linear-gradient(to right, #FFAA00, #F94233);
   --yellow-color: #FFAA00;
+  --light-grey-color: #E1ECED;
   --grey-color: #BCCDD1;
   --blue-color: #2E09E6;
+  --blue-gradient-color: linear-gradient(to bottom, #00FBFF, #0051FF);
   --font-inter: 'Inter Variable', sans-serif;
   --font-alshaus: 'ALS Hauss', sans-serif;
 }
 
-h1 {
-  font-family: 'Inter Variable', sans-serif;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-inter);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
 }
 
-h2 {
-  font-family: 'ALS Hauss', sans-serif;
+main {
+  margin: auto;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h1.inter {
+  font-family: var(--font-inter);
+  font-size: 60px;
+  font-weight: 500;
+  line-height: 52.2px;
+}
+
+h1.alshauss {
+  font-family: var(--font-alshaus);
+  font-size: 40px;
+  font-weight: 850;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+}
+
+h2.alshauss {
+  font-family: var(--font-alshaus);
+  font-size: 18px;
+  font-weight: 550;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+}
+
+p.alshaus {
+  font-family: var(--font-alshaus);
+  font-size: 18px;
+  font-weight: 550;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+}
+
+p.inter {
+  font-family: var(--font-inter);
+  font-size: 22px;
+  font-weight: 550;
+  line-height: 22px;
+}
+
+p.small {
+  font-family: var(--font-inter);
+  font-size: 15px;
+  font-weight: 550;
+}
+
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
