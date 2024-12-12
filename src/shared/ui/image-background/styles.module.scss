@@ -1,0 +1,70 @@
+.imageContainer {
+  position: relative;
+  max-width: 1432px;
+  height: 600px;
+  border-radius: 16px;
+  min-width: 335px;
+
+  &.red {
+    background-color: var(--red-color);
+  }
+
+  &.blue {
+    background-color: var(--blue-color);
+  }
+
+  &.grey {
+    background-color: var(--grey-color);
+  }
+
+  &.yellow {
+    background-color: var(--yellow-color);
+  }
+
+  &.blueGradient {
+    background: var(--blue-gradient-color);
+  }
+}
+
+.span {
+  position: absolute;
+}
+
+.saleImage {
+  z-index: 999;
+  position: absolute;
+  text-transform: lowercase;
+  bottom: 9px;
+  left: 12px;
+  background-image: url("../../images/for-productImage/image.png");
+  background-position: top left;
+  width: 162px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+p {
+  font-weight: 550;
+  font-size: 22px;
+}
+
+.saleImage p {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(255, 212, 56, 0.9);
+  background-size: cover;
+  padding: 2px 6px 2px;
+  border-radius: 4px;
+}
+
+.saleValue {
+  z-index: 998;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  bottom: 65px;
+  border-radius: 4px;
+  background-color: var(--light-grey-color);
+  width: 77px;
+  transform: rotate(-20deg) translate(15%, 25%);
+}
