@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  img {
+    padding: 20px 0 0 16px;
+    align-self: start;
+  }
+
+  &.headerNav {
+    display: flex;
+    justify-self: center;
+    max-width: 176px;
+  }
+
+
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

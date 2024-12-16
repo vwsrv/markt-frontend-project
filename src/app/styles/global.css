@@ -1,11 +1,13 @@
 :root {
   --white-color: rgba(255, 255, 255, 1);
+  --white-grey-color: #F2F7F7;
   --black-color: rgba(2, 2, 2, 1);
   --red-color: #F94233;
   --red-orange-gradient: linear-gradient(to right, #FFAA00, #F94233);
   --yellow-color: #FFAA00;
   --light-grey-color: #E1ECED;
   --grey-color: #BCCDD1;
+  --dark-grey-color: #B2B5B8;
   --blue-color: #2E09E6;
   --blue-gradient-color: linear-gradient(to bottom, #00FBFF, #0051FF);
   --font-inter: 'Inter Variable', sans-serif;
@@ -13,14 +15,11 @@
 }
 
 body {
-  margin: 0;
+  margin: auto;
   padding: 0;
   font-family: var(--font-inter);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   min-height: 100vh;
-  margin: 0;
+  max-width: 1440px;
 }
 
 main {

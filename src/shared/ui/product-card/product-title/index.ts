@@ -1,1 +1,0 @@
-export { ProductTitle } from './productTitle';

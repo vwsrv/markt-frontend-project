@@ -1,6 +1,7 @@
 .inputContainer {
   position: relative;
   max-width: 1080px;
+  width: 100%;
 
   &::after {
     content: "";
@@ -9,10 +10,11 @@
     background-repeat: no-repeat;
     width: 32px;
     height: 32px;
-    background-repeat: no-repeat;
     background-size: cover;
-    left: 0;
+    left: 14px;
     transform: translate(50%, 50%);
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
@@ -25,10 +27,10 @@ input {
   font-size: 22px;
   font-weight: 412;
   line-height: 22px;
-
+  
+  width: 100%;
+  
   &::placeholder {
     color: var(--dark-grey-color);
   }
-
-
 }
