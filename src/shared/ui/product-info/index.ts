@@ -1,1 +1,1 @@
-export { ProductImage } from "./productInfo";
+export { ProductInfo } from "./productInfo";
