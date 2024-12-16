@@ -1,0 +1,114 @@
+.productInfo {
+  display: flex;
+  flex-direction: row;
+  
+
+  .productText {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+
+    .titleContainer {
+      display: flex;
+      align-items: center;
+
+      .productTitle {
+        font-size: 60px;
+        font-weight: 500;
+        line-height: 52.2px;
+      }
+    }
+
+    .productSubTitle {
+      padding-top: 10px;
+      font-size: 22px;
+      font-weight: 550;
+      line-height: 22px;
+      max-width: 1000px;
+    }
+  }
+
+  .productNumbers {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    max-width: 294px;
+
+    .productNumbersContainer {
+      display: flex;
+      align-content: end;
+      justify-content: space-between;
+
+      .productPriceInfo {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+
+        .price {
+          font-size: 39px;
+          font-weight: 700;
+          line-height: 39px;
+          text-align: center;
+        }
+
+        .oldPrice {
+          color: var(--light-grey-color);
+          font-size: 15px;
+          font-weight: 550;
+          line-height: 15px;
+          text-align: left;
+          align-self: end;
+          text-decoration: line-through;
+        }
+      }
+
+      .productQuality {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: left;
+        min-width: 52px;
+
+        .productRating {
+          position: relative;
+          font-size: 16px;
+          font-weight: 412;
+          line-height: 16px;
+          max-width: 39px;
+          padding-left: 15px;
+
+          &::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            width: 14px;
+            height: 14px;
+            background-image: url("../../images/for-product-info/star.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+          }
+        }
+
+        .productLikes {
+          position: relative;
+          font-size: 16px;
+          font-weight: 412;
+          line-height: 16px;
+
+          &::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 14px;
+            height: 14px;
+            background-image: url("../../images/for-product-info/heart.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+    }
+  }
+}
