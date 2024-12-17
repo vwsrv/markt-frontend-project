@@ -1,21 +1,22 @@
 .header {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
 
-  img {
+  &.headerLogo {
+    cursor: pointer;
     padding: 20px 0 0 16px;
     align-self: start;
   }
 
-  &.headerNav {
-    display: flex;
-    justify-self: center;
-    max-width: 176px;
+  button {
+    padding-right: 16px;
   }
 
-
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
+  &.headerNav {
+    display: flex;
+    justify-content: space-between;
+  }
 }

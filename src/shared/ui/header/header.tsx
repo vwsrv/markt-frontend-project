@@ -5,22 +5,26 @@ import classes from "./styles.module.scss";
 import cn from "classnames";
 import { typeHeaderProps } from "./types";
 import { Input } from "../input";
-import { ButtonMain } from "../btn-main";
 import companyLogo from "../../images/for-header/company-logo.svg";
+import { Icon } from "../icon";
+import cartLogo from "../../images/for-icon/cart.svg";
+import profileLogo from "../../images/for-icon/profile.svg";
+import favoritesLogo from "../../images/for-icon/favorites.svg";
+import deliveryLogo from "../../images/for-icon/delivery.svg";
 
 export const Header: React.FC<typeHeaderProps> = (props) => {
   const { companyName } = props;
 
   return (
     <header className={cn(classes.header)}>
-      <img src={companyLogo} alt={companyName} />
+      <img className={cn(classes.headerLogo)} src={companyLogo} alt={companyName} />
       <Input />
-      <div className={cn(classes.headerNav)}>
-        <ButtonMain variant="cart" />
-        <ButtonMain variant="delivery" />
-        <ButtonMain variant="favorites" />
-        <ButtonMain variant="profile" />
-      </div>
+      <nav className={cn(classes.headerNav)}>
+        <Icon src={cartLogo} alt="Корзина" />
+        <Icon src={deliveryLogo} alt="Доставки" />
+        <Icon src={favoritesLogo} alt="Избранное" />
+        <Icon src={profileLogo} alt="Личный кабинет" />
+      </nav>
     </header>
   );
 };
