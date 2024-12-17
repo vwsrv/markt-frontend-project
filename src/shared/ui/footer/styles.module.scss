@@ -1,0 +1,31 @@
+.footer {
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 22px 56px 38px 16px;
+  background-color: var(--white-grey-color);
+
+  p {
+    font-size: 22px;
+    font-weight: 550;
+    line-height: 22px;
+  }
+
+  .companyDetails {
+    align-self: center;
+    color: var(--grey-color);
+  }
+
+  .companyContacts {
+    display: flex;
+    align-items: center;
+
+    .companyEmail {
+      color: var(--grey-color);
+    }
+
+    .companySocial {
+      padding-left: 28px;
+    }
+  }
+}
