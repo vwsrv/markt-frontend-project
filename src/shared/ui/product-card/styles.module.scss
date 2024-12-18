@@ -1,5 +1,10 @@
+.cardList {
+  margin-top: 95px;
+}
+
 article {
   overflow: hidden;
+  margin-bottom: 48px;
 }
 
 .productInfo {
@@ -11,7 +16,6 @@ article {
   .productText {
     display: flex;
     flex-direction: column;
-    max-width: 1000px;
 
     .titleContainer {
       display: flex;

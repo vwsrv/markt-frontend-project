@@ -9,6 +9,7 @@ export const ProductCard: React.FC<typeProductCardProps> = (props) => {
 
   return (
     <>
+    <section className={cn(classes.cardList)}>
       {goodsData.map((item) => (
         <article
           key={item.id}
@@ -30,6 +31,7 @@ export const ProductCard: React.FC<typeProductCardProps> = (props) => {
           />
         </article>
       ))}
+      </section>
     </>
   );
 };

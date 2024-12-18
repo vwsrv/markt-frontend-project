@@ -9,11 +9,13 @@ export const PromoBanner: React.FC<typePromoBannerProps> = (props) => {
   const { handler, imageLink } = props;
 
   return (
-    <img
-      className={cn(classes.container)}
-      src={imageLink}
-      alt="Рекламный баннер"
-      onClick={handler}
-    ></img>
+    <div className={cn(classes.promoBanner)}>
+      <img
+        className={cn(classes.container)}
+        src={imageLink}
+        alt="Рекламный баннер"
+        onClick={handler}
+      ></img>
+    </div>
   );
 };

@@ -1,7 +1,11 @@
 .productInfo {
   display: flex;
   flex-direction: row;
-  margin: 8px 12px 0;
+  margin: 6px 12px 0;
+  max-height: 96px;
+  white-space: nowrap; /* Запретить перенос строк */
+  overflow: hidden; /* Скрыть переполнение */
+  text-overflow: ellipsis; /* Добавить многоточие */
 
   .productText {
     display: flex;
@@ -14,13 +18,13 @@
       .productTitle {
         font-size: 60px;
         font-weight: 500;
-        line-height: 52.2px;
+        line-height: 52px;
+        margin-right: 16px;
       }
     }
 
     .productSubTitle {
       text-align: left;
-      padding-top: 4px;
       font-size: 22px;
       font-weight: 550;
       line-height: 22px;
@@ -29,13 +33,11 @@
 
   .productNumbers {
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
-    max-width: 294px;
+    justify-content: space-between;
 
     .productNumbersContainer {
       display: flex;
-      align-content: end;
       justify-content: space-between;
 
       .productPriceInfo {
@@ -64,7 +66,7 @@
       .productQuality {
         display: flex;
         flex-direction: column;
-        justify-content: end;
+        justify-content: start;
         align-items: left;
         min-width: 52px;
 
@@ -74,12 +76,12 @@
           font-weight: 412;
           line-height: 16px;
           max-width: 39px;
-          padding-left: 15px;
+          padding-left: 5px;
 
           &::before {
             content: "";
             position: absolute;
-            right: 0;
+            right: -8px;
             width: 14px;
             height: 14px;
             background-image: url("../../images/for-product-info/star.svg");

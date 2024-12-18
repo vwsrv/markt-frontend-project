@@ -1,4 +1,9 @@
-.container {
-    flex-direction: column;
-    max-width: 1440px;
+.promoBanner {
+    max-width: 1433px;
+    margin-top: 15px;
+
+    .container {
+        flex-direction: column;
+        width: 100%;
+    }
 }

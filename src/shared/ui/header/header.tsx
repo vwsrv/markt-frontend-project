@@ -22,7 +22,7 @@ export const Header: React.FC<typeHeaderProps> = (props) => {
         src={companyLogo}
         alt={companyName}
       />
-      <Input />
+      <Input name="Поиск" placeholder="Поиск товаров"/>
       <nav className={cn(classes.headerNav)}>
         <Icon src={cartLogo} alt="Корзина" />
         <Icon src={deliveryLogo} alt="Доставки" />

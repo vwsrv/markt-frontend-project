@@ -2,7 +2,6 @@
   position: relative;
   overflow: hidden;
   gap: 4px;
-  margin-top: 60px;
   max-height: 600px;
   border-radius: 16px;
 
@@ -70,8 +69,10 @@
 
 .imageContainer {
   overflow: hidden;
+  border-radius: 16px;
   position: relative;
   min-width: 335px;
+  max-height: 600px;
 
   &.red {
     background-color: var(--red-color);

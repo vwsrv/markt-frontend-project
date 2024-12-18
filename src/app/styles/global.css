@@ -1,4 +1,5 @@
-@import url('../fonts/fonts.css');
+@import '../fonts/fonts.css';
+
 :root {
   --white-color: rgba(255, 255, 255, 1);
   --white-grey-color: #F2F7F7;
@@ -11,7 +12,7 @@
   --dark-grey-color: #B2B5B8;
   --blue-color: #2E09E6;
   --blue-gradient-color: linear-gradient(to bottom, #00FBFF, #0051FF);
-  --font-inter: 'Inte-Variable', sans-serif;
+  --font-inter: 'Inter', sans-serif;
   --font-alshaus: 'ALS Hauss', sans-serif;
 }
 

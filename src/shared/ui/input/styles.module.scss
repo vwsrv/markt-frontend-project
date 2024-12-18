@@ -1,6 +1,6 @@
 .inputContainer {
   position: relative;
-  max-width: 1080px;
+  max-width: 1092px;
   width: 100%;
 
   &::after {
@@ -11,16 +11,16 @@
     width: 32px;
     height: 32px;
     background-size: cover;
-    left: 14px;
+    left: 13px;
     transform: translate(50%, 50%);
-    top: 50%;
+    top: 55%;
     transform: translateY(-50%);
   }
 }
 
 input {
-  padding: 21px 0 23px 52px;;
-  width: 95%;
+  padding: 26px 0 16px 52px;
+  width: 94%;
   background-color: var(--white-grey-color);
   outline: none;
   border: none;
