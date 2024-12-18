@@ -6,15 +6,11 @@ import cn from "classnames";
 import { typeCategoryIconProps } from "./types";
 
 export const CategoryIcon: React.FC<typeCategoryIconProps> = (props) => {
-  const {
-    imageUrl,
-    name,
-    handler,
-  } = props;
+  const { link, name, handler } = props;
 
   return (
     <div className={cn(classes.container)} onClick={handler}>
-      <img className={cn(classes.image)} src={imageUrl} alt={name} />
+      <img className={cn(classes.image)} src={link} alt={name} />
       <p className="small">{name}</p>
     </div>
   );
