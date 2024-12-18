@@ -2,54 +2,54 @@
     {
         "id": 1,
         "name": "Помощь психолога",
-        "src": "utils/images/1.png"
+        "link": "src/utils/category-images/1.png"
     },
     {   "id": 2,
         "name": "Гаджеты",
-        "src": "utils/images/2.png"
+        "link": "src/utils/category-images/2.png"
     },
     {   "id": 3,
         "name": "Предметы искусства",
-        "src": "images/image3.jpg"
+        "link": "src/utils/category-images/3.png"
     },
     {   "id": 4,
         "name": "Товары для дома",
-        "src": "images/image4.jpg"
+        "link": "src/utils/category-images/4.png"
     },
     {
         "name": "Таланты",
-        "src": "images/image5.jpg"
+        "link": "src/utils/category-images/5.png"
     },
     {
         "name": "Магия",
-        "src": "images/8.jpg"
+        "link": "src/utils/category-images/8.png"
     },
     {
         "name": "Релакс",
-        "src": "images/6.jpg"
+        "link": "src/utils/category-images/6.png"
     },
     {
         "name": "Развлечения",
-        "src": "images/9.jpg"
+        "link": "src/utils/category-images/9.png"
     },
     {
         "name": "Сокровища",
-        "src": "images/13.jpg"
+        "link": "src/utils/category-images/13.png"
     },
     {
         "name": "Недвижимость",
-        "src": "images/10.jpg"
+        "link": "src/utils/category-images/10.png"
     },
     {
         "name": "Красота и здоровье",
-        "src": "images/7.jpg"
+        "link": "src/utils/category-images/7.png"
     },
     {
         "name": "Могущество",
-        "src": "images/11.jpg"
+        "link": "src/utils/category-images/11.png"
     },
     {
         "name": "Стиль",
-        "src": "images/12.jpg"
+        "link": "src/utils/category-images/12.png"
     }
 ]
