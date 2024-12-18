@@ -1,0 +1,15 @@
+.icon {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 32px;
+  height: 32px;
+  margin-right: 16px;
+
+  &:hover {
+    opacity: 0.3;
+  }
+
+  &:nth-last-child(1) {
+    margin: 0;
+  }
+}

@@ -1,5 +1,5 @@
 export type typeCategoryIconProps = {
-  imageUrl: string;
+  link: string;
   name: string;
   handler: ((id: number) => void) | (() => void) | string;
 };

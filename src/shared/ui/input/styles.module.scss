@@ -1,0 +1,35 @@
+.inputContainer {
+  position: relative;
+  max-width: 1080px;
+  width: 100%;
+
+  &::after {
+    content: "";
+    position: absolute;
+    background-image: url("../../images/for-input/search-icn.svg");
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+    background-size: cover;
+    left: 14px;
+    transform: translate(50%, 50%);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+input {
+  padding: 21px 0 23px 52px;;
+  width: 95%;
+  background-color: var(--white-grey-color);
+  outline: none;
+  border: none;
+  border-radius: 0 0 16px 16px; 
+  font-size: 22px;
+  font-weight: 412;
+  line-height: 22px;
+
+  &::placeholder {
+    color: var(--dark-grey-color);
+  }
+}

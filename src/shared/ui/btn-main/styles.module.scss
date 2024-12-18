@@ -4,18 +4,30 @@
   position: relative;
   border-color: transparent;
   background-color: white;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  min-width: 294px;
-  min-height: 54px;
-  font-size: 16px;
   padding: 14px 0 16px 0;
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
 
   &.red {
-    background-color: var(--red-color);zz
+    background-color: var(--red-color);
+    min-width: 294px;
+    min-height: 54px;
 
     &:hover {
       background: var(--red-orange-gradient);
+    }
+  }
+  &.like {
+    width: 46px;
+    height: 42px;
+    background-image: url("../../images/for-btn-like/btn-like.svg");
+    background-size: 100%;
+
+    &:hover {
+      background-image: url("../../images/for-btn-like/btn-like-hover.svg");
     }
   }
 

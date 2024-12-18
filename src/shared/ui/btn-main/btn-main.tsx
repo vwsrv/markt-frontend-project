@@ -7,7 +7,7 @@ import { typeButtonProps } from "./types";
 
 export const ButtonMain: React.FC<typeButtonProps> = (props) => {
   const {
-    variant = "red",
+    variant = "like",
     children,
     disabled,
     className,

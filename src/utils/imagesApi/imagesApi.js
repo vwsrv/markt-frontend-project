@@ -5,7 +5,6 @@ const localDataRequest = async () => {
       throw new Error("Ошибка");
     }
     const data = await res.json();
-    setImages(data);
   } catch (err) {
     console.log(err);
   }

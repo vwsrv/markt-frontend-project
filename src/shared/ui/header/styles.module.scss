@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+
+  .headerLogo {
+    cursor: pointer;
+    padding: 20px 0 0 16px;
+    align-self: start;
+  }
+
+  button {
+    padding-right: 16px;
+  }
+
+  .headerNav {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+}

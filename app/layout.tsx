@@ -1,15 +1,15 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "../src/app/styles/global.css";
-import { ImageBackground } from "../src/shared/ui/image-background";
+import { Header } from "../src/shared/ui/header";
+import { Footer } from "../src/shared/ui/footer/footer";
+import { MainPage } from "../src/pages/main-page";
+
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ImageBackground
-      variant="grey"
-      saleName="осенний сейл"
-      saleValue="30%"
-      layout="two"
-    />
+    <Header />
+    <MainPage />
+    <Footer companyEmail="vissar2016@gmail.com" companyName="Магаз"/>
   </StrictMode>
 );

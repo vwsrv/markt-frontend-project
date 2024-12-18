@@ -6,11 +6,14 @@ import cn from "classnames";
 import { typePromoBannerProps } from "./types";
 
 export const PromoBanner: React.FC<typePromoBannerProps> = (props) => {
-  const {
-    handler,
-  } = props;
+  const { handler, imageLink } = props;
 
   return (
-    <div className={cn(classes.container)} onClick={handler}></div>
+    <img
+      className={cn(classes.container)}
+      src={imageLink}
+      alt="Рекламный баннер"
+      onClick={handler}
+    ></img>
   );
 };
