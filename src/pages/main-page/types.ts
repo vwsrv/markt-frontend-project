@@ -1,5 +1,3 @@
-export interface CounterButtonProps {
+export interface MainPageProps {
   quantity: number;
-  onIncrease: () => void;
-  onDecrease: () => void;
 }

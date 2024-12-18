@@ -1,3 +1,4 @@
+@import url('../fonts/fonts.css');
 :root {
   --white-color: rgba(255, 255, 255, 1);
   --white-grey-color: #F2F7F7;
@@ -10,7 +11,7 @@
   --dark-grey-color: #B2B5B8;
   --blue-color: #2E09E6;
   --blue-gradient-color: linear-gradient(to bottom, #00FBFF, #0051FF);
-  --font-inter: 'Inter Variable', sans-serif;
+  --font-inter: 'Inte-Variable', sans-serif;
   --font-alshaus: 'ALS Hauss', sans-serif;
 }
 
@@ -19,7 +20,7 @@ body {
   padding: 0;
   font-family: var(--font-inter);
   min-height: 100vh;
-  max-width: 1440px;
+  max-width: 1433px;
 }
 
 main {
@@ -71,6 +72,7 @@ p.inter {
   font-size: 22px;
   font-weight: 550;
   line-height: 22px;
+
 }
 
 p.small {

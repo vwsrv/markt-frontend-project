@@ -3,38 +3,68 @@
 import React from "react";
 import classes from "./styles.module.scss";
 import cn from "classnames";
-import { typeImageBackgroundProps } from "./types";
+import { typeProductImageProps } from "./types";
 
-export const ProductImage: React.FC<typeImageBackgroundProps> = (props) => {
-  const { handler, variant, saleName, saleValue, layout, images } = props;
+export const ProductImage: React.FC<typeProductImageProps> = (props) => {
+  const { saleName, saleValue, layout, goodsData } = props;
 
   return (
-    <div
-      className={cn(classes.layoutContainer, classes[layout], classes[variant])}
-    >
-      {images.map((image, index) => (
-        <div
-          key={image.id}
-          className={cn(
-            classes.imageContainer,
-            classes[variant],
-            classes[layout]
-          )}
-          onClick={handler}
-        >
-          <img src={image.src} alt={image.name} />
-          {index === 0 && (
-            <>
-              <span className={cn(classes.saleValue)}>
-                <p>&ndash; {saleValue}</p>
-              </span>
-              <span className={cn(classes.saleImage)}>
-                <p className="small">{saleName}</p>
-              </span>
-            </>
-          )}
-        </div>
-      ))}
-    </div>
+    <>
+      {goodsData.map((item, index) => {
+        const imageLinks = Object.values(item.images || {});
+        const variant = item.variant;
+        const layout = item.layout;
+
+        return (
+          <div
+            key={index}
+            className={cn(
+              classes.layoutContainer,
+              classes[layout],
+              classes[variant]
+            )}
+          >
+            {imageLinks.length > 0 ? (
+              imageLinks.map((link, imgIndex) => (
+                <div
+                  className={cn(
+                    classes.imageContainer,
+                    classes[variant],
+                    classes[layout]
+                  )}
+                >
+                  <img
+                    key={imgIndex}
+                    src={link}
+                    alt={item.title}
+                    className={cn(classes.productImage)}
+                  />
+                </div>
+              ))
+            ) : (
+              <div
+                className={cn(
+                  classes.imageContainer,
+                  classes[variant],
+                  classes[layout]
+                )}
+              >
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  className={cn(classes.productImage)}
+                />
+              </div>
+            )}
+            <span className={cn(classes.saleValue)}>
+              <p className="inter">&ndash; {saleValue}</p>
+            </span>
+            <span className={cn(classes.saleImage)}>
+              <p className="inter">{saleName}</p>
+            </span>
+          </div>
+        );
+      })}
+    </>
   );
 };

@@ -17,7 +17,11 @@ export const Header: React.FC<typeHeaderProps> = (props) => {
 
   return (
     <header className={cn(classes.header)}>
-      <img className={cn(classes.headerLogo)} src={companyLogo} alt={companyName} />
+      <img
+        className={cn(classes.headerLogo)}
+        src={companyLogo}
+        alt={companyName}
+      />
       <Input />
       <nav className={cn(classes.headerNav)}>
         <Icon src={cartLogo} alt="Корзина" />

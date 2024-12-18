@@ -1,12 +1,16 @@
-export type typeImageBackgroundProps = {
-  images: Array<{
+export type typeProductImageProps = {
+  goodsData: Array<{
     id: number;
-    src: string;
-    name?: string;
+
+    title?: string;
+    images:
+      | Array<{
+          src: string;
+        }>
+      | string;
   }>;
-  handler: ((id: number) => void) | (() => void) | string;
-  variant?: "red" | "yellow" | "blue" | "grey" | "blueGradient";
   saleName?: string;
   saleValue?: string;
+  variant?: "red" | "yellow" | "blue" | "grey" | "blueGradient" | string;
   layout?: "one" | "two" | "ten" | "four" | "wideAndShort";
 };

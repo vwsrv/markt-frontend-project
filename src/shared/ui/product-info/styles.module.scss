@@ -1,11 +1,11 @@
 .productInfo {
   display: flex;
   flex-direction: row;
+  margin: 8px 12px 0;
 
   .productText {
     display: flex;
     flex-direction: column;
-    max-width: 1000px;
 
     .titleContainer {
       display: flex;
@@ -19,11 +19,11 @@
     }
 
     .productSubTitle {
-      padding-top: 10px;
+      text-align: left;
+      padding-top: 4px;
       font-size: 22px;
       font-weight: 550;
       line-height: 22px;
-      max-width: 1000px;
     }
   }
 

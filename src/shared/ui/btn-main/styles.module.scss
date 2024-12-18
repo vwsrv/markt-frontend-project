@@ -24,25 +24,22 @@
     width: 46px;
     height: 42px;
     background-image: url("../../images/for-btn-like/btn-like.svg");
+    background-size: 100%;
 
     &:hover {
       background-image: url("../../images/for-btn-like/btn-like-hover.svg");
     }
   }
-}
 
-&:not(&.red):hover {
-  opacity: 0.3;
-}
+  &:not(:disabled):active {
+    transform: translateY(1px);
+  }
 
-&:not(:disabled):active {
-  transform: translateY(1px);
-}
-
-&:disabled {
-  cursor: auto;
-  user-select: none;
-  background-color: var(--light-grey-color);
-  border: 0;
-  color: white;
+  &:disabled {
+    cursor: auto;
+    user-select: none;
+    background-color: var(--light-grey-color);
+    border: 0;
+    color: white;
+  }
 }

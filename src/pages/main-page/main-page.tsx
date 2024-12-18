@@ -1,46 +1,49 @@
 "use client";
 
 import React from "react";
-import classes from "./styles.module.scss";
-import cn from "classnames";
-import { CounterButtonProps } from "./types";
+import { PromoBanner } from "../../shared/ui/promo-banner";
+import { MainPageProps } from "./types";
+import { CategoryList } from "../../shared/ui/category-list/category-list";
+import promoImage from "../../shared/images/for-promo-banner/promo-banner.svg";
+import { ProductCard } from "../../shared/ui/product-card/productCard";
 
-export const MainPage: React.FC<CounterButtonProps> = (props) => {
-  const { quantity, onIncrease, onDecrease } = props;
-  const [images, setImages] = React.useState([]);
+type ImageData = Array<{
+  src: string; // Предполагаем, что структура данных такая
+}>;
+
+export const MainPage: React.FC<MainPageProps> = (props) => {
+  const [images, setImages] = React.useState<ImageData | null>(null);
+  const [categoryImages, setCategoryImages] = React.useState<ImageData | null>(null);
+
+  const fetchData = async (
+    url: string,
+    setData: React.Dispatch<React.SetStateAction<ImageData | null>>
+  ) => {
+    try {
+      const res = await fetch(url);
+      if (!res.ok) {
+        throw new Error("Ошибка загрузки данных");
+      }
+      const data = await res.json();
+      setData(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   React.useEffect(() => {
-    const localDataRequest = async () => {
-      try {
-        const res = await fetch("/src/utils/images/images.json"); // Убедитесь, что путь корректен
-        if (!res.ok) {
-          throw new Error("Ошибка");
-        }
-        const data = await res.json();
-        setImages(data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    localDataRequest();
+    fetchData("/src/utils/resource-images/resource-images.json", setImages);
+    fetchData(
+      "/src/utils/category-images/category-images.json",
+      setCategoryImages
+    );
   }, []);
 
   return (
-    <div className={cn(classes.buttonCounter)}>
-      <button
-        aria-label="Убавить"
-        className={cn(classes.minus)}
-        onClick={onDecrease}
-      ></button>
-      <span>
-        <p className="inter">{quantity}</p>
-      </span>
-      <button
-        aria-label="Добавить"
-        className={cn(classes.plus)}
-        onClick={onIncrease}
-      ></button>
+    <div>
+      <PromoBanner imageLink={promoImage} />
+      <CategoryList categoryData={categoryImages || []} />
+      <ProductCard goodsData={images || []} saleName="Осенний Сейл" saleValue="50%" />
     </div>
   );
 };
