@@ -3,11 +3,9 @@
   flex-direction: row;
   margin: 6px 12px 0;
   max-height: 96px;
-  white-space: nowrap; /* Запретить перенос строк */
-  overflow: hidden; /* Скрыть переполнение */
-  text-overflow: ellipsis; /* Добавить многоточие */
 
   .productText {
+    margin-top: 3px;
     display: flex;
     flex-direction: column;
 
@@ -25,9 +23,6 @@
 
     .productSubTitle {
       text-align: left;
-      font-size: 22px;
-      font-weight: 550;
-      line-height: 22px;
     }
   }
 
@@ -46,9 +41,6 @@
         justify-content: start;
 
         .price {
-          font-size: 39px;
-          font-weight: 700;
-          line-height: 39px;
           text-align: center;
         }
 
@@ -68,21 +60,19 @@
         flex-direction: column;
         justify-content: start;
         align-items: left;
-        min-width: 52px;
+        min-width: 55px;
 
         .productRating {
           position: relative;
-          font-size: 16px;
-          font-weight: 412;
-          line-height: 16px;
           max-width: 39px;
           padding-left: 5px;
 
           &::before {
             content: "";
             position: absolute;
-            right: -8px;
-            width: 14px;
+            right: -14px;
+            top: 2px;
+            width: 17px;
             height: 14px;
             background-image: url("../../images/for-product-info/star.svg");
             background-repeat: no-repeat;
@@ -93,15 +83,13 @@
 
         .productLikes {
           position: relative;
-          font-size: 16px;
-          font-weight: 412;
-          line-height: 16px;
 
           &::before {
             content: "";
             position: absolute;
             right: 0;
             bottom: 0;
+            top: 1px;
             width: 14px;
             height: 14px;
             background-image: url("../../images/for-product-info/heart.svg");

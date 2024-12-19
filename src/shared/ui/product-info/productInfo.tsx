@@ -13,15 +13,15 @@ export const ProductInfo: React.FC<typeProductInfoProps> = (props) => {
     <div className={cn(classes.productInfo)}>
       <div className={cn(classes.productText)}>
         <div className={cn(classes.titleContainer)}>
-          <h1 className={cn(classes.productTitle)}>{title}</h1>
+          <h1 className="inter">{title}</h1>
           <ButtonMain variant="like" />
         </div>
-        <p className={cn(classes.productSubTitle)}>{subtitle}</p>
+        <p className={cn(classes.productSubTitle, 'inter')}>{subtitle}</p>
       </div>
       <div className={cn(classes.productNumbers)}>
         <div className={cn(classes.productNumbersContainer)}>
           <div className={cn(classes.productPriceInfo)}>
-            <p className={cn(classes.price)}>{price} &#8381;</p>
+            <p className={cn(classes.price, 'price')}>{price} &#8381;</p>
             <span className={cn(classes.oldPrice)}>{oldprice} &#8381;</span>
           </div>
           <div className={cn(classes.productQuality)}>

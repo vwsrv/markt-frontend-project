@@ -42,6 +42,9 @@ h1.inter {
   font-size: 60px;
   font-weight: 500;
   line-height: 52.2px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
 }
 
 h1.alshauss {
@@ -71,9 +74,20 @@ p.alshaus {
 p.inter {
   font-family: var(--font-inter);
   font-size: 22px;
-  font-weight: 550;
+  font-weight: 700;
   line-height: 22px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
 
+p.price {
+  font-family: var(--font-inter);
+  font-size: 39px;
+  font-weight: 500;
+  line-height: 39px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
 }
 
 p.small {

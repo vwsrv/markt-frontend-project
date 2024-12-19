@@ -1,0 +1,140 @@
+[
+  {
+    "id": 1,
+    "title": "Столовая вилка, великоустюгский завод «Северная чернь», серебро 925 пробы",
+    "subtitle": "Три в одном! Человеческая рука будет массажером, постоянным спутником и домашним питомцем. Вещь — это отрубленная кисть правой руки, способная свободно пе...",
+    "price": 4499,
+    "oldprice": 8998,
+    "rating": 4.8,
+    "likes": 8492,
+    "images": {
+      "1": "src/utils/resource-images/69.png"
+    },
+    "variant": "blueGradient",
+    "layout": "ten"
+  },
+  {
+    "id": 2,
+    "title": "Бузинная палочка, 2 шт",
+    "subtitle": "Три в одном! Человеческая рука будет массажером, постоянным спутником и домашним питомцем. Вещь — это отрубленная кисть правой руки, способная свободно передвигаться по дому и за его пределами на кончиках пальцев, как паук.",
+    "price": 4499,
+    "oldprice": 8998,
+    "rating": 5.0,
+    "likes": 7113,
+    "src": "src/utils/resource-images/24.png",
+    "variant": "blueGradient",
+    "layout": "ten"
+  },
+  {
+    "id": 3,
+    "title": "Лампа с джином",
+    "subtitle": "Три в одном! Человеческая рука будет массажером, постоянным спутником и домашним питомцем. Вещь — это отрубленная кисть правой руки, способная свободно передвигаться по дому и за его пределами на кончиках пальцев, как паук.",
+    "price": 4499,
+    "oldprice": 8998,
+    "rating": 3.0,
+    "likes": 5587,
+    "images": {
+      "1": "src/utils/resource-images/42.png"
+    },
+    "variant": "blueGradient",
+    "layout": "ten"
+  },
+  {
+    "id": 4,
+    "title": "Кольцо всевластия из фильма «Пластелин колец»",
+    "subtitle": "",
+    "price": 4499,
+    "oldprice": 8998,
+    "rating": 5.0,
+    "likes": 3828,
+    "images": {
+      "1": "src/utils/resource-images/36.png"
+    },
+    "variant": "blueGradient",
+    "layout": "ten"
+  },
+  {
+    "id": 5,
+    "title": "Ожерелье Серсеи Ланнистер из сериала «Игра престолов»",
+    "subtitle": "",
+    "price": 4499,
+    "oldprice": "",
+    "rating": 4.2,
+    "likes": 2951,
+    "images": {
+      "1": "src/utils/resource-images/63.png"
+    },
+    "variant": "blueGradient",
+    "layout": "ten"
+  },
+  {
+    "id": 6,
+    "title": "Ковёр-самолёт",
+    "subtitle": "",
+    "price": 49999,
+    "oldprice": "",
+    "rating": 4.2,
+    "likes": 2951,
+    "images": {
+      "1": "src/utils/resource-images/37.png"
+    },
+    "variant": "blueGradient",
+    "layout": "ten"
+  },
+  {
+    "id": 7,
+    "title": "Распределяющая шляпа",
+    "subtitle": "",
+    "price": 47,
+    "oldprice": "470",
+    "rating": 5,
+    "likes": 2951,
+    "images": {
+      "1": "src/utils/resource-images/2.png"
+    },
+    "variant": "blueGradient",
+    "layout": "ten"
+  },
+  {
+    "id": 8,
+    "title": "Плащ-невидимка",
+    "subtitle": "",
+    "price": 47,
+    "oldprice": "470",
+    "rating": 5,
+    "likes": 2224,
+    "images": {
+      "1": "src/utils/resource-images/61.png"
+    },
+    "variant": "blueGradient",
+    "layout": "ten"
+  },
+  {
+    "id": 9,
+    "title": "Машина времени Delorean DMC-12",
+    "subtitle": "",
+    "price": 19890,
+    "oldprice": "470",
+    "rating": 4.5,
+    "likes": 2035,
+    "images": {
+      "1": "src/utils/resource-images/56.png"
+    },
+    "variant": "blueGradient",
+    "layout": "ten"
+  },
+  {
+    "id": 10,
+    "title": "Массажер «Мурашка»",
+    "subtitle": "",
+    "price": 0,
+    "oldprice": "470",
+    "rating": 3.1,
+    "likes": 1835,
+    "images": {
+      "1": "src/utils/resource-images/53.png"
+    },
+    "variant": "blueGradient",
+    "layout": "ten"
+  }
+]

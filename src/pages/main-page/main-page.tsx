@@ -13,7 +13,9 @@ type ImageData = Array<{
 
 export const MainPage: React.FC<MainPageProps> = (props) => {
   const [images, setImages] = React.useState<ImageData | null>(null);
-  const [categoryImages, setCategoryImages] = React.useState<ImageData | null>(null);
+  const [categoryImages, setCategoryImages] = React.useState<ImageData | null>(
+    null
+  );
 
   const fetchData = async (
     url: string,
@@ -43,7 +45,11 @@ export const MainPage: React.FC<MainPageProps> = (props) => {
     <div>
       <PromoBanner imageLink={promoImage} />
       <CategoryList categoryData={categoryImages || []} />
-      <ProductCard goodsData={images || []} saleName="Осенний Сейл" saleValue="50%" />
+      <ProductCard
+        goodsData={images || []}
+        saleName="Осенний Сейл"
+        saleValue="50%"
+      />
     </div>
   );
 };
