@@ -1,6 +1,5 @@
 .layoutContainer {
   position: relative;
-  overflow: hidden;
   gap: 4px;
   max-height: 600px;
   border-radius: 16px;
@@ -47,12 +46,7 @@
       }
     }
 
-    &.ten {
-      img {
-      }
-    }
   }
-
 
   .saleImage {
     z-index: 999;
@@ -120,5 +114,10 @@
 
   .span {
     position: absolute;
+  }
+
+  .productImage {
+    display: block;
+    margin: auto;
   }
 }

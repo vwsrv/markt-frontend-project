@@ -5,9 +5,9 @@ import classes from "./styles.module.scss";
 import cn from "classnames";
 import { typeFooterProps } from "./types";
 import { Icon } from "../icon";
-import dzenImage from "../../images/for-icon/Dzen.svg";
-import telegramImage from "../../images/for-icon/telegram.svg";
-import youtubeImage from "../../images/for-icon/YT.svg";
+import dzenImage from "./images/Dzen.svg";
+import telegramImage from "./images/telegram.svg";
+import youtubeImage from "./images//YT.svg";
 
 export const Footer: React.FC<typeFooterProps> = (props) => {
   const { companyName, companyEmail } = props;

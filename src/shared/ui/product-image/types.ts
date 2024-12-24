@@ -11,6 +11,6 @@ export type typeProductImageProps = {
   }>;
   saleName?: string;
   saleValue?: string;
-  variant?: "red" | "yellow" | "blue" | "grey" | "blueGradient" | string;
+  variant?: "red" | "yellow" | "blue" | "grey" | "blueGradient";
   layout?: "one" | "two" | "ten" | "four" | "wideAndShort";
 };

@@ -4,18 +4,19 @@ import React from "react";
 import { PromoBanner } from "../../shared/ui/promo-banner";
 import { MainPageProps } from "./types";
 import { CategoryList } from "../../shared/ui/category-list/category-list";
-import promoImage from "../../shared/images/for-promo-banner/promo-banner.svg";
-import { ProductCard } from "../../shared/ui/product-card/productCard";
+import promoImage from "../../shared/ui/promo-banner/images/promo-banner.svg";
+import { ProductCardList } from "../../shared/ui/product-card-list/productCardList";
 
 type ImageData = Array<{
-  src: string; // Предполагаем, что структура данных такая
+  src: string;
 }>;
 
-export const MainPage: React.FC<MainPageProps> = (props) => {
+export const MainPage: React.FC<MainPageProps> = () => {
   const [images, setImages] = React.useState<ImageData | null>(null);
-  const [categoryImages, setCategoryImages] = React.useState<ImageData | null>(
+  const [categoryIcons, setCategoryIcons] = React.useState<ImageData | null>(
     null
   );
+  const [forHomeImages, setForHomeImages] = React.useState<ImageData | null>(null);
 
   const fetchData = async (
     url: string,
@@ -33,23 +34,31 @@ export const MainPage: React.FC<MainPageProps> = (props) => {
     }
   };
 
+  console.log(forHomeImages);
+  
+
   React.useEffect(() => {
     fetchData("/src/utils/resource-images/resource-images.json", setImages);
     fetchData(
       "/src/utils/category-images/category-images.json",
-      setCategoryImages
+      setCategoryIcons
+    );
+    fetchData(
+      "/src/utils/resource-images/resource-images-2.json",
+      setForHomeImages
     );
   }, []);
 
   return (
     <div>
       <PromoBanner imageLink={promoImage} />
-      <CategoryList categoryData={categoryImages || []} />
-      <ProductCard
+      <CategoryList categoryData={categoryIcons || []} />
+      <ProductCardList
         goodsData={images || []}
         saleName="Осенний Сейл"
         saleValue="50%"
       />
+      <ProductCardList goodsData={forHomeImages || []} />
     </div>
   );
 };

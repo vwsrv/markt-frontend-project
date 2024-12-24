@@ -6,7 +6,7 @@ import cn from "classnames";
 import { typeProductImageProps } from "./types";
 
 export const ProductImage: React.FC<typeProductImageProps> = (props) => {
-  const { saleName, saleValue, layout, goodsData } = props;
+  const { saleName, saleValue, goodsData } = props;
 
   return (
     <>
@@ -56,12 +56,16 @@ export const ProductImage: React.FC<typeProductImageProps> = (props) => {
                 />
               </div>
             )}
-            <span className={cn(classes.saleValue)}>
-              <p className="inter">&ndash; {saleValue}</p>
-            </span>
-            <span className={cn(classes.saleImage)}>
-              <p className="inter">{saleName}</p>
-            </span>
+            {saleValue && (
+              <span className={cn(classes.saleValue)}>
+                <p className="inter">&ndash; {saleValue}</p>
+              </span>
+            )}
+            {saleName && (
+              <span className={cn(classes.saleImage)}>
+                <p className="inter">{saleName}</p>
+              </span>
+            )}
           </div>
         );
       })}

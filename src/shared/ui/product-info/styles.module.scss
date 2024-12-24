@@ -22,6 +22,7 @@
     }
 
     .productSubTitle {
+      padding-top: 5px;
       text-align: left;
     }
   }
@@ -74,7 +75,7 @@
             top: 2px;
             width: 17px;
             height: 14px;
-            background-image: url("../../images/for-product-info/star.svg");
+            background-image: url("./images/star.svg");
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
@@ -89,10 +90,10 @@
             position: absolute;
             right: 0;
             bottom: 0;
-            top: 1px;
+            top: 4px;
             width: 14px;
             height: 14px;
-            background-image: url("../../images/for-product-info/heart.svg");
+            background-image: url("./images/heart.svg");
             background-repeat: no-repeat;
             background-size: cover;
           }
