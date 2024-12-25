@@ -1,8 +1,13 @@
 .layoutContainer {
   position: relative;
   gap: 4px;
-  max-height: 600px;
+  min-height: 600px;
   border-radius: 16px;
+
+  img {
+    max-width: 712px;
+    margin: auto;
+  }
 
   &.one {
     max-width: 100%;
@@ -10,6 +15,14 @@
     img {
       transform: translateY(-19%);
       max-width: 712px;
+    }
+
+    &.red {
+      img {
+        max-width: 560px;
+        transform: translateY(-11%);
+      }
+
     }
   }
 
@@ -41,6 +54,60 @@
           max-width: 721px;
           transform: translate(14px, -83px);
         }
+      }
+    }
+  }
+
+  &.ten {
+    min-height: 283px;
+  }
+
+  &.wideAndShort {
+    display: grid;
+    grid-template-columns: 74.5% 25%;
+    gap: 4px;
+
+    img {
+      max-width: 500px;
+    }
+
+    :nth-child(2) {
+      img {
+        max-width: 1495px;
+        transform: translate(-15%, 1%);
+      }
+    }
+  }
+
+  &.four {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    :first-of-type {
+      img {
+        max-width: 363px;
+        transform: translate(17%, 30%) scale(3.8) rotate(23deg);
+      }
+    }
+
+    :nth-child(2) {
+      img {
+        max-width: 352px;
+        transform: translate(5%, 48%) scale(1.6) rotate(-7deg);
+      }
+    }
+
+    :nth-child(3) {
+      img {
+        max-width: 353px;
+        transform: translate(-5%, 67%) scale(1.1) rotate(2deg);
+      }
+    }
+
+    :nth-child(4) {
+      img {
+        max-width: 352px;
+        transform: translate(17%, 27%) scale(1.2) rotate(0deg);
       }
     }
   }

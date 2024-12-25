@@ -1,8 +1,19 @@
 .categoryName {
-    position: relative;
+  position: relative;
+
+  &.sale {
+    margin-bottom: -167px;
+    z-index: 100;
+  }
+
+  &.category {
+    margin-bottom: -293px;
+    margin-top: 88px;
+    z-index: 100;
+  }
 }
 
 .categoryImage {
-    display: block;
-    max-width: 789px;
+  display: block;
+  max-width: 789px;
 }
