@@ -7,4 +7,5 @@ export type typeProductInfoProps = {
   rating?: number;
   likes?: number;
   isLiked?: boolean;
+  type?: 'small' | 'default';
 };

@@ -4,6 +4,7 @@ import React from "react";
 import classes from "./styles.module.scss";
 import cn from "classnames";
 import { typeProductImageProps } from "./types";
+import { ButtonMain } from "../btn-main";
 
 export const ProductImage: React.FC<typeProductImageProps> = (props) => {
   const { saleName, saleValue, goodsData } = props;
@@ -39,6 +40,11 @@ export const ProductImage: React.FC<typeProductImageProps> = (props) => {
                     alt={item.title}
                     className={cn(classes.productImage)}
                   />
+                  {layout === "ten" && (
+                    <div className={cn(classes.buttonContainer)}>
+                      <ButtonMain variant="like" disabled={false} />
+                    </div>
+                  )}
                 </div>
               ))
             ) : (
@@ -54,11 +60,16 @@ export const ProductImage: React.FC<typeProductImageProps> = (props) => {
                   alt={item.title}
                   className={cn(classes.productImage)}
                 />
+                {layout === "ten" && (
+                  <div className={cn(classes.buttonContainer)}>
+                    <ButtonMain variant="like" disabled={false} />
+                  </div>
+                )}
               </div>
             )}
             {saleValue && (
               <span className={cn(classes.saleValue)}>
-                <p className="inter">&ndash; {saleValue}</p>
+                <p className="inter">&ndash; {saleValue}%</p>
               </span>
             )}
             {saleName && (

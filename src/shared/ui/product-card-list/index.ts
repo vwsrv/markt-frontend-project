@@ -1,1 +1,0 @@
-export { ProductCardList } from "./productImage";

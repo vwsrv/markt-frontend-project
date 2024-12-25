@@ -5,7 +5,7 @@ import { PromoBanner } from "../../shared/ui/promo-banner";
 import { MainPageProps } from "./types";
 import { CategoryList } from "../../shared/ui/category-list/category-list";
 import promoImage from "../../shared/ui/promo-banner/images/promo-banner.svg";
-import { ProductCardList } from "../../shared/ui/product-card-list/productCardList";
+import { CardList } from "../../shared/ui/card-list";
 
 type ImageData = Array<{
   src: string;
@@ -16,7 +16,9 @@ export const MainPage: React.FC<MainPageProps> = () => {
   const [categoryIcons, setCategoryIcons] = React.useState<ImageData | null>(
     null
   );
-  const [forHomeImages, setForHomeImages] = React.useState<ImageData | null>(null);
+  const [forHomeImages, setForHomeImages] = React.useState<ImageData | null>(
+    null
+  );
 
   const fetchData = async (
     url: string,
@@ -28,13 +30,16 @@ export const MainPage: React.FC<MainPageProps> = () => {
         throw new Error("Ошибка загрузки данных");
       }
       const data = await res.json();
-      setData(data);
+      // Добавляем id вручную (например, используя индекс элемента)
+      const updatedData = data.map((item, index) => ({
+        ...item,
+        id: index,  // Присваиваем уникальный id, например, индекс
+      }));
+      setData(updatedData);
     } catch (err) {
       console.error(err);
     }
   };
-
-  console.log(forHomeImages);
   
 
   React.useEffect(() => {
@@ -53,12 +58,13 @@ export const MainPage: React.FC<MainPageProps> = () => {
     <div>
       <PromoBanner imageLink={promoImage} />
       <CategoryList categoryData={categoryIcons || []} />
-      <ProductCardList
+      <CardList
         goodsData={images || []}
         saleName="Осенний Сейл"
-        saleValue="50%"
+        saleValue={50}
+        style="default"
       />
-      <ProductCardList goodsData={forHomeImages || []} />
+      <CardList goodsData={forHomeImages || []} style="ten" type="small"/>
     </div>
   );
 };
