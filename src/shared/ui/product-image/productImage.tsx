@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import React from "react";
-import classes from "./styles.module.scss";
-import cn from "classnames";
-import { typeProductImageProps } from "./types";
-import { ButtonMain } from "../btn-main";
+import React from 'react';
+import classes from './styles.module.scss';
+import cn from 'classnames';
+import { typeProductImageProps } from './types';
+import { ButtonMain } from '../btn-main';
 
 export const ProductImage: React.FC<typeProductImageProps> = (props) => {
   const { saleName, saleValue, goodsData } = props;
@@ -22,7 +22,7 @@ export const ProductImage: React.FC<typeProductImageProps> = (props) => {
             className={cn(
               classes.layoutContainer,
               classes[layout],
-              classes[variant]
+              classes[variant],
             )}
           >
             {imageLinks.length > 0 ? (
@@ -31,7 +31,7 @@ export const ProductImage: React.FC<typeProductImageProps> = (props) => {
                   className={cn(
                     classes.imageContainer,
                     classes[variant],
-                    classes[layout]
+                    classes[layout],
                   )}
                 >
                   <img
@@ -40,7 +40,7 @@ export const ProductImage: React.FC<typeProductImageProps> = (props) => {
                     alt={item.title}
                     className={cn(classes.productImage)}
                   />
-                  {layout === "ten" && (
+                  {layout === 'ten' && (
                     <div className={cn(classes.buttonContainer)}>
                       <ButtonMain variant="like" disabled={false} />
                     </div>
@@ -52,7 +52,7 @@ export const ProductImage: React.FC<typeProductImageProps> = (props) => {
                 className={cn(
                   classes.imageContainer,
                   classes[variant],
-                  classes[layout]
+                  classes[layout],
                 )}
               >
                 <img
@@ -60,7 +60,7 @@ export const ProductImage: React.FC<typeProductImageProps> = (props) => {
                   alt={item.title}
                   className={cn(classes.productImage)}
                 />
-                {layout === "ten" && (
+                {layout === 'ten' && (
                   <div className={cn(classes.buttonContainer)}>
                     <ButtonMain variant="like" disabled={false} />
                   </div>

@@ -1,7 +1,7 @@
 .productInfo {
   display: flex;
   flex-direction: row;
-  margin: 6px 12px 0;
+  margin: 2px 12px 0;
 }
 
 .productText {
@@ -14,15 +14,11 @@
     align-items: center;
 
     .productTitle {
-      font-size: 60px;
-      font-weight: 500;
-      line-height: 52px;
       margin-right: 16px;
     }
   }
 
   .productSubTitle {
-    padding-top: 5px;
     text-align: left;
     max-height: 54px;
     overflow: hidden;
@@ -56,9 +52,6 @@
     .oldPrice {
       color: var(--light-grey-color);
       min-width: 48px;
-      font-size: 15px;
-      font-weight: 550;
-      line-height: 15px;
       text-align: left;
       align-self: end;
       text-decoration: line-through;
@@ -75,13 +68,13 @@
     .productRating {
       position: relative;
       max-width: 39px;
-      padding-left: 5px;
+      padding-left: 15px;
 
       &::before {
         content: "";
         position: absolute;
-        right: -14px;
-        top: 2px;
+        right: -4px;
+        top: 3px;
         width: 17px;
         height: 14px;
         background-image: url("./images/star.svg");
@@ -116,16 +109,6 @@
 
   &.small {
     width: 10px;
-
-    h1 {
-      text-align: left;
-      font-weight: 500;
-    }
-
-    p.price {
-      font-size: 36px;
-      font-weight: 700;
-    }
 
     .productNumbersContainer {
       justify-content: space-between;

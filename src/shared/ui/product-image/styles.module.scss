@@ -1,12 +1,13 @@
 .layoutContainer {
   position: relative;
   gap: 4px;
-  min-height: 600px;
   border-radius: 16px;
 
   img {
-    max-width: 712px;
+    width: 100%;
+    height: 100%;
     margin: auto;
+    object-fit: contain;
   }
 
   &.one {
@@ -14,15 +15,18 @@
 
     img {
       transform: translateY(-19%);
-      max-width: 712px;
     }
 
     &.red {
       img {
-        max-width: 560px;
         transform: translateY(-11%);
       }
+    }
 
+    &.blue {
+      img {
+        max-width: 714px;
+      }
     }
   }
 
@@ -32,34 +36,27 @@
 
     &.grey {
       img {
-        max-width: 505px;
+        transform: scale(107%) translateY(9px);
       }
 
       :nth-child(2) {
         img {
-          max-width: 450px;
-          transform: translateY(7%);
+          transform: scale(91%) translateY(24px);
         }
       }
     }
 
     &.yellow {
       img {
-        max-width: 929px;
-        transform: translate(-82px, -84px);
+        transform: scale(1.95) translate(12px, 100px);
       }
 
       :nth-child(2) {
         img {
-          max-width: 721px;
-          transform: translate(14px, -83px);
+          transform: scale(1.5) translate(12px, 45px);
         }
       }
     }
-  }
-
-  &.ten {
-    min-height: 283px;
   }
 
   &.wideAndShort {
@@ -67,14 +64,9 @@
     grid-template-columns: 74.5% 25%;
     gap: 4px;
 
-    img {
-      max-width: 500px;
-    }
-
     :nth-child(2) {
       img {
-        max-width: 1495px;
-        transform: translate(-15%, 1%);
+        transform: scale(4) translate(68px, 146px);
       }
     }
   }
@@ -85,42 +77,39 @@
 
     :first-of-type {
       img {
-        max-width: 363px;
         transform: translate(17%, 30%) scale(3.8) rotate(23deg);
       }
     }
 
     :nth-child(2) {
       img {
-        max-width: 352px;
         transform: translate(5%, 48%) scale(1.6) rotate(-7deg);
       }
     }
 
     :nth-child(3) {
       img {
-        max-width: 353px;
         transform: translate(-5%, 67%) scale(1.1) rotate(2deg);
       }
     }
 
     :nth-child(4) {
       img {
-        max-width: 352px;
         transform: translate(17%, 27%) scale(1.2) rotate(0deg);
       }
     }
   }
 
   .saleImage {
-    z-index: 999;
+    z-index: 1;
     position: absolute;
     text-transform: lowercase;
-    bottom: 6px;
-    left: 12px;
-    background-image: url("../../images/for-productImage/image.png");
+    bottom: 9px;
+    left: 14px;
+    background-image: url('./images/for-productImage.png');
     background-position: top left;
-    width: 165px;
+    background-repeat: no-repeat;
+    width: 157px;
     text-align: center;
     border-radius: 4px;
   }
@@ -144,7 +133,7 @@
     padding-top: 2px;
     background-color: var(--light-grey-color);
     width: 77px;
-    transform: rotate(-18deg) translate(12%, 87%);
+    transform: rotate(-17deg) translate(12%, 62%);
   }
 }
 
@@ -184,7 +173,7 @@
   }
 
   &.ten {
-    max-width: 283px;
+    height: 376px;
   }
 
   .buttonContainer {

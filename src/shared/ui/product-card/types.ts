@@ -13,4 +13,5 @@ export type typeProductCardProps = {
         rating?: number;
         likes?: number;
     };
+    cardVariant: 'default' | 'small';
 };

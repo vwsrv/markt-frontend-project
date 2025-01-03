@@ -1,15 +1,15 @@
-import React from "react";
-import { ProductImage } from "../product-image";
-import { ProductInfo } from "../product-info";
-import { typeProductCardProps } from "./types";
-import cn from "classnames";
+import React from 'react';
+import { ProductImage } from '../product-image';
+import { ProductInfo } from '../product-info';
+import { typeProductCardProps } from './types';
+import cn from 'classnames';
 import classes from './styles.module.scss';
 
 export const ProductCard: React.FC<typeProductCardProps> = (props) => {
-  const { saleName, saleValue, layout, productData, variant, type } = props;
+  const { saleName, saleValue, layout, productData, type, cardVariant } = props;
 
   return (
-    <article key={productData.id} className={cn(classes.card, classes[variant], classes[layout])}>
+    <article key={productData.id} className={cn(classes.card)}>
       <ProductImage
         saleName={saleName}
         saleValue={saleValue}

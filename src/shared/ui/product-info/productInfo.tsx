@@ -14,7 +14,7 @@ export const ProductInfo: React.FC<typeProductInfoProps> = (props) => {
       {type !== "small" ? (
         <div className={cn(classes.productText)}>
           <div className={cn(classes.titleContainer)}>
-            <h1 className="inter">{title}</h1>
+            <h1>{title}</h1>
             <ButtonMain variant="like" />
           </div>
           <p className={cn(classes.productSubTitle, "inter")}>{subtitle}</p>
@@ -28,7 +28,7 @@ export const ProductInfo: React.FC<typeProductInfoProps> = (props) => {
             </p>
             {oldprice && (
               <span className={cn(classes.oldPrice, classes[type])}>
-                {oldprice} &#8381;
+                {oldprice}&#8381;
               </span>
             )}
           </div>

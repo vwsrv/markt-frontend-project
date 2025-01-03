@@ -2,14 +2,21 @@
   position: relative;
 
   &.sale {
-    margin-bottom: -167px;
+    margin-bottom: -34px;
     z-index: 100;
+
+    img {
+      transform: translateY(100px);
+    }
   }
 
   &.category {
-    margin-bottom: -293px;
-    margin-top: 88px;
+    margin-bottom: -303px;
     z-index: 100;
+
+    img {
+      transform: translateY(62px);
+    }
   }
 }
 

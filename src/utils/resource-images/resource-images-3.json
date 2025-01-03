@@ -69,5 +69,20 @@
     "src": "src/utils/resource-images/6.png",
     "variant": "one",
     "layout": "red"
+  },
+  {
+    "id": 8,
+    "title": "Кольцо «Пластелин колец»",
+    "subtitle": "Три в одном! Человеческая рука будет массажером, постоянным спутником и домашним питомцем. Вещь — это отрубленная кисть правой руки, способная свободно передвигаться по дому и за его пределами на кончиках пальцев, как паук.",
+    "price": 4499,
+    "oldprice": 8998,
+    "rating": 4.8,
+    "likes": 8492,
+    "images": {
+      "1": "src/utils/resource-images/36.png",
+      "2": "src/utils/resource-images/36.png"
+    },
+    "variant": "one",
+    "layout": "two"
   }
 ]

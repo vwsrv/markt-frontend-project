@@ -1,11 +1,13 @@
 .container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   cursor: pointer;
   max-width: 90px;
-  max-height: 90px;
   margin-right: 6px;
   transition: transform 0.3s ease;
+  position: relative;
+  text-align: center;
 
   &:nth-last-child(1) {
     margin: 0;
@@ -18,14 +20,18 @@
 
 .image {
   object-fit: cover;
-  min-height: 90px;
+  width: 90px;
+  height: 90px;
   border-radius: 24px;
   padding-bottom: 6px;
 }
 
-p {
+.text {
   text-align: center;
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: normal;
+  max-width: 90px;
+  font-size: 12px;
+  margin-top: 4px;
 }
