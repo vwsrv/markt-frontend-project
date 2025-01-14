@@ -99,7 +99,7 @@ export const MainPage: React.FC<MainPageProps> = () => {
         variant="category"
       />
       <CardList goodsData={forHomeImages || []} style="ten" type="small" />
-      <SectionTitle src={goodsImage} alt="Сокровища" variant="sale" />
+      <SectionTitle src={goodsImage} alt="Сокровища" variant="treasures" />
       <CardList
         goodsData={goodsImages || []}
         style="default"

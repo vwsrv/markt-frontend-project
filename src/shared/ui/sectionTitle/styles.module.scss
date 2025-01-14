@@ -1,9 +1,10 @@
 .categoryName {
   position: relative;
+  z-index: 100;
 
   &.sale {
-    margin-bottom: -34px;
-    z-index: 100;
+    margin-bottom: -25.5px;
+
 
     img {
       transform: translateY(100px);
@@ -11,11 +12,16 @@
   }
 
   &.category {
-    margin-bottom: -303px;
-    z-index: 100;
-
+    margin-bottom: -181.5px;
     img {
-      transform: translateY(62px);
+      transform: translateY(55px);
+    }
+  }
+
+  &.treasures {
+    img {
+      margin-bottom: -32px;
+      transform: scale(123%) translate(95px, 66px);
     }
   }
 }

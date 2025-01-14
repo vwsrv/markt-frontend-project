@@ -19,7 +19,8 @@
 
     &.red {
       img {
-        transform: translateY(-11%);
+        transform: translate(5%, -12%);
+        max-width: 580px;
       }
     }
 
@@ -53,6 +54,18 @@
 
       :nth-child(2) {
         img {
+          transform: translate(12px, 45px);
+        }
+      }
+    }
+
+    &.blue {
+      img {
+        transform: scale(1.95) translate(12px, 100px);
+      }
+
+      :nth-child(2) {
+        img {
           transform: scale(1.5) translate(12px, 45px);
         }
       }
@@ -77,13 +90,13 @@
 
     :first-of-type {
       img {
-        transform: translate(17%, 30%) scale(3.8) rotate(23deg);
+        transform: translate(17%, 10%) scale(3.8) rotate(23deg);
       }
     }
 
     :nth-child(2) {
       img {
-        transform: translate(5%, 48%) scale(1.6) rotate(-7deg);
+        transform: translate(5%, 23%) scale(1.6) rotate(-7deg);
       }
     }
 
@@ -153,6 +166,10 @@
 
   &.grey {
     background-color: var(--grey-color);
+
+    img {
+      height: 600px;
+    }
   }
 
   &.yellow {
@@ -174,6 +191,7 @@
 
   &.ten {
     height: 376px;
+    width: 280px;
   }
 
   .buttonContainer {
