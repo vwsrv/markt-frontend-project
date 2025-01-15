@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import cn from 'classnames'
+import classes from './styles.module.scss'
 import { PromoBanner } from "../../shared/ui/promo-banner";
 import { MainPageProps } from "./types";
 import { CategoryList } from "../../shared/ui/category-list/category-list";
@@ -69,7 +71,7 @@ export const MainPage: React.FC<MainPageProps> = () => {
   }, []);
 
   return (
-    <div>
+    <div className={cn(classes.mainPage)}>
       <PromoBanner imageLink={promoImage} />
       <CategoryList categoryData={categoryIcons || []} />
       <CardList

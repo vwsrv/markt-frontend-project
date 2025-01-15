@@ -1,5 +1,14 @@
 .sectionCategories {
   display: flex;
+  flex-wrap: nowrap;
   margin: 4px 16px 0;
-  justify-content: space-between;
+  justify-content: start;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.categoryIcon {
+  flex: 0 0 auto;
+  width: 150px;
+  margin-right: 16px;
 }

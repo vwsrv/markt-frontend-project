@@ -9,9 +9,10 @@
     display: grid;
     border-radius: 12px;
     padding: 139px 4px 4px;
-    grid-template-columns: repeat(5, 283px);
+    grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
     row-gap: 1px;
     column-gap: 3px;
+    justify-items: center; // Добавлено для центрирования элементов
 
     h1 {
       font-size: 15px;
@@ -33,19 +34,19 @@
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1175px) {
   .cardList.ten {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 875px) {
   .cardList.ten {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .cardList.ten {
     grid-template-columns: 1fr;
   }

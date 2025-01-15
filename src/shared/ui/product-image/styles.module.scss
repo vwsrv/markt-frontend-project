@@ -11,8 +11,6 @@
   }
 
   &.one {
-    max-width: 100%;
-
     img {
       transform: translateY(-19%);
     }
@@ -29,12 +27,37 @@
         max-width: 714px;
       }
     }
+
+    &.yellow {
+      img {
+        max-width: 979px;
+        transform: translate(-37.5%, -5%);
+      }
+    }
   }
 
-  &.two {
+  &.one-fork {
+    &.red {
+      img {
+        transform: translate(-1%, 11%) rotate(-16deg);
+        max-width: 596px;
+      }
+    }
+  }
+
+  &.two,
+  &.two-fake-rings,
+  &.two-frodo,
+  &.two-tshirts {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
+    @media (max-width: 1035px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &.two {
     &.grey {
       img {
         transform: scale(107%) translateY(9px);
@@ -54,40 +77,112 @@
 
       :nth-child(2) {
         img {
-          transform: translate(12px, 45px);
+          transform: scale(1.5) translate(12px, 45px);
         }
       }
     }
 
     &.blue {
       img {
-        transform: scale(1.95) translate(12px, 100px);
+        transform: translate(7px, 75px) scale(1.1);
       }
 
       :nth-child(2) {
         img {
-          transform: scale(1.5) translate(12px, 45px);
+          transform: scale(1.3) translate(0px, 4px);
         }
       }
     }
   }
 
-  &.wideAndShort {
-    display: grid;
-    grid-template-columns: 74.5% 25%;
-    gap: 4px;
-
-    :nth-child(2) {
+  &.two-tshirts {
+    &.yellow {
       img {
-        transform: scale(4) translate(68px, 146px);
+        transform: scale(2.17) translate(8px, 17px) rotate(-15deg);
+      }
+
+      :nth-child(2) {
+        img {
+          transform: scale(1.07) translate(-2px, 28px);
+        }
       }
     }
   }
 
-  &.four {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+  &.two-fake-rings {
+    &.grey {
+      img {
+        transform: scale(210%);
+      }
 
+      :nth-child(2) {
+        img {
+          transform: scale(150%);
+        }
+      }
+    }
+  }
+
+  &.two-frodo {
+    &.grey {
+      img {
+        transform: scale(5) translate(-9px, 74px);
+      }
+
+      :nth-child(2) {
+        img {
+          transform: scale(2.1) translate(-1px, 13px);
+        }
+      }
+    }
+  }
+
+  &.wideAndShort,
+  &.wideAndShort-family {
+    display: grid;
+    grid-template-columns: 74.5% 25%;
+    gap: 4px;
+
+    @media (max-width: 1200px) {
+      display: grid;
+      grid-template-columns: 1fr;
+      :nth-child(2) {
+        display: none;
+      }
+    }
+  }
+
+  &.wideAndShort {
+    &.red {
+      :nth-child(2) {
+        img {
+          transform: scale(4) translate(68px, 146px);
+        }
+      }
+    }
+  }
+
+  &.wideAndShort-family {
+    &.red {
+      img {
+        transform: scale(118%) translate(-145px, -3px);
+      }
+
+      :nth-child(2) {
+        img {
+          transform: scale(2.3) translate(-54px, 63px);
+        }
+      }
+    }
+  }
+
+  &.four,
+  &.four-rings {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(355px, 1fr));
+  }
+
+  &.four {
     :first-of-type {
       img {
         transform: translate(17%, 10%) scale(3.8) rotate(23deg);
@@ -102,13 +197,40 @@
 
     :nth-child(3) {
       img {
-        transform: translate(-5%, 67%) scale(1.1) rotate(2deg);
+        transform: translate(-7%, 36%) scale(1.1) rotate(2deg);
       }
     }
 
     :nth-child(4) {
       img {
-        transform: translate(17%, 27%) scale(1.2) rotate(0deg);
+        transform: translate(10%, 8%) scale(1.2) rotate(0deg);
+      }
+    }
+  }
+
+  &.four-rings {
+    :first-of-type {
+      img {
+        transform: translate(35%, 1%) scale(1.79) rotate(-12deg);
+      }
+    }
+
+    :nth-child(2) {
+      img {
+        transform: translate(-29%, 4%) scale(225%) rotate(3deg);
+      }
+    }
+
+    :nth-child(3) {
+      img {
+        transform: translate(0%, -3%) scale(0.97) rotate(-67deg);
+      }
+    }
+
+    :nth-child(4) {
+      img {
+        transform: translate(1%, 16%) rotate(21deg);
+        max-width: 287px;
       }
     }
   }
@@ -166,10 +288,6 @@
 
   &.grey {
     background-color: var(--grey-color);
-
-    img {
-      height: 600px;
-    }
   }
 
   &.yellow {
