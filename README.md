@@ -48,3 +48,6 @@ export default tseslint.config({
   },
 })
 ```
+
+
+https://www.figma.com/design/wqYNy5SDvHjTI6d2tM7Kbv/Задание-React?node-id=611-216549&node-type=symbol&t=ceFdBpWdqqgxHiuH-0 - макет в Figma

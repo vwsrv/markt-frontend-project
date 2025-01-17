@@ -1,113 +1,148 @@
 .productInfo {
   display: flex;
   flex-direction: row;
-  margin: 8px 12px 0;
+  margin: 2px 12px 0;
+}
 
-  .productText {
+.productText {
+  margin-top: 2.5px;
+  display: flex;
+  flex-direction: column;
+
+  .titleContainer {
     display: flex;
-    flex-direction: column;
+    align-items: center;
 
-    .titleContainer {
-      display: flex;
-      align-items: center;
-
-      .productTitle {
-        font-size: 60px;
-        font-weight: 500;
-        line-height: 52.2px;
-      }
-    }
-
-    .productSubTitle {
-      text-align: left;
-      padding-top: 4px;
-      font-size: 22px;
-      font-weight: 550;
-      line-height: 22px;
+    .productTitle {
+      margin-right: 16px;
     }
   }
 
-  .productNumbers {
+  .productSubTitle {
+    text-align: left;
+    max-height: 54px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+  }
+}
+
+.productNumbers {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  .productNumbersContainer {
     display: flex;
+    padding-bottom: 8px;
     justify-content: space-between;
+  }
+
+  .productPriceInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+
+    .price {
+      text-align: center;
+    }
+
+    .oldPrice {
+      color: var(--light-grey-color);
+      min-width: 48px;
+      text-align: left;
+      align-self: end;
+      text-decoration: line-through;
+    }
+  }
+
+  .productQuality {
+    display: flex;
     flex-direction: column;
-    max-width: 294px;
+    justify-content: start;
+    align-items: left;
+    min-width: 55px;
+
+    .productRating {
+      position: relative;
+      max-width: 39px;
+      padding-left: 15px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        right: -4px;
+        top: 3px;
+        width: 17px;
+        height: 14px;
+        background-image: url("./images/star.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+
+    .productLikes {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        top: 4px;
+        width: 14px;
+        height: 14px;
+        background-image: url("./images/heart.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
+  }
+
+  .buttonContainer {
+    width: 294px;
+    height: 54px;
+  }
+
+  &.small {
+    width: 10px;
 
     .productNumbersContainer {
-      display: flex;
-      align-content: end;
       justify-content: space-between;
-
+      padding: 0;
+      max-width: 259px;
       .productPriceInfo {
-        display: flex;
-        flex-direction: row;
-        justify-content: start;
-
-        .price {
-          font-size: 39px;
-          font-weight: 700;
-          line-height: 39px;
-          text-align: center;
-        }
-
-        .oldPrice {
-          color: var(--light-grey-color);
-          font-size: 15px;
-          font-weight: 550;
-          line-height: 15px;
-          text-align: left;
-          align-self: end;
-          text-decoration: line-through;
-        }
+        margin-right: 12px;
       }
+    }
 
-      .productQuality {
-        display: flex;
-        flex-direction: column;
-        justify-content: end;
-        align-items: left;
-        min-width: 52px;
+    .buttonContainer {
+      max-width: 152px;
+      height: 45px;
+    }
 
-        .productRating {
-          position: relative;
-          font-size: 16px;
-          font-weight: 412;
-          line-height: 16px;
-          max-width: 39px;
-          padding-left: 15px;
+    .titleTypeSmall {
+      text-align: left;
+      font-weight: normal;
+      text-overflow: ellipsis;
+      height: 14px;
+      padding-bottom: 14px;
+      display: block;
+      max-height: 54px;
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 259px;
+    }
 
-          &::before {
-            content: "";
-            position: absolute;
-            right: 0;
-            width: 14px;
-            height: 14px;
-            background-image: url("../../images/for-product-info/star.svg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-          }
-        }
+    .productLikes::before {
+      background-image: url("./images/heart-white.svg") !important;
+    }
 
-        .productLikes {
-          position: relative;
-          font-size: 16px;
-          font-weight: 412;
-          line-height: 16px;
-
-          &::before {
-            content: "";
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            width: 14px;
-            height: 14px;
-            background-image: url("../../images/for-product-info/heart.svg");
-            background-repeat: no-repeat;
-            background-size: cover;
-          }
-        }
-      }
+    .productRating::before {
+      background-image: url("./images/star-white.svg") !important;
     }
   }
 }

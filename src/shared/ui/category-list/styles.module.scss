@@ -1,6 +1,14 @@
 .sectionCategories {
   display: flex;
-  flex-direction: row;
-  max-width: 100%;
-  padding: 8px 20px 0;
+  flex-wrap: nowrap;
+  margin: 4px 16px 0;
+  justify-content: start;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.categoryIcon {
+  flex: 0 0 auto;
+  width: 150px;
+  margin-right: 16px;
 }

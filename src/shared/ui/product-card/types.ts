@@ -1,22 +1,17 @@
 export type typeProductCardProps = {
-  goodsData: Array<{
-    id: number;
-    images:
-      | Array<{
-          src: string;
-        }>
-      | string;
-    title?: string;
-    subtitle?: string;
-    price: number;
-    oldprice: number;
-    rating: number;
-    likes: number;
-  }>;
-  handler: ((id: number) => void) | (() => void) | string;
-  variant?: "red" | "yellow" | "blue" | "grey" | "blueGradient";
-  saleName?: string;
-  saleValue?: string;
-  layout?: "one" | "two" | "ten" | "four" | "wideAndShort";
-  isLiked?: boolean;
+    variant: string;
+    saleName: string;
+    saleValue: number;
+    layout: string;
+    type?: string;
+    productData: {
+        id: number;
+        title?: string;
+        subtitle?: string;
+        price?: number;
+        oldprice?: number;
+        rating?: number;
+        likes?: number;
+    };
+    cardVariant: 'default' | 'small';
 };

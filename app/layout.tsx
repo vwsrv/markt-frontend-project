@@ -10,6 +10,6 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Header />
     <MainPage />
-    <Footer companyEmail="vissar2016@gmail.com" companyName="Магаз"/>
+    <Footer companyEmail="vissar2016@gmail.com" companyName="2025 Магаз"/>
   </StrictMode>
 );

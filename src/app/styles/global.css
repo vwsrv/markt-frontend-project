@@ -1,4 +1,5 @@
-@import url('../fonts/fonts.css');
+@import '../fonts/fonts.css';
+
 :root {
   --white-color: rgba(255, 255, 255, 1);
   --white-grey-color: #F2F7F7;
@@ -11,20 +12,20 @@
   --dark-grey-color: #B2B5B8;
   --blue-color: #2E09E6;
   --blue-gradient-color: linear-gradient(to bottom, #00FBFF, #0051FF);
-  --font-inter: 'Inte-Variable', sans-serif;
+  --font-inter: 'Inter', sans-serif;
   --font-alshaus: 'ALS Hauss', sans-serif;
 }
 
 body {
   margin: auto;
   padding: 0;
-  font-family: var(--font-inter);
+  font-family: sans-serif;
   min-height: 100vh;
   max-width: 1433px;
 }
 
 main {
-  margin: auto;
+  margin: 0 20px 0;
   padding: 0;
 }
 
@@ -32,15 +33,21 @@ h1,
 h2,
 h3,
 p {
+  font-family: var(--font-inter);
   margin: 0;
   padding: 0;
+  color: inherit;
 }
 
-h1.inter {
+h1 {
   font-family: var(--font-inter);
-  font-size: 60px;
-  font-weight: 500;
-  line-height: 52.2px;
+  font-size: 55.60px;
+  font-weight: 700;
+  line-height: 55.2px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
 }
 
 h1.alshauss {
@@ -69,16 +76,33 @@ p.alshaus {
 
 p.inter {
   font-family: var(--font-inter);
-  font-size: 22px;
-  font-weight: 550;
+  font-size: 21px;
+  font-weight: 600;
   line-height: 22px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
 
+p.price {
+  font-family: var(--font-inter);
+  font-size: 39px;
+  font-weight: 700;
+  line-height: 39px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
 }
 
 p.small {
   font-family: var(--font-inter);
   font-size: 15px;
   font-weight: 550;
+}
+
+p.medium {
+  font-family: var(--font-inter);
+  font-size: 22px;
+  line-height: 22px;
 }
 
 ul,

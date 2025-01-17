@@ -1,12 +1,13 @@
-"use client";
+'use client';
 
-import React from "react";
-import classes from "./styles.module.scss";
-import cn from "classnames";
-import { typeProductImageProps } from "./types";
+import React from 'react';
+import classes from './styles.module.scss';
+import cn from 'classnames';
+import { typeProductImageProps } from './types';
+import { ButtonMain } from '../btn-main';
 
 export const ProductImage: React.FC<typeProductImageProps> = (props) => {
-  const { saleName, saleValue, layout, goodsData } = props;
+  const { saleName, saleValue, goodsData } = props;
 
   return (
     <>
@@ -21,7 +22,7 @@ export const ProductImage: React.FC<typeProductImageProps> = (props) => {
             className={cn(
               classes.layoutContainer,
               classes[layout],
-              classes[variant]
+              classes[variant],
             )}
           >
             {imageLinks.length > 0 ? (
@@ -30,7 +31,7 @@ export const ProductImage: React.FC<typeProductImageProps> = (props) => {
                   className={cn(
                     classes.imageContainer,
                     classes[variant],
-                    classes[layout]
+                    classes[layout],
                   )}
                 >
                   <img
@@ -39,6 +40,11 @@ export const ProductImage: React.FC<typeProductImageProps> = (props) => {
                     alt={item.title}
                     className={cn(classes.productImage)}
                   />
+                  {layout === 'ten' && (
+                    <div className={cn(classes.buttonContainer)}>
+                      <ButtonMain variant="like" disabled={false} />
+                    </div>
+                  )}
                 </div>
               ))
             ) : (
@@ -46,7 +52,7 @@ export const ProductImage: React.FC<typeProductImageProps> = (props) => {
                 className={cn(
                   classes.imageContainer,
                   classes[variant],
-                  classes[layout]
+                  classes[layout],
                 )}
               >
                 <img
@@ -54,14 +60,23 @@ export const ProductImage: React.FC<typeProductImageProps> = (props) => {
                   alt={item.title}
                   className={cn(classes.productImage)}
                 />
+                {layout === 'ten' && (
+                  <div className={cn(classes.buttonContainer)}>
+                    <ButtonMain variant="like" disabled={false} />
+                  </div>
+                )}
               </div>
             )}
-            <span className={cn(classes.saleValue)}>
-              <p className="inter">&ndash; {saleValue}</p>
-            </span>
-            <span className={cn(classes.saleImage)}>
-              <p className="inter">{saleName}</p>
-            </span>
+            {saleValue && (
+              <span className={cn(classes.saleValue)}>
+                <p className="inter">&ndash; {saleValue}%</p>
+              </span>
+            )}
+            {saleName && (
+              <span className={cn(classes.saleImage)}>
+                <p className="inter">{saleName}</p>
+              </span>
+            )}
           </div>
         );
       })}

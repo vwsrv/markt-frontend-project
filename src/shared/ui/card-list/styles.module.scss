@@ -1,0 +1,53 @@
+.cardList {
+  display: grid;
+  gap: 20px;
+  margin-top: 51px;
+  
+  &.ten {  
+    background: var(--blue-gradient-color);
+    color: var(--white-color);
+    display: grid;
+    border-radius: 12px;
+    padding: 139px 4px 4px;
+    grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
+    row-gap: 1px;
+    column-gap: 3px;
+    justify-items: center; // Добавлено для центрирования элементов
+
+    h1 {
+      font-size: 15px;
+      font-weight: 550;
+      line-height: 15px;
+    }
+
+    img {
+      width: 100%;
+      max-width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .cardList.ten {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1175px) {
+  .cardList.ten {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 875px) {
+  .cardList.ten {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cardList.ten {
+    grid-template-columns: 1fr;
+  }
+}
