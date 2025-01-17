@@ -4,8 +4,18 @@ export type typeProductImageProps = {
     title?: string;
     src?: string;
     images?: Record<string, string>;
-    variant?: "red" | "yellow" | "blue" | "grey" | "blueGradient";
-    layout?: "one" | "two" | "ten" | "four" | "wideAndShort";
+    variant?: 'red' | 'yellow' | 'blue' | 'grey' | 'blueGradient';
+    layout?:
+      | 'one'
+      | 'two'
+      | 'ten'
+      | 'four'
+      | 'wideAndShort'
+      | 'two-tshirts'
+      | 'two-fake-rings'
+      | 'four-rings'
+      | 'one-fork'
+      | 'two-frodo';
   }>;
   saleName?: string;
   saleValue?: string;
