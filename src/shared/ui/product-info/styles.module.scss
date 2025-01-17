@@ -2,6 +2,10 @@
   display: flex;
   flex-direction: row;
   margin: 2px 12px 0;
+
+  @media (max-width: 610px) {
+    flex-direction: column;
+  }
 }
 
 .productText {
@@ -26,6 +30,32 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     text-overflow: ellipsis;
+  }
+
+  @media (max-width: 1048px) {
+    .productTitle {
+      font-size: 40px;
+      line-height: 30px;
+    }
+
+    .productSubTitle {
+      font-size: 20px;
+      line-height: 20px;
+    }
+  }
+
+  @media (max-width: 875px) {
+    .productTitle {
+      font-size: 22px;
+      font-weight: 550;
+      line-height: 22px;
+    }
+
+    .productSubTitle {
+      font-size: 16px;
+      font-weight: 412;
+      line-height: 16px;
+    }
   }
 }
 
@@ -71,13 +101,13 @@
       padding-left: 15px;
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         right: -4px;
         top: 3px;
         width: 17px;
         height: 14px;
-        background-image: url("./images/star.svg");
+        background-image: url('./images/star.svg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -88,14 +118,14 @@
       position: relative;
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         right: 0;
         bottom: 0;
         top: 4px;
         width: 14px;
         height: 14px;
-        background-image: url("./images/heart.svg");
+        background-image: url('./images/heart.svg');
         background-repeat: no-repeat;
         background-size: cover;
       }
@@ -138,11 +168,11 @@
     }
 
     .productLikes::before {
-      background-image: url("./images/heart-white.svg") !important;
+      background-image: url('./images/heart-white.svg') !important;
     }
 
     .productRating::before {
-      background-image: url("./images/star-white.svg") !important;
+      background-image: url('./images/star-white.svg') !important;
     }
   }
 }

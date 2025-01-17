@@ -6,25 +6,16 @@ import cn from 'classnames';
 import classes from './styles.module.scss';
 
 export const ProductCard: React.FC<typeProductCardProps> = (props) => {
-  const { saleName, saleValue, layout, productData, type, cardVariant } = props;
+  const { saleName, saleValue, productData, type } = props;
 
   return (
-    <article key={productData.id} className={cn(classes.card)}>
+    <article className={cn(classes.card)}>
       <ProductImage
         saleName={saleName}
         saleValue={saleValue}
-        layout={layout}
-        goodsData={[productData]}
+        productData={[productData]}
       />
-      <ProductInfo
-        title={productData.title}
-        subtitle={productData.subtitle}
-        price={productData.price}
-        oldprice={productData.oldprice}
-        rating={productData.rating}
-        likes={productData.likes}
-        type={type}
-      />
+      <ProductInfo productData={[productData]} type={type} />
     </article>
   );
 };

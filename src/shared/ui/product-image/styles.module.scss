@@ -55,6 +55,10 @@
     @media (max-width: 1035px) {
       grid-template-columns: 1fr;
     }
+
+    @media (max-width: 745px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   &.two {
@@ -180,6 +184,18 @@
   &.four-rings {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(355px, 1fr));
+
+    @media (max-width: 745px) {
+      grid-template-columns: repeat(2, 1fr);
+
+      :nth-child(3) {
+        display: none;
+      }
+
+      :nth-child(4) {
+        display: none;
+      }
+    }
   }
 
   &.four {
