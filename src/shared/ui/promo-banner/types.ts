@@ -1,5 +1,4 @@
 export type typePromoBannerProps = {
-    handler: ((id: number) => void) | (() => void) | string;
-    imageLink: string;
-  };
-  
+  handler: (event: React.MouseEvent<HTMLImageElement>) => void;
+  imageLink: string;
+};
