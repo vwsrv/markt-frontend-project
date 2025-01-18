@@ -2,8 +2,8 @@ import {
   DetailedHTMLProps,
   InputHTMLAttributes,
   PropsWithoutRef,
-  RefAttributes
-} from 'react';
+  RefAttributes,
+} from "react";
 
 interface typeInputProps
   extends DetailedHTMLProps<
@@ -13,13 +13,13 @@ interface typeInputProps
   label?: string;
   name: string;
   type?:
-    | 'text'
-    | 'email'
-    | 'tel'
-    | 'password'
-    | 'url'
-    | 'number'
-    | 'date'
+    | "text"
+    | "email"
+    | "tel"
+    | "password"
+    | "url"
+    | "number"
+    | "date"
     | string;
 }
 

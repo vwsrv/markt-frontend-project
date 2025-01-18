@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React from 'react';
-import classes from './styles.module.scss';
-import cn from 'classnames';
-import { typeProductImageProps } from './types';
-import { ButtonMain } from '../btn-main';
+import React from "react";
+import classes from "./styles.module.scss";
+import cn from "classnames";
+import { typeProductImageProps } from "./types";
+import { ButtonMain } from "../btn-main";
 
 export const ProductImage: React.FC<typeProductImageProps> = (props) => {
   const { saleName, saleValue, productData } = props;
@@ -38,7 +38,7 @@ export const ProductImage: React.FC<typeProductImageProps> = (props) => {
                     alt={item.title}
                     className={cn(classes.productImage)}
                   />
-                  {item.layout === 'ten' && (
+                  {item.layout === "ten" && (
                     <div className={cn(classes.buttonContainer)}>
                       <ButtonMain variant="like" disabled={false} />
                     </div>
@@ -58,7 +58,7 @@ export const ProductImage: React.FC<typeProductImageProps> = (props) => {
                   alt={item.title}
                   className={cn(classes.productImage)}
                 />
-                {item.layout === 'ten' && (
+                {item.layout === "ten" && (
                   <div className={cn(classes.buttonContainer)}>
                     <ButtonMain variant="like" disabled={false} />
                   </div>

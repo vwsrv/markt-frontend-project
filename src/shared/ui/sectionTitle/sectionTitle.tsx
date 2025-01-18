@@ -10,7 +10,11 @@ export const SectionTitle: React.FC<typeSectionTitleProps> = (props) => {
 
   return (
     <div className={cn(classes.categoryName, classes[variant])}>
-      <img className={cn(classes.categoryImage, classes[variant])} src={src} alt={alt} />
+      <img
+        className={cn(classes.categoryImage, classes[variant])}
+        src={src}
+        alt={alt}
+      />
     </div>
   );
 };
