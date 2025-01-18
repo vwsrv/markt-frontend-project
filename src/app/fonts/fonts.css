@@ -1,39 +1,41 @@
 @font-face {
-     font-family: 'Inter';
-     font-style: normal;
-     font-weight: 400;
-     font-display: swap;
-     src: url("../../assets/fonts/Inter_18pt-Regular.ttf") format("truetype"),
- }
- 
- @font-face {
-     font-family: 'Inter';
-     font-style: normal;
-     font-weight: 500;
-     font-display: swap;
-     src: url("../../assets/fonts/Inter_18pt-Medium.ttf") format("truetype"),
- }
- 
- @font-face {
-     font-family: 'Inter';
-     font-style: normal;
-     font-weight: 700;
-     font-display: swap;
-     src: url("../../assets/fonts/Inter_18pt-Bold.ttf") format("woff2"),
- }
- 
- @font-face {
-     font-family: 'ALS Hauss';
-     src: url('../../assets/fonts/ALSHauss-Regular.woff2') format('woff2'),
-          url('../../assets/fonts/ALSHauss-Regular.woff') format('woff');
-     font-weight: 550;
-     font-display: swap;
- }
- 
- @font-face {
-     font-family: 'ALS Hauss';
-     src: url('../../assets/fonts/ALSHauss-Bold.woff2') format('woff2'),
-          url('../../assets/fonts/ALSHauss-Bold.woff') format('woff');
-     font-weight: 850;
-     font-display: swap;
- }
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../assets/fonts/Inter_18pt-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../../assets/fonts/Inter_18pt-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../../assets/fonts/Inter_18pt-Bold.ttf") format("woff2");
+}
+
+@font-face {
+  font-family: "ALS Hauss";
+  src:
+    url("../../assets/fonts/ALSHauss-Regular.woff2") format("woff2"),
+    url("../../assets/fonts/ALSHauss-Regular.woff") format("woff");
+  font-weight: 550;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ALS Hauss";
+  src:
+    url("../../assets/fonts/ALSHauss-Bold.woff2") format("woff2"),
+    url("../../assets/fonts/ALSHauss-Bold.woff") format("woff");
+  font-weight: 850;
+  font-display: swap;
+}

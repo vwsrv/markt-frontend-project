@@ -9,16 +9,16 @@ export type BaseProductProps = {
   rating?: number;
   likes?: number;
   isLiked?: boolean;
-  variant: 'red' | 'yellow' | 'blue' | 'grey' | 'blueGradient';
+  variant: "red" | "yellow" | "blue" | "grey" | "blueGradient";
   layout:
-    | 'one'
-    | 'two'
-    | 'ten'
-    | 'four'
-    | 'wideAndShort'
-    | 'two-tshirts'
-    | 'two-fake-rings'
-    | 'four-rings'
-    | 'one-fork'
-    | 'two-frodo';
+    | "one"
+    | "two"
+    | "ten"
+    | "four"
+    | "wideAndShort"
+    | "two-tshirts"
+    | "two-fake-rings"
+    | "four-rings"
+    | "one-fork"
+    | "two-frodo";
 };

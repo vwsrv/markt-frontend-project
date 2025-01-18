@@ -8,6 +8,8 @@
     height: 100%;
     margin: auto;
     object-fit: contain;
+    min-width: 240px;
+    min-height: 148px;
   }
 
   &.one {
@@ -25,6 +27,11 @@
     &.blue {
       img {
         max-width: 714px;
+
+        @media (max-width: 745px) {
+          max-width: auto;
+          transform: auto;
+        }
       }
     }
 
@@ -257,7 +264,7 @@
     text-transform: lowercase;
     bottom: 9px;
     left: 14px;
-    background-image: url('./images/for-productImage.png');
+    background-image: url("./images/for-productImage.png");
     background-position: top left;
     background-repeat: no-repeat;
     width: 157px;

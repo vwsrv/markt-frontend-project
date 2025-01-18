@@ -1,6 +1,6 @@
-import { BaseProductProps } from '../../../types/productTypes';
+import { BaseProductProps } from "../../../types/productTypes";
 
 export type typeProductInfoProps = {
   productData: BaseProductProps[];
-  type: 'small' | 'default';
+  type: "small" | "default";
 };

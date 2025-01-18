@@ -1,19 +1,19 @@
-@import '../fonts/fonts.css';
+@import "../fonts/fonts.css";
 
 :root {
   --white-color: rgba(255, 255, 255, 1);
-  --white-grey-color: #F2F7F7;
+  --white-grey-color: #f2f7f7;
   --black-color: rgba(2, 2, 2, 1);
-  --red-color: #F94233;
-  --red-orange-gradient: linear-gradient(to right, #FFAA00, #F94233);
-  --yellow-color: #FFAA00;
-  --light-grey-color: #E1ECED;
-  --grey-color: #BCCDD1;
-  --dark-grey-color: #B2B5B8;
-  --blue-color: #2E09E6;
-  --blue-gradient-color: linear-gradient(to bottom, #00FBFF, #0051FF);
-  --font-inter: 'Inter', sans-serif;
-  --font-alshaus: 'ALS Hauss', sans-serif;
+  --red-color: #f94233;
+  --red-orange-gradient: linear-gradient(to right, #ffaa00, #f94233);
+  --yellow-color: #ffaa00;
+  --light-grey-color: #e1eced;
+  --grey-color: #bccdd1;
+  --dark-grey-color: #b2b5b8;
+  --blue-color: #2e09e6;
+  --blue-gradient-color: linear-gradient(to bottom, #00fbff, #0051ff);
+  --font-inter: "Inter", sans-serif;
+  --font-alshaus: "ALS Hauss", sans-serif;
 }
 
 body {
@@ -41,13 +41,12 @@ p {
 
 h1 {
   font-family: var(--font-inter);
-  font-size: 55.60px;
+  font-size: 55.6px;
   font-weight: 700;
   line-height: 55.2px;
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-
 }
 
 h1.alshauss {

@@ -1,55 +1,54 @@
 [
-    {
-        "id": 1,
-        "name": "Помощь психолога",
-        "link": "src/utils/category-images/1.png"
-    },
-    {   "id": 2,
-        "name": "Гаджеты",
-        "link": "src/utils/category-images/2.png"
-    },
-    {   "id": 3,
-        "name": "Предметы искусства",
-        "link": "src/utils/category-images/3.png"
-    },
-    {   "id": 4,
-        "name": "Товары для дома",
-        "link": "src/utils/category-images/4.png"
-    },
-    {
-        "name": "Таланты",
-        "link": "src/utils/category-images/5.png"
-    },
-    {
-        "name": "Магия",
-        "link": "src/utils/category-images/8.png"
-    },
-    {
-        "name": "Релакс",
-        "link": "src/utils/category-images/6.png"
-    },
-    {
-        "name": "Развлечения",
-        "link": "src/utils/category-images/9.png"
-    },
-    {
-        "name": "Сокровища",
-        "link": "src/utils/category-images/13.png"
-    },
-    {
-        "name": "Недвижимость",
-        "link": "src/utils/category-images/10.png"
-    },
-    {
-        "name": "Красота и здоровье",
-        "link": "src/utils/category-images/7.png"
-    },
-    {
-        "name": "Могущество",
-        "link": "src/utils/category-images/11.png"
-    },
-    {
-        "name": "Стиль",
-        "link": "src/utils/category-images/12.png"
-    }
+  {
+    "id": 1,
+    "name": "Помощь психолога",
+    "link": "src/utils/category-images/1.png"
+  },
+  { "id": 2, "name": "Гаджеты", "link": "src/utils/category-images/2.png" },
+  {
+    "id": 3,
+    "name": "Предметы искусства",
+    "link": "src/utils/category-images/3.png"
+  },
+  {
+    "id": 4,
+    "name": "Товары для дома",
+    "link": "src/utils/category-images/4.png"
+  },
+  {
+    "name": "Таланты",
+    "link": "src/utils/category-images/5.png"
+  },
+  {
+    "name": "Магия",
+    "link": "src/utils/category-images/8.png"
+  },
+  {
+    "name": "Релакс",
+    "link": "src/utils/category-images/6.png"
+  },
+  {
+    "name": "Развлечения",
+    "link": "src/utils/category-images/9.png"
+  },
+  {
+    "name": "Сокровища",
+    "link": "src/utils/category-images/13.png"
+  },
+  {
+    "name": "Недвижимость",
+    "link": "src/utils/category-images/10.png"
+  },
+  {
+    "name": "Красота и здоровье",
+    "link": "src/utils/category-images/7.png"
+  },
+  {
+    "name": "Могущество",
+    "link": "src/utils/category-images/11.png"
+  },
+  {
+    "name": "Стиль",
+    "link": "src/utils/category-images/12.png"
+  }
 ]

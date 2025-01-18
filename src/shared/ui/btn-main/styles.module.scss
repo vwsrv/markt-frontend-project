@@ -35,6 +35,10 @@
       transform: translateY(1px);
       background-image: url("./images/btn-like-active.svg");
     }
+
+    @media (max-width: 745px) {
+      background-image: url("./images/btn-like-small.svg");
+    }
   }
 
   &:not(:disabled):active {

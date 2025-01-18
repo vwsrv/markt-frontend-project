@@ -1,9 +1,9 @@
-import { typeProductInfoProps } from '../product-info/types';
-import { BaseProductProps } from '../../../types/productTypes';
+import { typeProductInfoProps } from "../product-info/types";
+import { BaseProductProps } from "../../../types/productTypes";
 
 export type typeProductCardProps = {
   saleName: string;
   saleValue: string;
-  type: typeProductInfoProps['type'];
+  type: typeProductInfoProps["type"];
   productData: BaseProductProps;
 };
