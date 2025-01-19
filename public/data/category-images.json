@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "name": "Помощь психолога",
+    "link": "/images/category-images/1.png"
+  },
+  { "id": 2, "name": "Гаджеты", "link": "images/category-images/2.png" },
+  {
+    "id": 3,
+    "name": "Предметы искусства",
+    "link": "/images/category-images/3.png"
+  },
+  {
+    "id": 4,
+    "name": "Товары для дома",
+    "link": "/images/category-images/4.png"
+  },
+  {
+    "name": "Таланты",
+    "link": "/images/category-images/5.png"
+  },
+  {
+    "name": "Магия",
+    "link": "/images/category-images/8.png"
+  },
+  {
+    "name": "Релакс",
+    "link": "/images/category-images/6.png"
+  },
+  {
+    "name": "Развлечения",
+    "link": "/images/category-images/9.png"
+  },
+  {
+    "name": "Сокровища",
+    "link": "/images/category-images/13.png"
+  },
+  {
+    "name": "Недвижимость",
+    "link": "/images/category-images/10.png"
+  },
+  {
+    "name": "Красота и здоровье",
+    "link": "/images/category-images/7.png"
+  },
+  {
+    "name": "Могущество",
+    "link": "/images/category-images/11.png"
+  },
+  {
+    "name": "Стиль",
+    "link": "/images/category-images/12.png"
+  }
+]

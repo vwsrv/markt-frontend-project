@@ -20,4 +20,14 @@
     cursor: pointer;
     margin-left: 8px;
   }
+
+  @media (max-width: 1130px) {
+    .headerNav {
+      display: none;
+    }
+  }
+
+  @media (max-width: 720px) {
+    justify-content: space-between;
+  }
 }

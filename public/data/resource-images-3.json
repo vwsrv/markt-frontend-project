@@ -8,8 +8,8 @@
     "rating": 4.8,
     "likes": 8492,
     "images": {
-      "1": "src/utils/resource-images/14.png",
-      "2": "src/utils/resource-images/14.png"
+      "1": "/images/resource-images/14.png",
+      "2": "/images/resource-images/14.png"
     },
     "variant": "red",
     "layout": "wideAndShort"
@@ -22,7 +22,7 @@
     "oldprice": 8998,
     "rating": 4.8,
     "likes": 8492,
-    "src": "src/utils/resource-images/17.png",
+    "src": "/images/resource-images/17.png",
     "variant": "blue",
     "layout": "one"
   },
@@ -35,10 +35,10 @@
     "rating": 4.8,
     "likes": 8492,
     "images": {
-      "1": "src/utils/resource-images/24.png",
-      "2": "src/utils/resource-images/24.png",
-      "3": "src/utils/resource-images/24.png",
-      "4": "src/utils/resource-images/24.png"
+      "1": "/images/resource-images/24.png",
+      "2": "/images/resource-images/24.png",
+      "3": "/images/resource-images/24.png",
+      "4": "/images/resource-images/24.png"
     },
     "variant": "grey",
     "layout": "four"
@@ -52,8 +52,8 @@
     "rating": 4.8,
     "likes": 8492,
     "images": {
-      "1": "src/utils/resource-images/9.png",
-      "2": "src/utils/resource-images/9.png"
+      "1": "/images/resource-images/9.png",
+      "2": "/images/resource-images/9.png"
     },
     "variant": "yellow",
     "layout": "two-tshirts"
@@ -66,7 +66,7 @@
     "oldprice": 8998,
     "rating": 4.8,
     "likes": 8492,
-    "src": "src/utils/resource-images/6.png",
+    "src": "/images/resource-images/6.png",
     "variant": "one",
     "layout": "red"
   },
@@ -79,8 +79,8 @@
     "rating": 4.8,
     "likes": 8492,
     "images": {
-      "1": "src/utils/resource-images/36.png",
-      "2": "src/utils/resource-images/36.png"
+      "1": "/images/resource-images/36.png",
+      "2": "/images/resource-images/36.png"
     },
     "variant": "grey",
     "layout": "two-fake-rings"

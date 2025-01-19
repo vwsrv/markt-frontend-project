@@ -66,28 +66,18 @@ export const MainPage: React.FC = () => {
     }
   };
 
-  React.useEffect(() => {
-    fetchData<BaseProductProps>(
-      "/src/utils/resource-images/resource-images.json",
-      setImages,
-    );
+  console.log(categoryIcons);
 
-    fetchCategoryIcons(
-      "/src/utils/category-images/category-images.json",
-      setCategoryIcons,
-    );
+  React.useEffect(() => {
+    fetchData<BaseProductProps>("data/resource-images.json", setImages);
+
+    fetchCategoryIcons("data/category-images.json", setCategoryIcons);
     fetchData<BaseProductProps>(
-      "/src/utils/resource-images/resource-images-2.json",
+      "data/resource-images-2.json",
       setForHomeImages,
     );
-    fetchData<BaseProductProps>(
-      "/src/utils/resource-images/resource-images-3.json",
-      setPromoImages,
-    );
-    fetchData<BaseProductProps>(
-      "/src/utils/resource-images/resource-images-4.json",
-      setGoodsImages,
-    );
+    fetchData<BaseProductProps>("data/resource-images-3.json", setPromoImages);
+    fetchData<BaseProductProps>("data/resource-images-4.json", setGoodsImages);
   }, []);
 
   return (

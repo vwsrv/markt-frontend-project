@@ -8,8 +8,8 @@
     "rating": 4.8,
     "likes": 8492,
     "images": {
-      "1": "src/utils/resource-images/12.png",
-      "2": "src/utils/resource-images/12.png"
+      "1": "/images/resource-images/12.png",
+      "2": "/images/resource-images/12.png"
     },
     "variant": "red",
     "layout": "wideAndShort-family"
@@ -23,7 +23,7 @@
     "rating": 4.8,
     "likes": 8492,
     "images": {
-      "1": "src/utils/resource-images/66.png"
+      "1": "/images/resource-images/66.png"
     },
     "variant": "yellow",
     "layout": "one"
@@ -37,10 +37,10 @@
     "rating": 4.8,
     "likes": 8492,
     "images": {
-      "1": "src/utils/resource-images/4.png",
-      "2": "src/utils/resource-images/4.png",
-      "3": "src/utils/resource-images/4.png",
-      "4": "src/utils/resource-images/4.png"
+      "1": "/images/resource-images/4.png",
+      "2": "/images/resource-images/4.png",
+      "3": "/images/resource-images/4.png",
+      "4": "/images/resource-images/4.png"
     },
     "variant": "grey",
     "layout": "four-rings"
@@ -54,8 +54,8 @@
     "rating": 4.8,
     "likes": 8492,
     "images": {
-      "1": "src/utils/resource-images/11.png",
-      "2": "src/utils/resource-images/11.png"
+      "1": "/images/resource-images/11.png",
+      "2": "/images/resource-images/11.png"
     },
     "variant": "blue",
     "layout": "two"
@@ -68,7 +68,7 @@
     "oldprice": 8998,
     "rating": 4.8,
     "likes": 8492,
-    "src": "src/utils/resource-images/69.png",
+    "src": "/images/resource-images/69.png",
     "variant": "red",
     "layout": "one-fork"
   },
@@ -81,8 +81,8 @@
     "rating": 4.8,
     "likes": 8492,
     "images": {
-      "1": "src/utils/resource-images/15.png",
-      "2": "src/utils/resource-images/15.png"
+      "1": "/images/resource-images/15.png",
+      "2": "/images/resource-images/15.png"
     },
     "variant": "grey",
     "layout": "two-frodo"
