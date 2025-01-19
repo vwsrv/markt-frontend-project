@@ -1,5 +1,3 @@
-# Фронтенд проекта "Маркетплейс"
-
 ### Макет в Figma: [ссылка на макет в Figma](https://www.figma.com/design/wqYNy5SDvHjTI6d2tM7Kbv/Задание-React?node-id=611-216549&node-type=symbol&t=ceFdBpWdqqgxHiuH-0)
 
 ### Посмотреть Билд: [ссылка на билд проекта](https://markt-frontend-project-git-fe-020582-vasiliys-projects-c202e302.vercel.app/)
