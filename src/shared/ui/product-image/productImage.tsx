@@ -1,48 +1,46 @@
-'use client';
+"use client";
 
-import React from 'react';
-import classes from './styles.module.scss';
-import cn from 'classnames';
-import { typeProductImageProps } from './types';
-import { ButtonMain } from '../btn-main';
+import React from "react";
+import classes from "./styles.module.scss";
+import cn from "classnames";
+import { typeProductImageProps } from "./types";
+import { ButtonMain } from "../btn-main";
 
 export const ProductImage: React.FC<typeProductImageProps> = (props) => {
-  const { saleName, saleValue, goodsData } = props;
+  const { saleName, saleValue, productData } = props;
 
   return (
     <>
-      {goodsData.map((item, index) => {
+      {productData.map((item, index) => {
         const imageLinks = Object.values(item.images || {});
-        const variant = item.variant;
-        const layout = item.layout;
 
         return (
           <div
             key={index}
             className={cn(
               classes.layoutContainer,
-              classes[layout],
-              classes[variant],
+              classes[item.layout],
+              classes[item.variant],
             )}
           >
             {imageLinks.length > 0 ? (
               imageLinks.map((link, imgIndex) => (
                 <div
+                  key={imgIndex}
                   className={cn(
                     classes.imageContainer,
-                    classes[variant],
-                    classes[layout],
+                    classes[item.variant],
+                    classes[item.layout],
                   )}
                 >
                   <img
-                    key={imgIndex}
                     src={link}
                     alt={item.title}
                     className={cn(classes.productImage)}
                   />
-                  {layout === 'ten' && (
+                  {item.layout === "ten" && (
                     <div className={cn(classes.buttonContainer)}>
-                      <ButtonMain variant="like" disabled={false} />
+                      <ButtonMain variant="like-red" disabled={false} />
                     </div>
                   )}
                 </div>
@@ -51,8 +49,8 @@ export const ProductImage: React.FC<typeProductImageProps> = (props) => {
               <div
                 className={cn(
                   classes.imageContainer,
-                  classes[variant],
-                  classes[layout],
+                  classes[item.variant],
+                  classes[item.layout],
                 )}
               >
                 <img
@@ -60,7 +58,7 @@ export const ProductImage: React.FC<typeProductImageProps> = (props) => {
                   alt={item.title}
                   className={cn(classes.productImage)}
                 />
-                {layout === 'ten' && (
+                {item.layout === "ten" && (
                   <div className={cn(classes.buttonContainer)}>
                     <ButtonMain variant="like" disabled={false} />
                   </div>

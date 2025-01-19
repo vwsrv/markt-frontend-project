@@ -1,9 +1,9 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
+import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 
 export interface typeButtonProps
   extends DetailedHTMLProps<
     ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  variant?: 'red' | 'like' | 'cart' | 'favorites' | 'profile';
+  variant?: "red" | "like" | "cart" | "favorites" | "profile" | "like-red";
 }

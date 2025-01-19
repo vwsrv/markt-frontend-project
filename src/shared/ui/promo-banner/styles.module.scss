@@ -1,9 +1,18 @@
 .promoBanner {
-    max-width: 1433px;
-    margin-top: 16px;
+  cursor: pointer;
+  display: flex;
+  max-width: 1433px;
+  margin-top: 16px;
 
-    .container {
-        flex-direction: column;
-        width: 100%;
+  @media (max-width: 375px) {
+    margin-top: 12px;
+    img {
+      max-width: 100%;
     }
+  }
+
+  .container {
+    flex-direction: column;
+    width: 100%;
+  }
 }

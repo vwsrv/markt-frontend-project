@@ -1,1 +1,1 @@
-export { CategoryIcon } from './categoryIcon';
+export { CategoryIcon } from "./categoryIcon";

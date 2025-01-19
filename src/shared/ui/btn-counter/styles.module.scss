@@ -8,9 +8,8 @@
   background-color: var(--light-grey-color);
   cursor: default;
   border-radius: 8px;
-  max-width: 294px;
-  max-height: 54px;
-  padding: 16px 0 16px 0;
+  width: 100%;
+  height: 100%;
 }
 
 button {
@@ -18,7 +17,6 @@ button {
   position: relative;
   border-color: transparent;
   background-color: transparent;
-  min-height: 16px;
 
   &:not(:disabled):active {
     transform: translateY(1px);
@@ -45,4 +43,9 @@ button {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 16px;
+}
+
+span {
+  display: block;
+  align-self: center;
 }

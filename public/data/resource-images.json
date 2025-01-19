@@ -8,8 +8,8 @@
     "rating": 4.8,
     "likes": 8492,
     "images": {
-      "1": "src/utils/resource-images/54.png",
-      "2": "src/utils/resource-images/54.png"
+      "1": "/images/resource-images/54.png",
+      "2": "/images/resource-images/54.png"
     },
     "variant": "grey",
     "layout": "two"
@@ -22,7 +22,7 @@
     "oldprice": 8998,
     "rating": 4.8,
     "likes": 8492,
-    "src": "src/utils/resource-images/3.png",
+    "src": "/images/resource-images/3.png",
     "variant": "blue",
     "layout": "one"
   },
@@ -35,8 +35,8 @@
     "rating": 4.8,
     "likes": 8492,
     "images": {
-      "1": "src/utils/resource-images/38.png",
-      "2": "src/utils/resource-images/38.png"
+      "1": "/images/resource-images/38.png",
+      "2": "/images/resource-images/38.png"
     },
     "variant": "yellow",
     "layout": "two"
