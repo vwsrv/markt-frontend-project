@@ -1,52 +1,63 @@
 # Фронтенд проекта "Маркетплейс"
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Макет в Figma: [ссылка на макет в Figma](https://www.figma.com/design/wqYNy5SDvHjTI6d2tM7Kbv/Задание-React?node-id=611-216549&node-type=symbol&t=ceFdBpWdqqgxHiuH-0)
 
-Currently, two official plugins are available:
+### Посмотреть Билд: [ссылка на билд проекта](https://markt-frontend-project-git-fe-020582-vasiliys-projects-c202e302.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Проект "MAGAZ"
 
-## Expanding the ESLint configuration
+## Описание проекта
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Проект "Маркетплейс" — это веб-приложение, позволяющее пользователям просматривать товары, регистрироваться и авторизовываться для покупки и продажи. В проекте реализованы категории товаров, где пользователи могут фильтровать и искать нужные товары. Используется стек технологий TypeScript, JavaScript и SCSS для стилизации. Проект включает в себя систему регистрации и авторизации пользователей с возможностью работы с личным кабинетом.
 
-- Configure the top-level `parserOptions` property like this:
+## В проекте реализовано:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+1. **Регистрация и авторизация пользователей**
+   - 📝 Возможность создания аккаунта с уникальной почтой и паролем.
+   - 🔐 Форма входа для авторизации по данным пользователя.
+   - ✅ Валидация данных при регистрации и авторизации.
+
+2. **Личный кабинет**
+   - 👤 Страница с информацией о пользователе.
+   - ✏️ Редактирование профиля (имя, почта, пароль).
+   
+3. **Категории товаров**
+   - 📂 Разделение товаров на категории для удобного поиска.
+   - 🔍 Фильтрация товаров по категориям и ценовому диапазону.
+
+4. **Отображение товаров**
+   - 🛒 Страница с товарами с возможностью добавления в корзину (в будущем).
+   - 🏷️ Карточки товаров с изображением, названием и ценой.
+
+6. **Адаптивность интерфейса**
+   - 📱 Интерфейс, адаптирующийся под различные устройства (ПК, планшеты, мобильные).
+
+## Используемый стек
+
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" alt="html5 logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="css3 logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="40" alt="typescript logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg" height="40" alt="eslint logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" alt="react logo"  />
+  <img width="12" />
+</div>
+
+## Установка и запуск
+
+Для установки и запуска проекта необходимо выполнить команды
+
+```
+npm install
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Сборка
 
-```js
-// eslint.config.js
-import react from "eslint-plugin-react";
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: "18.3" } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs["jsx-runtime"].rules,
-  },
-});
 ```
-
-https://www.figma.com/design/wqYNy5SDvHjTI6d2tM7Kbv/Задание-React?node-id=611-216549&node-type=symbol&t=ceFdBpWdqqgxHiuH-0 - макет в Figma
+npm run build
+```
