@@ -30,7 +30,7 @@
 
 @media (max-width: 720px) {
   .cardList.ten {
-    padding: 48px 4px 4px;
+    padding: 48px 4px 27px;
   }
   .cardList.ten {
     grid-template-columns: 1fr 1fr 1fr;
@@ -40,14 +40,16 @@
 @media (max-width: 600px) {
   .cardList.ten {
     grid-template-columns: 1fr 1fr;
+    row-gap: 28px;
   }
 
   .cardList {
-    margin-top: 42px;
+    margin-top: 41px;
+    gap: 29px;
   }
 }
 
-@media (max-width: 370) {
+@media (max-width: 370px) {
   .cardList.ten {
     grid-template-columns: 1fr;
   }

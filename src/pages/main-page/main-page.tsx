@@ -66,8 +66,6 @@ export const MainPage: React.FC = () => {
     }
   };
 
-  console.log(categoryIcons);
-
   React.useEffect(() => {
     fetchData<BaseProductProps>("data/resource-images.json", setImages);
 
@@ -125,7 +123,7 @@ export const MainPage: React.FC = () => {
       <SectionTitle
         src={forSleepImage}
         alt="Товары для сна"
-        variant="category"
+        variant="category-sleep"
       />
       <CardList
         goodsData={forHomeImages || []}

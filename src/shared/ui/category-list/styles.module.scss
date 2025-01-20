@@ -5,10 +5,14 @@
   justify-content: start;
   overflow-x: auto;
   overflow-y: hidden;
-}
 
-.categoryIcon {
-  flex: 0 0 auto;
-  width: 150px;
-  margin-right: 16px;
+  @media (max-width: 376px) {
+    margin: 8px 4px 0;
+  }
+
+  .categoryIcon {
+    flex: 0 0 auto;
+    width: 150px;
+    margin-right: 16px;
+  }
 }
