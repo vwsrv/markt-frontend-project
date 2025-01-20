@@ -1,6 +1,6 @@
 .cardList {
   display: grid;
-  gap: 20px;
+  gap: 45px;
   margin-top: 60px;
 
   &.ten {
@@ -8,9 +8,9 @@
     color: var(--white-color);
     display: grid;
     border-radius: 12px;
-    padding: 139px 4px 4px;
+    padding: 139px 4px 33px;
     grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
-    row-gap: 1px;
+    row-gap: 25px;
     column-gap: 3px;
     justify-items: center;
 
@@ -30,7 +30,7 @@
 
 @media (max-width: 720px) {
   .cardList.ten {
-    padding: 48px 4px 4px;
+    padding: 48px 4px 27px;
   }
   .cardList.ten {
     grid-template-columns: 1fr 1fr 1fr;
@@ -40,14 +40,16 @@
 @media (max-width: 600px) {
   .cardList.ten {
     grid-template-columns: 1fr 1fr;
+    row-gap: 28px;
   }
 
   .cardList {
-    margin-top: 42px;
+    margin-top: 41px;
+    gap: 29px;
   }
 }
 
-@media (max-width: 370) {
+@media (max-width: 370px) {
   .cardList.ten {
     grid-template-columns: 1fr;
   }

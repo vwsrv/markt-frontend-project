@@ -4,8 +4,10 @@
   max-width: 1433px;
   margin-top: 16px;
 
-  @media (max-width: 375px) {
-    margin-top: 12px;
+  @media (max-width: 376px) {
+    margin-top: 13px;
+    max-height: 209px;
+
     img {
       max-width: 100%;
     }

@@ -10,10 +10,11 @@
     }
   }
 
-  &.category {
-    margin-bottom: -189px;
+  &.category,
+  &.category-sleep {
+    margin-bottom: -160px;
     img {
-      transform: translateY(71px);
+      transform: translateY(101px);
     }
   }
 
@@ -26,23 +27,35 @@
 
   @media (max-width: 825px) {
     &.sale {
-      margin-bottom: 0;
+      margin-bottom: -44px;
       img {
-        max-width: 127px;
+        max-width: 139px;
+        transform: translate(3px, 20px);
       }
     }
 
     &.category {
-      margin-bottom: 0;
+      margin-bottom: -87px;
       img {
-        max-width: 127px;
+        max-width: 291px;
+        transform: translate(9px, 26px);
+      }
+    }
+
+    &.category-sleep {
+      margin-bottom: -86px;
+      img {
+        max-width: 245px;
+        transform: translate(9px, 26px);
       }
     }
 
     &.treasures {
-      margin-bottom: 0;
+      margin-bottom: -64px;
+
       img {
-        max-width: 127px;
+        max-width: 350px;
+        transform: translate(9px, 5px);
       }
     }
   }

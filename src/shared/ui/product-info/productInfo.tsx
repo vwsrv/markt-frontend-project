@@ -67,7 +67,7 @@ export const ProductInfo: React.FC<typeProductInfoProps> = (props) => {
             <div className={cn(classes.titleContainer)}>
               <h1 className={cn(classes.productTitle)}>
                 {item.title}
-                {type !== "default" && !isMobile && (
+                {type === "default" && !isMobile && (
                   <ButtonMain variant="like" className="likeButton" />
                 )}
               </h1>

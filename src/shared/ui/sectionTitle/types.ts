@@ -1,5 +1,5 @@
 export type typeSectionTitleProps = {
   src?: string;
   alt?: string;
-  variant: "category" | "sale" | "treasures";
+  variant: "category" | "category-sleep" | "sale" | "treasures";
 };
