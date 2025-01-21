@@ -5,12 +5,25 @@
   cursor: pointer;
   max-width: 90px;
   margin-right: 6px;
-  transition: transform 0.3s ease;
   position: relative;
   text-align: center;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease-in-out;
 
   &:nth-last-child(1) {
     margin: 0;
+  }
+
+  :hover {
+    opacity: 0.8;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease-in-out;
+  }
+
+  :active {
+    transform: translateY(3px);
   }
 }
 
