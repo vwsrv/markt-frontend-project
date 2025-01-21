@@ -1,13 +1,11 @@
-import {
-  DetailedHTMLProps,
-  InputHTMLAttributes,
-  PropsWithoutRef,
-  RefAttributes,
-} from "react";
+export interface SearchHistoryItem {
+  id: number;
+  text: string;
+}
 
-interface typeInputProps
-  extends DetailedHTMLProps<
-    InputHTMLAttributes<HTMLInputElement>,
+export interface InputProps
+  extends React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   > {
   label?: string;
@@ -21,7 +19,5 @@ interface typeInputProps
     | "number"
     | "date"
     | string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
-
-export type InputProps = PropsWithoutRef<typeInputProps> &
-  RefAttributes<HTMLInputElement>;
