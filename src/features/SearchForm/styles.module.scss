@@ -1,0 +1,93 @@
+.dropdown {
+  padding-top: 93px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  max-width: 1084px;
+  width: 100%;
+  max-height: 70vh;
+  overflow-y: auto;
+  background-color: var(--white-color);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 10;
+  opacity: 1;
+  transform: translateY(-10px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+
+  .searchResult {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+  }
+
+  p {
+    padding: 16px 9px 20px 0;
+  }
+
+  @media (max-width: 720px) {
+    z-index: 2000;
+    position: fixed;
+    min-height: 100vh;
+  }
+}
+
+.searchWrapper {
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  padding-left: 11px;
+}
+
+.categories,
+.searchCategories {
+  display: flex;
+  padding: 10px 10px 0;
+}
+
+.searchCategoriesOnly {
+  display: flex;
+  padding: 20px 10px 0;
+}
+
+.popularQueries h4,
+.categories h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.popularQueries div,
+.categories div {
+  padding: 0 9px 0 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid var(--light-grey-color);
+
+  :active {
+    transform: translateY(2px);
+  }
+}
+
+.footerNavContainer {
+  position: relative;
+  display: flex;
+  position: fixed;
+  z-index: 2001;
+  bottom: 10%;
+  left: 0;
+  width: 100%;
+  
+  .footerNav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+}

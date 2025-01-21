@@ -4,9 +4,15 @@
   width: 32px;
   height: 32px;
   margin-right: 16px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease-in-out;
 
   &:hover {
     opacity: 0.3;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease-in-out;
   }
 
   &:nth-last-child(1) {

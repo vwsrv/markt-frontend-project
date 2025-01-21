@@ -1,5 +1,5 @@
 export type BaseProductProps = {
-  id?: number;
+  id?: number | string;
   images?: Record<string, string>;
   title?: string;
   subtitle?: string;

@@ -1,5 +1,5 @@
 export type typeCategoryIconProps = {
   link: string;
   name: string;
-  handler: (event: React.MouseEvent<HTMLDivElement>) => void;
+  handler: () => void; // или другой тип для handler
 };

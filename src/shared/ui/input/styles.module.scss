@@ -1,9 +1,11 @@
 .inputContainer {
+  display: flex;
   position: relative;
-  max-width: 1092px;
-  width: 100%;
-
+  z-index: 11;
+  
   &::after {
+    cursor: pointer;
+    display: block;
     content: "";
     position: absolute;
     background-image: url("./images/search-icn.svg");
@@ -12,9 +14,17 @@
     height: 32px;
     background-size: cover;
     left: 13px;
-    transform: translate(50%, 50%);
     top: 55%;
     transform: translateY(-50%);
+  }
+
+  @media (max-width: 720px) {
+    &::after {
+      left: unset;
+      right: 12px;
+      top: 7px;
+      background-image: url("./images/search-icon-type-mobile.svg");
+    }
   }
 }
 
@@ -31,5 +41,9 @@ input {
 
   &::placeholder {
     color: var(--dark-grey-color);
+  }
+
+  @media (max-width: 720px) {
+    display: none;
   }
 }

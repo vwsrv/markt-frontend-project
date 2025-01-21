@@ -40,7 +40,7 @@ export const ProductImage: React.FC<typeProductImageProps> = (props) => {
                   />
                   {item.layout === "ten" && (
                     <div className={cn(classes.buttonContainer)}>
-                      <ButtonMain variant="like" disabled={false} />
+                      <ButtonMain variant="like-red" disabled={false} />
                     </div>
                   )}
                 </div>

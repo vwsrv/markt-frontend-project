@@ -3,17 +3,18 @@
   z-index: 100;
 
   &.sale {
-    margin-bottom: -25.5px;
+    margin-bottom: -35px;
 
     img {
       transform: translateY(100px);
     }
   }
 
-  &.category {
-    margin-bottom: -177.5px;
+  &.category,
+  &.category-sleep {
+    margin-bottom: -160px;
     img {
-      transform: translateY(55px);
+      transform: translateY(101px);
     }
   }
 
@@ -26,20 +27,35 @@
 
   @media (max-width: 825px) {
     &.sale {
+      margin-bottom: -44px;
       img {
-        max-width: 127px;
+        max-width: 139px;
+        transform: translate(3px, 20px);
       }
     }
 
     &.category {
+      margin-bottom: -87px;
       img {
-        max-width: 288px;
+        max-width: 291px;
+        transform: translate(9px, 26px);
+      }
+    }
+
+    &.category-sleep {
+      margin-bottom: -86px;
+      img {
+        max-width: 245px;
+        transform: translate(9px, 26px);
       }
     }
 
     &.treasures {
+      margin-bottom: -64px;
+
       img {
-        max-width: 948px;
+        max-width: 350px;
+        transform: translate(9px, 5px);
       }
     }
   }

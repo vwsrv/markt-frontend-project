@@ -2,8 +2,8 @@ import { typeCategoryIconProps } from "../category-icon/types";
 
 export type typeCategoryListProps = {
   categoryData: Array<{
-    link: string;
     name: string;
+    link: string;
   }>;
   handler: typeCategoryIconProps["handler"];
 };

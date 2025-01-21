@@ -4,7 +4,7 @@ import React from "react";
 import classes from "./styles.module.scss";
 import cn from "classnames";
 import { typeHeaderProps } from "./types";
-import { Input } from "../input";
+import { SearchForm } from "../../../features/SearchForm";
 import companyLogo from "./images/company-logo.svg";
 import { Icon } from "../icon";
 import cartLogo from "./images/cart.svg";
@@ -22,7 +22,7 @@ export const Header: React.FC<typeHeaderProps> = (props) => {
         src={companyLogo}
         alt={companyName}
       />
-      <Input name="Поиск" placeholder="Поиск товаров" />
+      <SearchForm name="Поиск" placeholder="Поиск товаров" />
       <nav className={cn(classes.headerNav)}>
         <Icon src={cartLogo} alt="Корзина" />
         <Icon src={deliveryLogo} alt="Доставки" />
