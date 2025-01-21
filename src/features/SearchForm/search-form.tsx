@@ -45,7 +45,14 @@ export const SearchForm: React.FC<InputProps> = (props) => {
         const data = await fetchAllData();
         setCategories(data.categories);
         setFilteredCategories(data.categories);
-        setProducts(data.images);
+        const combinedProducts = [
+          ...data.images,
+          ...data.homeImages,
+          ...data.sleepImages,
+          ...data.goodsImages,
+        ];
+        setProducts(combinedProducts);
+        setFilteredProducts(combinedProducts);
       } catch (err) {
         console.error("Ошибка при загрузке данных:", err);
       }
@@ -163,7 +170,7 @@ export const SearchForm: React.FC<InputProps> = (props) => {
                 )}
               </div>
               {filteredCategories.length > 0 && (
-                <div className={classes.categories}>
+                <div className={classes.searchCategories}>
                   {filteredCategories.map((category, index) => (
                     <div key={index} className={classes.categoryItem}>
                       <CategoryIcon
