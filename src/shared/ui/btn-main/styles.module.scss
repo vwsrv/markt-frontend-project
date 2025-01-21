@@ -20,7 +20,8 @@
     }
   }
   &.like,
-  &.like-red {
+  &.like-red,
+  &.remove {
     padding: 0;
     width: 50px;
     height: 50px;
@@ -28,7 +29,10 @@
     background-image: url("./images/btn-like.svg");
     background-size: 100%;
     background-color: inherit;
+  }
 
+  &.like,
+  &.like-red {
     &:hover {
       background-image: url("./images/btn-like-hover.svg");
     }
@@ -45,6 +49,12 @@
       width: 64px;
       height: 55px;
     }
+  }
+
+  &.remove {
+    width: 38px;
+    height: 32px;
+    background-image: url("./images/remove-icon.svg");
   }
 
   &:not(:disabled):active {

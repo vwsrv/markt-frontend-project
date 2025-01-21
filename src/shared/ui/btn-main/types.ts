@@ -5,5 +5,12 @@ export interface typeButtonProps
     ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  variant?: "red" | "like" | "cart" | "favorites" | "profile" | "like-red";
+  variant?:
+    | "red"
+    | "like"
+    | "cart"
+    | "favorites"
+    | "profile"
+    | "like-red"
+    | "remove";
 }
