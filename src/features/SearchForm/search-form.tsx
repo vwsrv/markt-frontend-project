@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import classes from "./styles.module.scss";
 import cn from "classnames";
+import { Icon } from "../../shared/ui/icon";
 import { InputProps } from "./types";
 import { Input } from "../../shared/ui/input";
 import { CategoryList } from "../../shared/ui/category-list";
@@ -11,25 +12,28 @@ import { BaseProductProps } from "../../types/productTypes";
 import { typeCategoryListProps } from "../../shared/ui/category-list/types";
 import { CategoryIcon } from "../../shared/ui/category-icon";
 import { fetchAllData } from "../../services/api";
+import cartLogo from "../../shared/ui/footer/images/cart.svg";
+import profileLogo from "../../shared/ui/footer/images/profile.svg";
+import favoritesLogo from "../../shared/ui/footer/images/favorites.svg";
+import deliveryLogo from "../../shared/ui/footer/images/delivery.svg";
 
 export const SearchForm: React.FC<InputProps> = (props) => {
   const { name, required, onChange, type = "text", placeholder } = props;
-
   const [searchQuery, setSearchQuery] = useState("");
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [popularQueries, setPopularQueries] = useState<string[]>([]);
   const [categories, setCategories] = useState<
     typeCategoryListProps["categoryData"]
   >([]);
   const [products, setProducts] = useState<BaseProductProps[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<BaseProductProps[]>(
+    []
+  );
   const [filteredCategories, setFilteredCategories] = useState<
     typeCategoryListProps["categoryData"]
   >([]);
-  const [filteredProducts, setFilteredProducts] = useState<BaseProductProps[]>(
-    [],
-  );
-
   const searchWrapperRef = useRef<HTMLDivElement>(null);
+  const noProductResults: boolean = filteredProducts.length === 0;
 
   useEffect(() => {
     setPopularQueries([
@@ -69,25 +73,24 @@ export const SearchForm: React.FC<InputProps> = (props) => {
       categories.filter(
         (category) =>
           category.name.toLowerCase().includes(query.toLowerCase()) ||
-          category.link.toLowerCase().includes(query.toLowerCase()),
-      ),
+          category.link.toLowerCase().includes(query.toLowerCase())
+      )
     );
-
     setFilteredProducts(
       products.filter((product) =>
-        (product.title ?? "").toLowerCase().includes(query.toLowerCase()),
-      ),
+        (product.title ?? "").toLowerCase().includes(query.toLowerCase())
+      )
     );
   };
 
   const handleFocus = () => {
-    setShowDropdown(true);
+    setIsOpen(true);
   };
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     setTimeout(() => {
       if (!searchWrapperRef.current?.contains(e.relatedTarget as Node)) {
-        setShowDropdown(false);
+        return setIsOpen(false);
       }
     }, 200);
   };
@@ -96,20 +99,33 @@ export const SearchForm: React.FC<InputProps> = (props) => {
     console.log(`Перейти на страницу категории: ${category}`);
   };
 
-  const handleWrapperClick = (e: React.MouseEvent) => {
-    if (!searchWrapperRef.current?.contains(e.target as Node)) {
-      setShowDropdown(false);
-    } else {
-      setShowDropdown(true);
+  const handleWrapperClick = () => {
+    setIsOpen(true);
+  };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      searchWrapperRef.current &&
+      !searchWrapperRef.current.contains(event.target as Node)
+    ) {
+      setIsOpen(false);
     }
   };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const handleRemovePopularQuery = (query: string) => {
     setPopularQueries((prev) => prev.filter((item) => item !== query));
   };
-
-  const handleRemoveSearchResult = (product: BaseProductProps) => {
-    setProducts((prev) => prev.filter((item) => item.id !== product.id));
+  const handleRemoveSearchResult = (productToRemove: BaseProductProps) => {
+    setFilteredProducts((prev) =>
+      prev.filter((product) => product.id !== productToRemove.id)
+    );
   };
 
   return (
@@ -128,11 +144,8 @@ export const SearchForm: React.FC<InputProps> = (props) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
       />
-      {showDropdown && (
-        <div
-          className={cn(classes.dropdown, { [classes.hidden]: !showDropdown })}
-          onClick={handleFocus}
-        >
+      {isOpen && (
+        <div className={cn(classes.dropdown)} onClick={handleFocus}>
           {searchQuery === "" ? (
             <>
               <div className={classes.popularQueries}>
@@ -157,8 +170,8 @@ export const SearchForm: React.FC<InputProps> = (props) => {
               <div className={classes.searchResults}>
                 {filteredProducts.length > 0 && (
                   <div className={classes.popularQueries}>
-                    {filteredProducts.map((product, index) => (
-                      <div className={classes.searchResult} key={index}>
+                    {filteredProducts.map((product) => (
+                      <div className={classes.searchResult} key={product.id}>
                         <p className="medium">{product.title}</p>
                         <ButtonMain
                           variant="remove"
@@ -170,20 +183,35 @@ export const SearchForm: React.FC<InputProps> = (props) => {
                 )}
               </div>
               {filteredCategories.length > 0 && (
-                <div className={classes.searchCategories}>
+                <div
+                  className={
+                    noProductResults
+                      ? classes.searchCategories
+                      : classes.searchCategoriesOnly
+                  }
+                >
                   {filteredCategories.map((category, index) => (
-                    <div key={index} className={classes.categoryItem}>
-                      <CategoryIcon
-                        link={category.link}
-                        name={category.name}
-                        handler={() => console.log("Клик по категории")}
-                      />
-                    </div>
+                    <CategoryIcon
+                      key={index}
+                      link={category.link}
+                      name={category.name}
+                      handler={() => console.log("Клик по категории")}
+                    />
                   ))}
                 </div>
               )}
             </>
           )}
+        </div>
+      )}
+      {isOpen && (
+        <div className={classes.footerNavContainer}>
+          <nav className={cn(classes.footerNav)}>
+            <Icon src={cartLogo} alt="Корзина" />
+            <Icon src={deliveryLogo} alt="Доставки" />
+            <Icon src={favoritesLogo} alt="Избранное" />
+            <Icon src={profileLogo} alt="Личный кабинет" />
+          </nav>
         </div>
       )}
     </div>
