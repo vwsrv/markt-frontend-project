@@ -17,6 +17,20 @@
     top: 55%;
     transform: translateY(-50%);
   }
+
+  @media (max-width: 720px) {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    top: 11px;
+  }
+}
+
+@media (max-width: 720px) {
+  .inputContainer::after {
+    left: 12px;
+    top: 46%;
+  }
 }
 
 input {
@@ -35,7 +49,11 @@ input {
   }
 
   @media (max-width: 720px) {
+    padding: 13px 0 13px 53px;
     border-radius: 16px;
-    max-width: 351px;
+  }
+
+  @media (max-width: 376px) {
+    width: 351px;
   }
 }

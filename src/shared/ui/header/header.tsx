@@ -11,9 +11,11 @@ import cartLogo from "./images/cart.svg";
 import profileLogo from "./images/profile.svg";
 import favoritesLogo from "./images/favorites.svg";
 import deliveryLogo from "./images/delivery.svg";
+import { useNavigate } from "react-router-dom";
 
 export const Header: React.FC<typeHeaderProps> = (props) => {
   const { companyName } = props;
+  const navigate = useNavigate();
 
   return (
     <header className={cn(classes.header)}>
@@ -21,6 +23,7 @@ export const Header: React.FC<typeHeaderProps> = (props) => {
         className={cn(classes.headerLogo)}
         src={companyLogo}
         alt={companyName}
+        onClick={() => navigate("/")}
       />
       <SearchForm name="Поиск" placeholder="Поиск товаров" />
       <nav className={cn(classes.headerNav)}>

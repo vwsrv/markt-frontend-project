@@ -2,83 +2,69 @@
   cursor: pointer;
   position: relative;
   width: 100%;
-  padding-left: 11px;
-
-  @media (max-width: 720px) {
-    margin: 12px;
-  }
+  padding-left: 10px;
 }
 
 .dropdown {
   display: none;
+  width: 100%;
 }
 
 .dropdownOpened {
-  padding-top: 93px;
+  padding-top: 88px;
   position: absolute;
   top: 1px;
   left: 0;
   max-width: 1084px;
   width: 100%;
   max-height: 70vh;
-  overflow-y: auto;
   background-color: var(--white-color);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  border-radius: 16px;
   z-index: 10;
   opacity: 1;
   transform: translateY(-10px);
+  overflow-y: auto;
+  overflow-x: hidden;
   transition:
     opacity 0.3s ease,
     transform 0.3s ease;
 
   .searchResult {
     display: flex;
+    overflow-y: auto;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2px;
-
-    p {
-      padding: 16px 40px 20px 0;
-    }
+    padding: 16px 0 11px 0;
   }
 
   .popularQueries {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   @media (max-width: 720px) {
     z-index: 2000;
     position: fixed;
     min-height: 100vh;
+    padding-top: 82px;
   }
 }
 
 .dropdownContainer {
-  max-height: 50vh;
+  padding: 0 10px 3px 15px;
 }
 
 .categories,
 .searchCategories {
   display: flex;
-  padding: 10px 10px 0;
-}
-
-.searchCategoriesOnly {
-  display: flex;
-  padding: 20px 10px 0;
-}
-
-.popularQueries h4,
-.categories h4 {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 8px;
+  padding-top: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .popularQueries div,
 .categories div {
-  padding: 0 9px 0 16px;
+  padding: 0;
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.2s ease;
@@ -90,15 +76,8 @@
 }
 
 .searchFromNavContainer {
+  margin-top: 143px;
   display: flex;
-  z-index: 2001;
-  bottom: 10%;
-  left: 0;
   width: 100%;
-
-  .searchFormNav {
-    z-index: 3000;
-    display: flex;
-    justify-content: space-around;
-  }
+  gap: 46px;
 }
