@@ -1,7 +1,7 @@
 .inputContainer {
   display: flex;
   position: relative;
-  z-index: 11;
+  z-index: 2003;
   
   &::after {
     cursor: pointer;
@@ -44,6 +44,8 @@ input {
   }
 
   @media (max-width: 720px) {
-    display: none;
+    input {
+      
+    }
   }
 }

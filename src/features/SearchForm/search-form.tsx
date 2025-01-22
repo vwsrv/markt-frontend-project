@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { useMediaQuery } from "../../shared/lib/useMediaQuery.js";
 import classes from "./styles.module.scss";
 import cn from "classnames";
 import { Icon } from "../../shared/ui/icon";
@@ -19,8 +20,9 @@ import deliveryLogo from "../../shared/ui/footer/images/delivery.svg";
 
 export const SearchForm: React.FC<InputProps> = (props) => {
   const { name, required, onChange, type = "text", placeholder } = props;
+  const isMobile = useMediaQuery("(max-width: 720px)");
   const [searchQuery, setSearchQuery] = useState("");
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [popularQueries, setPopularQueries] = useState<string[]>([]);
   const [categories, setCategories] = useState<
     typeCategoryListProps["categoryData"]
@@ -118,7 +120,6 @@ export const SearchForm: React.FC<InputProps> = (props) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
   const handleRemovePopularQuery = (query: string) => {
     setPopularQueries((prev) => prev.filter((item) => item !== query));
   };
@@ -204,16 +205,16 @@ export const SearchForm: React.FC<InputProps> = (props) => {
           )}
         </div>
       )}
-      {isOpen && (
-        <div className={classes.footerNavContainer}>
-          <nav className={cn(classes.footerNav)}>
+      {isOpen && isMobile ? (
+        <div className={classes.searchFromNavContainer}>
+          <nav className={cn(classes.searchFormNav)}>
             <Icon src={cartLogo} alt="Корзина" />
             <Icon src={deliveryLogo} alt="Доставки" />
             <Icon src={favoritesLogo} alt="Избранное" />
             <Icon src={profileLogo} alt="Личный кабинет" />
           </nav>
         </div>
-      )}
+      ) : null}
     </div>
   );
 };
