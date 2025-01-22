@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import classes from "./styles.module.scss";
 import cn from "classnames";
 import { InputProps } from "./types";
