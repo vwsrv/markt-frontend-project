@@ -8,6 +8,7 @@ import { Icon } from "../icon";
 import dzenImage from "./images/Dzen.svg";
 import telegramImage from "./images/telegram.svg";
 import youtubeImage from "./images//YT.svg";
+import { useMediaQuery } from "../../lib/useMediaQuery.js";
 import cartLogo from "./images/cart.svg";
 import profileLogo from "./images/profile.svg";
 import favoritesLogo from "./images/favorites.svg";
@@ -15,18 +16,7 @@ import deliveryLogo from "./images/delivery.svg";
 
 export const Footer: React.FC<typeFooterProps> = (props) => {
   const { companyName, companyEmail } = props;
-  const [isMobile, setIsMobile] = React.useState<boolean>(false);
-
-  React.useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 620);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const isMobile = useMediaQuery("(max-width: 720px)");
 
   return (
     <footer className={cn(classes.footer)}>

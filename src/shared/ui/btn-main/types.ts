@@ -12,5 +12,6 @@ export interface typeButtonProps
     | "favorites"
     | "profile"
     | "like-red"
-    | "remove";
+    | "remove"
+    | "search";
 }

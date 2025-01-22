@@ -18,7 +18,6 @@ export const Input: React.FC<InputProps> = (props) => {
         onChange={onChange}
         placeholder={placeholder}
       />
-      <span></span>
     </label>
   );
 };

@@ -1,0 +1,18 @@
+.navigation {
+  display: flex;
+  cursor: pointer;
+  background-color: var(--white-color);
+  max-width: 100%;
+
+  &.footerNav {
+    justify-content: space-between;
+    padding: 12px 31px 20px;
+    gap: 20px;
+  }
+
+  &.searchFormNav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+}

@@ -2,7 +2,7 @@ import React from "react";
 
 export const useMediaQuery = (query) => {
   const [matches, setMatches] = React.useState(
-    window.matchMedia(query).matches
+    window.matchMedia(query).matches,
   );
 
   React.useEffect(() => {

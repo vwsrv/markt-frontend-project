@@ -2,7 +2,7 @@
   display: flex;
   position: relative;
   z-index: 2003;
-  
+
   &::after {
     cursor: pointer;
     display: block;
@@ -16,15 +16,6 @@
     left: 13px;
     top: 55%;
     transform: translateY(-50%);
-  }
-
-  @media (max-width: 720px) {
-    &::after {
-      left: unset;
-      right: 12px;
-      top: 7px;
-      background-image: url("./images/search-icon-type-mobile.svg");
-    }
   }
 }
 
@@ -44,8 +35,7 @@ input {
   }
 
   @media (max-width: 720px) {
-    input {
-      
-    }
+    border-radius: 16px;
+    max-width: 351px;
   }
 }

@@ -4,19 +4,14 @@ import React, { useState, useEffect, useRef } from "react";
 import { useMediaQuery } from "../../shared/lib/useMediaQuery.js";
 import classes from "./styles.module.scss";
 import cn from "classnames";
-import { Icon } from "../../shared/ui/icon";
 import { InputProps } from "./types";
 import { Input } from "../../shared/ui/input";
-import { CategoryList } from "../../shared/ui/category-list";
 import { ButtonMain } from "../../shared/ui/btn-main";
 import { BaseProductProps } from "../../types/productTypes";
 import { typeCategoryListProps } from "../../shared/ui/category-list/types";
 import { CategoryIcon } from "../../shared/ui/category-icon";
 import { fetchAllData } from "../../services/api";
-import cartLogo from "../../shared/ui/footer/images/cart.svg";
-import profileLogo from "../../shared/ui/footer/images/profile.svg";
-import favoritesLogo from "../../shared/ui/footer/images/favorites.svg";
-import deliveryLogo from "../../shared/ui/footer/images/delivery.svg";
+import { Navigation } from "../../shared/ui/navigation/navigation.js";
 
 export const SearchForm: React.FC<InputProps> = (props) => {
   const { name, required, onChange, type = "text", placeholder } = props;
@@ -29,7 +24,7 @@ export const SearchForm: React.FC<InputProps> = (props) => {
   >([]);
   const [products, setProducts] = useState<BaseProductProps[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<BaseProductProps[]>(
-    []
+    [],
   );
   const [filteredCategories, setFilteredCategories] = useState<
     typeCategoryListProps["categoryData"]
@@ -75,17 +70,17 @@ export const SearchForm: React.FC<InputProps> = (props) => {
       categories.filter(
         (category) =>
           category.name.toLowerCase().includes(query.toLowerCase()) ||
-          category.link.toLowerCase().includes(query.toLowerCase())
-      )
+          category.link.toLowerCase().includes(query.toLowerCase()),
+      ),
     );
     setFilteredProducts(
       products.filter((product) =>
-        (product.title ?? "").toLowerCase().includes(query.toLowerCase())
-      )
+        (product.title ?? "").toLowerCase().includes(query.toLowerCase()),
+      ),
     );
   };
 
-  const handleFocus = () => {
+  const openSearchForm = () => {
     setIsOpen(true);
   };
 
@@ -98,123 +93,141 @@ export const SearchForm: React.FC<InputProps> = (props) => {
   };
 
   const handleCategoryClick = (category: string) => {
-    console.log(`Перейти на страницу категории: ${category}`);
+    setSearchQuery(category);
+    setIsOpen(false);
   };
 
-  const handleWrapperClick = () => {
-    setIsOpen(true);
-  };
+  // const handleClickOutside = (event: MouseEvent) => {
+  //   if (
+  //     searchWrapperRef.current &&
+  //     !searchWrapperRef.current.contains(event.target as Node)
+  //   ) {
+  //     setIsOpen(false);
+  //   }
+  // };
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      searchWrapperRef.current &&
-      !searchWrapperRef.current.contains(event.target as Node)
-    ) {
-      setIsOpen(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
   const handleRemovePopularQuery = (query: string) => {
     setPopularQueries((prev) => prev.filter((item) => item !== query));
   };
   const handleRemoveSearchResult = (productToRemove: BaseProductProps) => {
     setFilteredProducts((prev) =>
-      prev.filter((product) => product.id !== productToRemove.id)
+      prev.filter((product) => product.id !== productToRemove.id),
     );
   };
 
+  // useEffect(() => {
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, []);
+
   return (
-    <div
-      className={classes.searchWrapper}
-      ref={searchWrapperRef}
-      onClick={handleWrapperClick}
+    <form
+      className={cn(classes.searchWrapper)}
+      onClick={openSearchForm}
+      onSubmit={(e) => {
+        e.preventDefault();
+        setIsOpen(false);
+      }}
     >
-      <Input
-        name={name}
-        type={type}
-        required={required}
-        value={searchQuery}
-        onChange={handleInputChange}
-        placeholder={placeholder}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-      />
-      {isOpen && (
-        <div className={cn(classes.dropdown)} onClick={handleFocus}>
-          {searchQuery === "" ? (
-            <>
-              <div className={classes.popularQueries}>
-                {popularQueries.map((query, index) => (
-                  <div key={index} className={cn(classes.searchResult)}>
-                    <p className="medium">{query}</p>
-                    <ButtonMain
-                      variant="remove"
-                      type="submit"
-                      onClick={() => handleRemovePopularQuery(query)}
-                    />
-                  </div>
-                ))}
-              </div>
-              <CategoryList
-                categoryData={filteredCategories}
-                handler={() => handleCategoryClick}
-              />
-            </>
-          ) : (
-            <>
-              <div className={classes.searchResults}>
-                {filteredProducts.length > 0 && (
-                  <div className={classes.popularQueries}>
-                    {filteredProducts.map((product) => (
-                      <div className={classes.searchResult} key={product.id}>
-                        <p className="medium">{product.title}</p>
-                        <ButtonMain
-                          variant="remove"
-                          onClick={() => handleRemoveSearchResult(product)}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-              {filteredCategories.length > 0 && (
-                <div
-                  className={
-                    noProductResults
-                      ? classes.searchCategories
-                      : classes.searchCategoriesOnly
-                  }
-                >
-                  {filteredCategories.map((category, index) => (
-                    <CategoryIcon
-                      key={index}
-                      link={category.link}
-                      name={category.name}
-                      handler={() => console.log("Клик по категории")}
-                    />
+      {isMobile && !isOpen ? (
+        <ButtonMain variant="search" type="button" onClick={openSearchForm} />
+      ) : (
+        <Input
+          name={name}
+          type={type}
+          required={required}
+          value={searchQuery}
+          onChange={handleInputChange}
+          placeholder={placeholder}
+          onFocus={openSearchForm}
+          onBlur={handleBlur}
+        />
+      )}
+      <div
+        className={isOpen ? cn(classes.dropdownOpened) : classes.dropdown}
+        // ref={searchWrapperRef}
+      >
+        {searchQuery === "" ? (
+          <div className={cn(classes.dropdownContainer)}>
+            <div className={classes.popularQueries}>
+              {popularQueries.map((query, index) => (
+                <div key={index} className={cn(classes.searchResult)}>
+                  <p className="medium">{query}</p>
+                  <ButtonMain
+                    variant="remove"
+                    type="button"
+                    onClick={() => handleRemovePopularQuery(query)}
+                  />
+                </div>
+              ))}
+            </div>
+            <div
+              className={
+                noProductResults
+                  ? classes.searchCategories
+                  : classes.searchCategoriesOnly
+              }
+            >
+              {filteredCategories.map((category, index) => (
+                <CategoryIcon
+                  key={index}
+                  link={category.link}
+                  name={category.name}
+                  handler={() => handleCategoryClick(category.name)}
+                />
+              ))}
+            </div>
+          </div>
+        ) : (
+          <>
+            <div className={classes.searchResults}>
+              {filteredProducts.length > 0 && (
+                <div className={classes.popularQueries}>
+                  {filteredProducts.map((product) => (
+                    <div
+                      className={classes.searchResult}
+                      key={product.id}
+                      onClick={() => console.log(222)}
+                    >
+                      <p className="medium">{product.title}</p>
+                      <ButtonMain
+                        variant="remove"
+                        type="button"
+                        onClick={() => handleRemoveSearchResult(product)}
+                      />
+                    </div>
                   ))}
                 </div>
               )}
-            </>
-          )}
+            </div>
+            {filteredCategories.length > 0 && (
+              <div
+                className={
+                  noProductResults
+                    ? classes.searchCategories
+                    : classes.searchCategoriesOnly
+                }
+              >
+                {filteredCategories.map((category, index) => (
+                  <CategoryIcon
+                    key={index}
+                    link={category.link}
+                    name={category.name}
+                    handler={() => handleCategoryClick(category.name)}
+                  />
+                ))}
+              </div>
+            )}
+          </>
+        )}
+      </div>
+      {isOpen && isMobile && (
+        <div className={classes.searchFromNavContainer}>
+          <Navigation type="searchForm" />
         </div>
       )}
-      {isOpen && isMobile ? (
-        <div className={classes.searchFromNavContainer}>
-          <nav className={cn(classes.searchFormNav)}>
-            <Icon src={cartLogo} alt="Корзина" />
-            <Icon src={deliveryLogo} alt="Доставки" />
-            <Icon src={favoritesLogo} alt="Избранное" />
-            <Icon src={profileLogo} alt="Личный кабинет" />
-          </nav>
-        </div>
-      ) : null}
-    </div>
+    </form>
   );
 };

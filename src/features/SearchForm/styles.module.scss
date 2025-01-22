@@ -1,8 +1,20 @@
-.dropdown {
-  padding-top: 93px;
+.searchWrapper {
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  padding-left: 11px;
+
+  @media (max-width: 720px) {
+    margin: 12px;
+  }
 }
 
 .dropdown {
+  display: none;
+}
+
+.dropdownOpened {
+  padding-top: 93px;
   position: absolute;
   top: 1px;
   left: 0;
@@ -25,10 +37,14 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2px;
+
+    p {
+      padding: 16px 40px 20px 0;
+    }
   }
 
-  p {
-    padding: 16px 40px 20px 0;
+  .popularQueries {
+    margin-bottom: 20px;
   }
 
   @media (max-width: 720px) {
@@ -38,11 +54,8 @@
   }
 }
 
-.searchWrapper {
-  cursor: pointer;
-  position: relative;
-  width: 100%;
-  padding-left: 11px;
+.dropdownContainer {
+  max-height: 50vh;
 }
 
 .categories,
@@ -77,17 +90,15 @@
 }
 
 .searchFromNavContainer {
-  position: relative;
   display: flex;
-  position: fixed;
   z-index: 2001;
   bottom: 10%;
   left: 0;
   width: 100%;
 
   .searchFormNav {
+    z-index: 3000;
     display: flex;
     justify-content: space-around;
-    width: 100%;
   }
 }
