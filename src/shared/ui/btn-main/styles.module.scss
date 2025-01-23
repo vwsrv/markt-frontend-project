@@ -63,15 +63,16 @@
   }
 
   &.search {
-    height: 32px;
-    width: 32px;
     background-image: url("./images/btn-search.svg");
     display: none;
 
     @media (max-width: 720px) {
-      display: flex;
+      display: block;
+      height: 30px;
+      width: 35px;
+      margin-right: 10px;
       justify-self: end;
-      align-self: end;
+      padding: 10px;
     }
   }
 

@@ -15,10 +15,10 @@ export const Navigation: React.FC<typeNavigationProps> = (props) => {
   return (
     <>
       <nav className={cn(classes.navigation, classes[type])}>
-        <Icon src={cartLogo} alt="Корзина" />
+        <Icon src={profileLogo} alt="Личный кабинет" />
         <Icon src={deliveryLogo} alt="Доставки" />
         <Icon src={favoritesLogo} alt="Избранное" />
-        <Icon src={profileLogo} alt="Личный кабинет" />
+        <Icon src={cartLogo} alt="Корзина" />
       </nav>
     </>
   );

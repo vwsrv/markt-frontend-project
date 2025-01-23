@@ -15,4 +15,10 @@
     justify-content: space-around;
     width: 100%;
   }
+
+  @media (max-width: 720px) {
+    margin: 0 31px 0;
+    width: 100%;
+    justify-content: space-between;
+  }
 }
