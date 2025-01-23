@@ -1,4 +1,4 @@
-"use client"; // Включение режима клиента
+"use client";
 
 import React from "react";
 import cn from "classnames";
