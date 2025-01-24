@@ -1,0 +1,86 @@
+.selectbox {
+  position: relative;
+  cursor: pointer;
+  height: 44px;
+  border-radius: 8px;
+  transition: 0.3s;
+  width: fit-content;
+
+  &.light-gray {
+    background-color: var(--white-grey-color);
+
+    &::after {
+      content: url("../dropdown-menu/images/arrow.svg");
+    }
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-25px, 70%);
+    transition: transform 0.3s ease;
+    content: url("../dropdown-menu/images/arrow.svg");
+  }
+
+  &.enabled::after {
+    transform: translate(-25px, 70%) rotate(180deg);
+  }
+}
+.button {
+  cursor: pointer;
+  padding: 10.5px 38px 12.5px 8px;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  outline: none;
+  position: relative;
+  color: var(--black-color);
+  border: none;
+  background: none;
+  height: 100%;
+  width: 100%;
+}
+
+.options {
+  cursor: pointer;
+  z-index: 1;
+  margin-top: 3px;
+  position: absolute;
+  display: none;
+  background-color: var(--white-color);
+  max-width: 100%;
+  width: 100%;
+  border-radius: 8px;
+
+  &.enabled {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &.light-gray {
+    background-color: var(--white-grey-color);
+  }
+}
+
+.option {
+  border-radius: 8px;
+  border: none;
+  background: none;
+  text-decoration: none;
+  display: flex;
+  padding: 10px 15px 10px;
+  text-align: left;
+  white-space: nowrap;
+
+  input {
+    width: auto;
+  }
+
+  &.light-gray {
+    &:hover {
+      background-color: var(--light-grey-color);
+    }
+  }
+}
