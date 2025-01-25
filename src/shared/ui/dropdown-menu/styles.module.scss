@@ -3,10 +3,13 @@
   cursor: pointer;
   height: 44px;
   border-radius: 8px;
-  transition: 0.3s;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
   width: fit-content;
 
-  &.light-gray {
+  &.colorSelector,
+  &.default {
     background-color: var(--white-grey-color);
 
     &::after {
@@ -17,16 +20,20 @@
   &::after {
     position: absolute;
     top: 0;
-    right: 0;
-    transform: translate(-25px, 70%);
+    transform: translate(-25px, 60%);
     transition: transform 0.3s ease;
     content: url("../dropdown-menu/images/arrow.svg");
   }
 
   &.enabled::after {
-    transform: translate(-25px, 70%) rotate(180deg);
+    transform: translate(-25px, 60%) rotate(180deg);
+  }
+
+  &:hover {
+    background-color: var(--white-grey-color);
   }
 }
+
 .button {
   cursor: pointer;
   padding: 10.5px 38px 12.5px 8px;
@@ -41,6 +48,11 @@
   background: none;
   height: 100%;
   width: 100%;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--primary-color);
+  }
 }
 
 .options {
@@ -53,14 +65,133 @@
   max-width: 100%;
   width: 100%;
   border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease;
 
   &.enabled {
     display: flex;
     flex-direction: column;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 
-  &.light-gray {
+  &.colorSelector,
+  &.default {
     background-color: var(--white-grey-color);
+
+    input {
+      background-color: transparent;
+      border: 1.5px solid var(--grey-color);
+      transition: border-color 0.3s ease;
+    }
+  }
+
+  .colorSelector {
+    width: auto;
+    appearance: none;
+    padding: 10px;
+    border-radius: 5px;
+    justify-items: center;
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease;
+
+    &.red {
+      background-color: var(--red-color);
+      border-color: var(--red-color);
+    }
+
+    &.orange {
+      background-color: var(--orange-color);
+      border-color: var(--orange-color);
+    }
+
+    &.pure-yellow {
+      background-color: var(--pure-yellow-color);
+      border-color: var(--pure-yellow-color);
+    }
+
+    &.green {
+      background-color: var(--green-color);
+      border-color: var(--green-color);
+    }
+
+    &.light-green {
+      background-color: var(--light-green-color);
+      border-color: var(--light-green-color);
+    }
+
+    &.light-blue {
+      background-color: var(--light-blue-color);
+      border-color: var(--light-blue-color);
+    }
+
+    &.pure-blue {
+      background-color: var(--pure-blue-color);
+      border-color: var(--pure-blue-color);
+    }
+
+    &.purple {
+      background-color: var(--purple-color);
+      border-color: var(--purple-color);
+    }
+
+    &.pink {
+      background-color: var(--pink-color);
+      border-color: var(--pink-color);
+    }
+
+    &.brown {
+      background-color: var(--brown-color);
+      border-color: var(--brown-color);
+    }
+
+    &.light-gray {
+      background-color: var(--almost-grey-color);
+      border-color: var(--almost-grey-color);
+    }
+
+    &.gray {
+      background-color: var(--pure-gray-color);
+      border-color: var(--pure-gray-color);
+    }
+
+    &.black {
+      background-color: var(--black-color);
+      border-color: var(--black-color);
+    }
+
+    &.rainbow {
+      background: var(--rainbow-color);
+      border: none;
+    }
+
+    &:checked {
+      border: transparent;
+      position: relative;
+
+      &::after {
+        content: "✔";
+        font-size: 14px;
+        font-weight: bold;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &.light-gray {
+      &:hover {
+        background-color: var(--light-grey-color);
+      }
+    }
   }
 }
 
@@ -73,14 +204,12 @@
   padding: 10px 15px 10px;
   text-align: left;
   white-space: nowrap;
+  transition:
+    background-color 0.3s ease,
+    opacity 0.3s ease;
 
-  input {
-    width: auto;
-  }
-
-  &.light-gray {
-    &:hover {
-      background-color: var(--light-grey-color);
-    }
+  &:hover {
+    opacity: 0.7;
+    background-color: var(--hover-color, rgba(0, 0, 0, 0.1));
   }
 }

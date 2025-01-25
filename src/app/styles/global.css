@@ -7,13 +7,25 @@
   --red-color: #f94233;
   --red-orange-gradient: linear-gradient(to right, #ffaa00, #f94233);
   --yellow-color: #ffaa00;
+  --pure-yellow-color: #ffc800;
+  --orange-color: #f98233;
   --light-grey-color: #e1eced;
   --grey-color: #bccdd1;
   --dark-grey-color: #b2b5b8;
   --blue-color: #2e09e6;
   --blue-gradient-color: linear-gradient(to bottom, #00fbff, #0051ff);
+  --light-blue-color: #59cdff;
+  --pure-blue-color: #007bff;
+  --purple-color: #ab4cff;
+  --pink-color: #fc61be;
+  --green-color: #6ba829;
+  --light-green-color: #4ec9a8;
+  --brown-color: #af6708;
+  --almost-grey-color: #dee2e3;
+  --pure-gray-color: #949c9e;
   --font-inter: "Inter", sans-serif;
   --font-alshaus: "ALS Hauss", sans-serif;
+  --rainbow-color: linear-gradient(to right, #ffe02f, #00d0cd, #9d00ff);
 }
 
 body {
