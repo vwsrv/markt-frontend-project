@@ -7,11 +7,11 @@ import { DropdownMenu } from "../../shared/ui/dropdown-menu/dropdownMenu";
 
 export const Catalog: React.FC = () => {
   const data = [
-    { value: "1", label: "Предметы искусства" },
-    { value: "2", label: "Помощь психолога" },
-    { value: "3", label: "Гаджеты" },
-    { value: "4", label: "Джиуджиииииииитсу" },
-    { value: "5", label: "Джиуджиииииииитсу" },
+    { value: "1", label: "Предметы искусства", color: "red" },
+    { value: "2", label: "Помощь психолога", color: "orange" },
+    { value: "3", label: "Гаджеты", color: "pure-yellow" },
+    { value: "4", label: "Джиуджиииииииитсу", color: "green" },
+    { value: "5", label: "Джиуджиииииииитсу", color: "light-green" },
     { value: "6", label: "Джиуджиииииииитсу" },
   ];
 
@@ -22,7 +22,13 @@ export const Catalog: React.FC = () => {
   return (
     <div className={cn(classes.catalog)}>
       <DropdownMenu
-        variant="light-gray"
+        variant="default"
+        dataList={data}
+        setValue={handleSetValue}
+        value={"Категории"}
+      />
+      <DropdownMenu
+        variant="colorSelector"
         dataList={data}
         setValue={handleSetValue}
         value={"Категории"}

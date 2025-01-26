@@ -17,7 +17,12 @@ export const DropdownMenu: React.FC<typeDropdownProps> = (props) => {
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "Tab") {
-      setIsOpen(true);
+      setIsOpen(false);
+    } else if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      setIsOpen(!isOpen);
+    } else if (event.key === "Escape") {
+      setIsOpen(false);
     }
   };
 
@@ -34,6 +39,18 @@ export const DropdownMenu: React.FC<typeDropdownProps> = (props) => {
       }
     });
   };
+
+  React.useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      const dropdown = document.getElementById("dropdown-menu");
+      if (dropdown && !dropdown.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick);
+    return () => document.removeEventListener("click", handleOutsideClick);
+  }, []);
 
   React.useEffect(() => {
     setValue(selectedValues.join(", "));
@@ -64,6 +81,10 @@ export const DropdownMenu: React.FC<typeDropdownProps> = (props) => {
           >
             <input
               type="checkbox"
+              className={cn(
+                classes.colorSelector,
+                option.color && classes[option.color],
+              )}
               checked={selectedValues.includes(option.label)}
               onChange={(event) => handleCheckboxChange(event, option.label)}
             />

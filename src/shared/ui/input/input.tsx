@@ -17,6 +17,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   return (
     <label className={cn(classes.inputContainer)}>
       <input
+        className={classes.inputArea}
         ref={ref}
         name={name}
         type={type}
