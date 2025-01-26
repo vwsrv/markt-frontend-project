@@ -1,0 +1,101 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20000;
+}
+
+.popup {
+  background-color: #ffffff;
+  height: 100vh;
+  width: 21vw;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+}
+
+.image {
+  width: 100%;
+  height: 40vh;
+  object-fit: contain;
+}
+
+.title {
+  padding-left: 8px;
+}
+
+.closePopupBtn {
+  position: absolute;
+  right: 0;
+}
+
+.colorsList {
+  flex: 1;
+  padding: 10px 8px 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.colorItem {
+  background-color: var(--white-grey-color);
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+  border-radius: 8px;
+
+  p {
+    font-weight: bold;
+  }
+}
+
+.imageContainer {
+  &.red {
+    background-color: var(--red-color);
+  }
+
+  &.blue {
+    background-color: var(--blue-color);
+  }
+
+  &.grey {
+    background-color: var(--grey-color);
+  }
+
+  &.yellow {
+    background-color: var(--yellow-color);
+  }
+
+  &.blueGradient {
+    background: var(--blue-gradient-color);
+  }
+}
+
+.colorIcon {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 5px;
+  padding-right: 8px;
+}
+
+.colorName {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.buttonWrapper {
+  margin: auto;
+
+  width: 284px;
+  height: 45px;
+  padding-bottom: 10px;
+
+  p {
+    font-weight: normal;
+  }
+}

@@ -1,3 +1,9 @@
+export type Color = {
+  id: number | string;
+  name: string;
+  icon: string;
+};
+
 export type BaseProductProps = {
   id?: number | string;
   images?: Record<string, string>;
@@ -21,4 +27,5 @@ export type BaseProductProps = {
     | "four-rings"
     | "one-fork"
     | "two-frodo";
+  colors?: Color[];
 };
