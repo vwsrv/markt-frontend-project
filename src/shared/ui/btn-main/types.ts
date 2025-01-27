@@ -13,5 +13,7 @@ export interface typeButtonProps
     | "profile"
     | "like-red"
     | "remove"
-    | "search";
+    | "search"
+    | "filter";
+  isActive?: boolean;
 }
