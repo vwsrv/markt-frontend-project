@@ -1,0 +1,98 @@
+.image {
+  width: 100%;
+  height: 40vh;
+  object-fit: contain;
+}
+
+.title {
+  padding-left: 8px;
+}
+
+.colorItem {
+  background-color: var(--white-grey-color);
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  p {
+    font-weight: bold;
+  }
+
+  &.selected {
+    background-color: var(--light-grey-color);
+  }
+
+  &:hover {
+    background-color: var(--grey-color);
+    color: var(--white-color);
+  }
+}
+.colorsList {
+  flex: 1;
+  padding: 10px 8px 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.colorItem {
+  background-color: var(--white-grey-color);
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+  border-radius: 8px;
+
+  p {
+    font-weight: bold;
+  }
+}
+
+.imageContainer {
+  &.red {
+    background-color: var(--red-color);
+  }
+
+  &.blue {
+    background-color: var(--blue-color);
+  }
+
+  &.grey {
+    background-color: var(--grey-color);
+  }
+
+  &.yellow {
+    background-color: var(--yellow-color);
+  }
+
+  &.blueGradient {
+    background: var(--blue-gradient-color);
+  }
+}
+
+.colorIcon {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 5px;
+  padding-right: 8px;
+}
+
+.colorName {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.buttonWrapper {
+  margin: auto;
+
+  width: 284px;
+  height: 45px;
+  padding-bottom: 10px;
+
+  p {
+    font-weight: normal;
+  }
+}

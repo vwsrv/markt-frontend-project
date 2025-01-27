@@ -11,13 +11,16 @@ export const ButtonMain: React.FC<typeButtonProps> = (props) => {
     children,
     disabled,
     className,
+    isActive,
     ...otherProps
   } = props;
 
   return (
     <button
       disabled={disabled}
-      className={cn(className, classes.button, classes[variant])}
+      className={cn(className, classes.button, classes[variant], {
+        [classes.active]: isActive,
+      })}
       {...otherProps}
     >
       <p className="inter">{children}</p>

@@ -76,6 +76,26 @@
     }
   }
 
+  &.filter {
+    color: var(--grey-color);
+    border: none;
+    background-color: none;
+    padding: 0;
+
+    p {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    &:hover {
+      color: var(--red-color);
+    }
+
+    &.active {
+      color: var(--red-color);
+    }
+  }
+
   &:not(:disabled):active {
     transform: translateY(1px);
   }
