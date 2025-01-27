@@ -11,15 +11,16 @@ export const Popup: React.FC<PopupProps> = (props) => {
   return (
     <div className={classes.overlay}>
       <div className={classes.popup}>
-      <ButtonMain
-      className={classes.popupButton}
-        type="button"
-        variant="remove"
-        aria-label="Закрыть"
-        disabled={false}
-        onClick={onClose}
-      />
-        {children}</div>
+        <ButtonMain
+          className={classes.popupButton}
+          type="button"
+          variant="remove"
+          aria-label="Закрыть"
+          disabled={false}
+          onClick={onClose}
+        />
+        {children}
+      </div>
     </div>
   );
 };
