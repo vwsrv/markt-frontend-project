@@ -13,7 +13,7 @@ export const PopupFormProduct: React.FC<PopupProps> = (props) => {
 
   const handleColorClick = (colorId: string, colorName: string) => {
     setSelectedColor(colorId);
-    console.log("Выбранный цвет:", colorName, "ID:", colorId); // Вывод в консоль
+    console.log("Выбранный цвет:", colorName, "ID:", colorId);
   };
 
   const handleAddToCart = () => {
