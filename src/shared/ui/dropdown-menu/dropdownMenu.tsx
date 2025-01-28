@@ -10,6 +10,7 @@ export const DropdownMenu: React.FC<typeDropdownProps> = (props) => {
 
   const [isOpen, setIsOpen] = React.useState(false);
   const [selectedValues, setSelectedValues] = React.useState<string[]>([]);
+  const dropdownRef = React.useRef<HTMLInputElement>(null);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -40,8 +41,24 @@ export const DropdownMenu: React.FC<typeDropdownProps> = (props) => {
     });
   };
 
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      setIsOpen(false);
+    }
+  };
+
   React.useEffect(() => {
-    setValue(selectedValues.join(", "));
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  React.useEffect(() => {
+    setValue(selectedValues);
   }, [selectedValues, setValue]);
 
   return (
@@ -52,6 +69,7 @@ export const DropdownMenu: React.FC<typeDropdownProps> = (props) => {
       onClick={toggleDropdown}
       onKeyDown={handleKeyDown}
       tabIndex={0}
+      ref={dropdownRef}
     >
       <button className={cn(classes[variant], classes.button)}>
         <p className="small">{title}</p>

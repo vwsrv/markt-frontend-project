@@ -15,6 +15,12 @@ export const Catalog: React.FC = () => {
   const [categoryImages, setCategoryImages] = React.useState<
     BaseProductProps[]
   >([]);
+  const [selectedCategories, setSelectedCategories] = React.useState<string[]>(
+    [],
+  );
+  const [selectedBrands, setSelectedBrands] = React.useState<string[]>([]);
+  const [selectedStyles, setSelectedStyles] = React.useState<string[]>([]);
+  const [selectedColors, setSelectedColors] = React.useState<string[]>([]);
 
   React.useEffect(() => {
     const loadData = async () => {
@@ -78,6 +84,7 @@ export const Catalog: React.FC = () => {
     .map((style) => ({
       label: style,
     }));
+  console.log(styleListWithLabels);
 
   const colorListWithLabels = colorList
     .filter((color): color is Color => !!color.label)
@@ -87,12 +94,57 @@ export const Catalog: React.FC = () => {
       icon: color.icon || "",
     }));
 
-  const handleSetValue = (selectedValues: string) => {
-    console.log("Выбранные значения:", selectedValues);
+  const handleSetValue = (type: string, values: string[]) => {
+    switch (type) {
+      case "category":
+        setSelectedCategories(values);
+        break;
+      case "brand":
+        setSelectedBrands(values);
+        break;
+      case "style":
+        setSelectedStyles(values);
+        break;
+      case "color":
+        setSelectedColors(values);
+        break;
+      default:
+        break;
+    }
   };
 
+  const filteredProducts = React.useMemo(() => {
+    return categoryImages.filter((item) => {
+      const matchesCategory =
+        selectedCategories.length > 0
+          ? selectedCategories.includes(item.category || "")
+          : true;
+      const matchesBrand =
+        selectedBrands.length > 0
+          ? selectedBrands.includes(item.brand || "")
+          : true;
+      const matchesStyle =
+        selectedStyles.length > 0
+          ? selectedStyles.includes(item.style || "")
+          : true;
+      const matchesColor =
+        selectedColors.length > 0
+          ? item.colors &&
+            item.colors.some((color) => selectedColors.includes(color.label))
+          : true;
+
+      return matchesCategory && matchesBrand && matchesStyle && matchesColor;
+    });
+  }, [
+    categoryImages,
+    selectedCategories,
+    selectedBrands,
+    selectedStyles,
+    selectedColors,
+  ]);
+
   const handleSortByPopularity = () => {
-    const sortedProducts = [...categoryImages].sort((a, b) => {
+    const sortedProducts = [...filteredProducts].sort((a, b) => {
       const popularityA = parseFloat(a.popularity);
       const popularityB = parseFloat(b.popularity);
       return popularityB - popularityA;
@@ -101,21 +153,21 @@ export const Catalog: React.FC = () => {
   };
 
   const handleSortByRating = () => {
-    const sortedProducts = [...categoryImages].sort(
+    const sortedProducts = [...filteredProducts].sort(
       (a, b) => b.rating - a.rating,
     );
     setCategoryImages(sortedProducts);
   };
 
   const handleSortByPriceLowToHigh = () => {
-    const sortedProducts = [...categoryImages].sort(
+    const sortedProducts = [...filteredProducts].sort(
       (a, b) => a.price - b.price,
     );
     setCategoryImages(sortedProducts);
   };
 
   const handleSortByPriceHighToLow = () => {
-    const sortedProducts = [...categoryImages].sort(
+    const sortedProducts = [...filteredProducts].sort(
       (a, b) => b.price - a.price,
     );
     setCategoryImages(sortedProducts);
@@ -123,30 +175,30 @@ export const Catalog: React.FC = () => {
 
   return (
     <div className={cn(classes.catalog)}>
-      <CategoryHeader title="Магия" productQuantity={categoryImages.length}>
+      <CategoryHeader title="Магия" productQuantity={filteredProducts.length}>
         <div className={cn(classes.catalogFilters)}>
           <div className={classes.dropDownPanel}>
             <DropdownMenu
               dataList={categoryListWithLabels}
-              setValue={handleSetValue}
+              setValue={(values) => handleSetValue("category", values)}
               title="Категории"
               variant="default"
             />
             <DropdownMenu
               dataList={brandListWithLabels}
-              setValue={handleSetValue}
+              setValue={(values) => handleSetValue("brand", values)}
               title="Бренд"
               variant="default"
             />
             <DropdownMenu
               dataList={styleListWithLabels}
-              setValue={handleSetValue}
+              setValue={(values) => handleSetValue("style", values)}
               title="Стиль"
               variant="default"
             />
             <DropdownMenu
               dataList={colorListWithLabels}
-              setValue={handleSetValue}
+              setValue={(values) => handleSetValue("color", values)}
               title="Цвет"
               variant="colorSelector"
             />
@@ -161,11 +213,7 @@ export const Catalog: React.FC = () => {
           </div>
         </div>
       </CategoryHeader>
-      <CardList
-        style="category"
-        goodsData={categoryImages || []}
-        type="small"
-      />
+      <CardList style="category" goodsData={filteredProducts} type="small" />
     </div>
   );
 };
