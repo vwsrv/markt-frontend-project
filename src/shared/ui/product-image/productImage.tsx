@@ -7,7 +7,7 @@ import { typeProductImageProps } from "./types";
 import { ButtonMain } from "../btn-main";
 
 export const ProductImage: React.FC<typeProductImageProps> = (props) => {
-  const { saleName, saleValue, productData } = props;
+  const { productData } = props;
 
   return (
     <>
@@ -65,14 +65,14 @@ export const ProductImage: React.FC<typeProductImageProps> = (props) => {
                 )}
               </div>
             )}
-            {saleValue && (
+            {item.saleValue && (
               <span className={cn(classes.saleValue)}>
-                <p className="inter">&ndash; {saleValue}%</p>
+                <p className="inter">&ndash; {item.saleValue}%</p>
               </span>
             )}
-            {saleName && (
+            {item.saleName && (
               <span className={cn(classes.saleImage)}>
-                <p className="inter">{saleName}</p>
+                <p className="inter">{item.saleName}</p>
               </span>
             )}
           </div>
