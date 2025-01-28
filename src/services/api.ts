@@ -37,16 +37,27 @@ export const fetchGoodsImages = async (): Promise<BaseProductProps[]> => {
   return fetchData("data/resource-images-4.json");
 };
 
+export const fetchCategoryImages = async (): Promise<BaseProductProps[]> => {
+  return fetchData("data/resource-images-categories.json");
+};
+
 export const fetchAllData = async () => {
   try {
-    const [categories, images, homeImages, sleepImages, goodsImages] =
-      await Promise.all([
-        fetchCategories(),
-        fetchImages(),
-        fetchForHomeImage(),
-        fetchForSleepImage(),
-        fetchGoodsImages(),
-      ]);
+    const [
+      categories,
+      images,
+      homeImages,
+      sleepImages,
+      goodsImages,
+      categoryImages,
+    ] = await Promise.all([
+      fetchCategories(),
+      fetchImages(),
+      fetchForHomeImage(),
+      fetchForSleepImage(),
+      fetchGoodsImages(),
+      fetchCategoryImages(),
+    ]);
 
     return {
       categories,
@@ -54,6 +65,7 @@ export const fetchAllData = async () => {
       homeImages,
       sleepImages,
       goodsImages,
+      categoryImages,
     };
   } catch (err) {
     console.error("Ошибка при загрузке всех данных", err);
@@ -63,6 +75,7 @@ export const fetchAllData = async () => {
       homeImages: [],
       sleepImages: [],
       goodsImages: [],
+      categoryImages: [],
     };
   }
 };

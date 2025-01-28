@@ -1,7 +1,7 @@
 export type Color = {
-  id: number | string;
-  name: string;
-  icon: string;
+  label: string;
+  icon?: string;
+  color: string;
 };
 
 export type BaseProductProps = {
@@ -10,9 +10,9 @@ export type BaseProductProps = {
   title?: string;
   subtitle?: string;
   src: string;
-  price?: number;
+  price: number;
   oldprice?: number;
-  rating?: number;
+  rating: number;
   likes?: number;
   isLiked?: boolean;
   variant: "red" | "yellow" | "blue" | "grey" | "blueGradient";
@@ -27,5 +27,11 @@ export type BaseProductProps = {
     | "four-rings"
     | "one-fork"
     | "two-frodo";
-  colors?: Color[];
+  colors?: Array<Color>;
+  saleName?: string;
+  saleValue?: string;
+  category?: string;
+  brand?: string;
+  style?: string;
+  popularity: string;
 };

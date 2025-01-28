@@ -6,7 +6,7 @@ import cn from "classnames";
 import classes from "./styles.module.scss";
 
 export const DropdownMenu: React.FC<typeDropdownProps> = (props) => {
-  const { variant, dataList, setValue, value } = props;
+  const { variant, dataList, setValue, title } = props;
 
   const [isOpen, setIsOpen] = React.useState(false);
   const [selectedValues, setSelectedValues] = React.useState<string[]>([]);
@@ -41,18 +41,6 @@ export const DropdownMenu: React.FC<typeDropdownProps> = (props) => {
   };
 
   React.useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
-      const dropdown = document.getElementById("dropdown-menu");
-      if (dropdown && !dropdown.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("click", handleOutsideClick);
-    return () => document.removeEventListener("click", handleOutsideClick);
-  }, []);
-
-  React.useEffect(() => {
     setValue(selectedValues.join(", "));
   }, [selectedValues, setValue]);
 
@@ -66,7 +54,7 @@ export const DropdownMenu: React.FC<typeDropdownProps> = (props) => {
       tabIndex={0}
     >
       <button className={cn(classes[variant], classes.button)}>
-        <p className="small">{value || "Select options"}</p>
+        <p className="small">{title}</p>
       </button>
       <div
         className={cn(classes.options, classes[variant], {

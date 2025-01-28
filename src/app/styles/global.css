@@ -61,6 +61,12 @@ h1 {
   text-decoration-skip-ink: none;
 }
 
+h2 {
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 44px;
+}
+
 h1.alshauss {
   font-family: var(--font-alshaus);
   font-size: 40px;

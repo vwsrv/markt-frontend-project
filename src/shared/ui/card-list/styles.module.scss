@@ -3,7 +3,8 @@
   gap: 45px;
   margin-top: 60px;
 
-  &.ten {
+  &.ten,
+  &.category {
     background: var(--blue-gradient-color);
     color: var(--white-color);
     display: grid;
@@ -26,10 +27,17 @@
       object-fit: cover;
     }
   }
+  &.category {
+    padding-top: 12px;
+    margin: 0;
+    background: none;
+    color: var(--black-color);
+  }
 }
 
 @media (max-width: 720px) {
-  .cardList.ten {
+  .cardList.ten,
+  .сategory {
     padding: 48px 4px 27px;
   }
   .cardList.ten {
@@ -38,19 +46,22 @@
 }
 
 @media (max-width: 600px) {
-  .cardList.ten {
+  .cardList.ten,
+  .сategory {
     grid-template-columns: 1fr 1fr;
     row-gap: 28px;
   }
 
-  .cardList {
+  .cardList,
+  .сategory {
     margin-top: 41px;
     gap: 29px;
   }
 }
 
 @media (max-width: 370px) {
-  .cardList.ten {
+  .cardList.ten,
+  .сategory {
     grid-template-columns: 1fr;
   }
 }

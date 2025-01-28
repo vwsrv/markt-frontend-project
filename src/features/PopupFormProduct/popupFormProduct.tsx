@@ -11,9 +11,9 @@ export const PopupFormProduct: React.FC<PopupProps> = (props) => {
   const { productData, onClose } = props;
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
 
-  const handleColorClick = (colorId: string, colorName: string) => {
-    setSelectedColor(colorId);
-    console.log("Выбранный цвет:", colorName, "ID:", colorId);
+  const handleColorClick = (productId: string, colorName: string) => {
+    setSelectedColor(productId);
+    console.log("Выбранный цвет:", colorName, "ID:", productId);
   };
 
   const handleAddToCart = () => {
@@ -46,20 +46,21 @@ export const PopupFormProduct: React.FC<PopupProps> = (props) => {
       </div>
       <h2 className={classes.title}>Цвет</h2>
       <div className={classes.colorsList}>
-        {productData[0].colors?.map((color) => (
+        {productData[0].colors?.map((color, id) => (
           <div
-            key={color.id}
             className={cn(classes.colorItem, {
-              [classes.selected]: selectedColor === color.id,
+              [classes.selected]: selectedColor === color.label,
             })}
-            onClick={() => handleColorClick(color.id as string, color.name)}
+            onClick={() =>
+              handleColorClick(color.label as string, id.toString())
+            }
           >
             <img
               src={color.icon}
-              alt={color.name}
+              alt={color.label}
               className={classes.colorIcon}
             />
-            <p className="small">{color.name}</p>
+            <p className="small">{color.label}</p>
           </div>
         ))}
       </div>

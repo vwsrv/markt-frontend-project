@@ -1,0 +1,19 @@
+.catalog {
+}
+
+.catalogFilters {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dropDownPanel {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+
+.filtersPanel {
+  align-self: end;
+}

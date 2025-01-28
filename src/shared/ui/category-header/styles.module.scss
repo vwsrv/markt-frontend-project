@@ -1,0 +1,20 @@
+.categoryHeader {
+  display: flex;
+  flex-direction: column;
+  padding: 56px 13px 0;
+}
+
+.titleContainer {
+  display: flex;
+  padding-bottom: 28px;
+}
+
+.categoryTitle {
+  padding-right: 10px;
+}
+
+.categorySubTitle {
+  align-self: end;
+  color: var(--grey-color);
+  line-height: 28px;
+}

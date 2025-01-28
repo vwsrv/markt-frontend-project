@@ -1,15 +1,11 @@
-import { SelectHTMLAttributes } from "react";
-
-export interface Option {
-  value: string;
+type DropdownOption = {
   label: string;
   color?: string;
-}
+};
 
-export interface typeDropdownProps
-  extends Omit<SelectHTMLAttributes<HTMLSelectElement>, "onChange"> {
+export type typeDropdownProps = {
   variant: "default" | "colorSelector";
-  dataList: Option[];
-  setValue: (selectedValue: string) => void;
-  value: string;
-}
+  dataList: DropdownOption[];
+  setValue: (value: string) => void;
+  title: string;
+};
