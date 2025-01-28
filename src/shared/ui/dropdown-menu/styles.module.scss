@@ -26,6 +26,7 @@
   }
 
   &.enabled::after {
+    top: -4px;
     transform: translate(-25px, 60%) rotate(180deg);
   }
 
@@ -62,8 +63,7 @@
   position: absolute;
   display: none;
   background-color: var(--white-color);
-  max-width: 100%;
-  width: 100%;
+  width: auto;
   border-radius: 8px;
   opacity: 0;
   visibility: hidden;
@@ -88,13 +88,15 @@
       background-color: transparent;
       border: 1.5px solid var(--grey-color);
       transition: border-color 0.3s ease;
+      margin-right: 6px;
+      width: 18px;
+      height: 18px;
     }
   }
 
   .colorSelector {
     width: auto;
     appearance: none;
-    padding: 10px;
     border-radius: 5px;
     justify-items: center;
     transition:
@@ -149,6 +151,10 @@
     &.brown {
       background-color: var(--brown-color);
       border-color: var(--brown-color);
+
+      &::after {
+        color: white;
+      }
     }
 
     &.light-gray {
@@ -164,6 +170,10 @@
     &.black {
       background-color: var(--black-color);
       border-color: var(--black-color);
+
+      &::after {
+        color: white;
+      }
     }
 
     &.rainbow {
@@ -174,6 +184,7 @@
     &:checked {
       border: transparent;
       position: relative;
+      border: 1px solid black;
 
       &::after {
         content: "✔";
@@ -195,16 +206,18 @@
 }
 
 .option {
+  cursor: pointer;
   text-transform: capitalize;
   border-radius: 8px;
   border: none;
   background: none;
   text-decoration: none;
   display: flex;
-  padding: 10px 15px 10px;
+  padding: 7.5px 10px 8.5px;
   text-align: left;
   white-space: nowrap;
   transition: background-color 0.3s ease;
+  align-items: center;
 
   &:hover {
     background-color: var(--grey-color);

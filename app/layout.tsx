@@ -17,5 +17,5 @@ createRoot(document.getElementById("root")!).render(
       </Routes>
       <Footer companyEmail="vissar2016@gmail.com" companyName="2025 Магаз" />
     </BrowserRouter>
-  </StrictMode>
+  </StrictMode>,
 );
