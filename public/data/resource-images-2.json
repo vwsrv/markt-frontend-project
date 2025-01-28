@@ -10,34 +10,7 @@
       "1": "/images/resource-images/69.png"
     },
     "variant": "yellow",
-    "layout": "ten",
-    "colors": [
-      {
-        "id": 1,
-        "name": "красивый",
-        "icon": "/images/icons/beautiful.png"
-      },
-      {
-        "id": 2,
-        "name": "подшофе",
-        "icon": "/images/icons/tipsy.png"
-      },
-      {
-        "id": 3,
-        "name": "паладиновый",
-        "icon": "/images/icons/paladin.png"
-      },
-      {
-        "id": 4,
-        "name": "артериальный",
-        "icon": "/images/icons/arterial.png"
-      },
-      {
-        "id": 5,
-        "name": "спорный",
-        "icon": "/images/icons/controversial.png"
-      }
-    ]
+    "layout": "ten"
   },
   {
     "id": 15,

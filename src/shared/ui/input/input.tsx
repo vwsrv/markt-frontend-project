@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef } from "react";
 import classes from "./styles.module.scss";
 import cn from "classnames";

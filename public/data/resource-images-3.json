@@ -12,7 +12,9 @@
       "2": "/images/resource-images/14.png"
     },
     "variant": "red",
-    "layout": "wideAndShort"
+    "layout": "wideAndShort",
+    "saleName": "Осенний сейл",
+    "saleValue": "50"
   },
   {
     "id": 25,
@@ -24,7 +26,9 @@
     "likes": 8492,
     "src": "/images/resource-images/17.png",
     "variant": "blue",
-    "layout": "one"
+    "layout": "one",
+    "saleName": "Осенний сейл",
+    "saleValue": "50"
   },
   {
     "id": 26,
@@ -41,7 +45,9 @@
       "4": "/images/resource-images/24.png"
     },
     "variant": "grey",
-    "layout": "four"
+    "layout": "four",
+    "saleName": "Осенний сейл",
+    "saleValue": "50"
   },
   {
     "id": 27,
@@ -56,7 +62,9 @@
       "2": "/images/resource-images/9.png"
     },
     "variant": "yellow",
-    "layout": "two-tshirts"
+    "layout": "two-tshirts",
+    "saleName": "Осенний сейл",
+    "saleValue": "50"
   },
   {
     "id": 28,
@@ -68,7 +76,9 @@
     "likes": 8492,
     "src": "/images/resource-images/6.png",
     "variant": "one",
-    "layout": "red"
+    "layout": "red",
+    "saleName": "Осенний сейл",
+    "saleValue": "50"
   },
   {
     "id": 29,
@@ -83,6 +93,8 @@
       "2": "/images/resource-images/36.png"
     },
     "variant": "grey",
-    "layout": "two-fake-rings"
+    "layout": "two-fake-rings",
+    "saleName": "Осенний сейл",
+    "saleValue": "50"
   }
 ]

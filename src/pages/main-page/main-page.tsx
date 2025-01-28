@@ -75,53 +75,23 @@ export const MainPage: React.FC = () => {
           console.log("Клик на категорию");
         }}
       />
-      <CardList
-        goodsData={images || []}
-        saleName="Осенний Сейл"
-        saleValue="50"
-        style="default"
-        type="default"
-      />
+      <CardList goodsData={images || []} style="default" type="default" />
       <SectionTitle
         src={forHomeImage}
         alt="Товары для дома"
         variant="category"
       />
-      <CardList
-        goodsData={forHomeImages || []}
-        style="ten"
-        type="small"
-        saleName=""
-        saleValue=""
-      />
+      <CardList goodsData={forHomeImages || []} style="ten" type="small" />
       <SectionTitle src={saleImage} alt="Скидка" variant="sale" />
-      <CardList
-        goodsData={promoImages || []}
-        style="default"
-        type="default"
-        saleName="Осенний Сейл"
-        saleValue="50"
-      />
+      <CardList goodsData={promoImages || []} style="default" type="default" />
       <SectionTitle
         src={forSleepImage}
         alt="Товары для сна"
         variant="category-sleep"
       />
-      <CardList
-        goodsData={forHomeImages || []}
-        style="ten"
-        type="small"
-        saleName=""
-        saleValue=""
-      />
+      <CardList goodsData={forHomeImages || []} style="ten" type="small" />
       <SectionTitle src={goodsImage} alt="Сокровища" variant="treasures" />
-      <CardList
-        goodsData={goodsImages || []}
-        style="default"
-        type="default"
-        saleName="Осенний Сейл"
-        saleValue="50"
-      />
+      <CardList goodsData={goodsImages || []} style="default" type="default" />
     </div>
   );
 };
