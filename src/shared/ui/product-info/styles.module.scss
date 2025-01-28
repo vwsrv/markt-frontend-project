@@ -86,7 +86,7 @@
     flex-direction: row;
 
     .oldPrice {
-      color: var(--light-grey-color);
+      color: var(--grey-color);
       align-self: end;
       text-decoration: line-through;
     }
@@ -184,7 +184,7 @@
       padding: 0;
       max-width: 259px;
       .productPriceInfo {
-        margin-right: 12px;
+        margin-right: 11px;
       }
 
       @media (max-width: 1160px) {
@@ -229,7 +229,6 @@
 
     .titleTypeSmall {
       text-align: left;
-      font-weight: normal;
       height: 14px;
       padding-bottom: 14px;
       display: block;
