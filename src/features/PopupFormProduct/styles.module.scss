@@ -1,53 +1,20 @@
 .image {
   width: 100%;
-  height: 40vh;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
 }
 
 .title {
   padding-left: 8px;
 }
 
-.colorItem {
-  background-color: var(--white-grey-color);
-  display: flex;
-  align-items: center;
-  margin-bottom: 2px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-
-  p {
-    font-weight: bold;
-  }
-
-  &.selected {
-    background-color: var(--light-grey-color);
-  }
-
-  &:hover {
-    background-color: var(--grey-color);
-    color: var(--white-color);
-  }
-}
 .colorsList {
   flex: 1;
   padding: 10px 8px 0;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-}
-
-.colorItem {
-  background-color: var(--white-grey-color);
-  display: flex;
-  align-items: center;
-  margin-bottom: 2px;
-  border-radius: 8px;
-
-  p {
-    font-weight: bold;
-  }
+  align-content: center;
 }
 
 .imageContainer {
@@ -72,12 +39,113 @@
   }
 }
 
+.colorItem {
+  position: relative;
+  background-color: var(--white-grey-color);
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  p {
+    font-weight: bold;
+  }
+
+  &.selected {
+    background-color: var(--light-grey-color);
+  }
+
+  &:hover {
+    background-color: var(--grey-color);
+    color: var(--white-color);
+  }
+}
+
 .colorIcon {
+  position: relative;
   width: 40px;
   height: 40px;
-  object-fit: cover;
   border-radius: 5px;
-  padding-right: 8px;
+  margin-right: 8px;
+  overflow: hidden;
+
+  img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    mix-blend-mode: color;
+    opacity: 0.6;
+  }
+
+  &.red::before {
+    background-color: var(--red-color);
+  }
+
+  &.orange::before {
+    background-color: var(--orange-color);
+  }
+
+  &.pure-yellow::before {
+    background-color: var(--pure-yellow-color);
+  }
+
+  &.green::before {
+    background-color: var(--green-color);
+  }
+
+  &.light-green::before {
+    background-color: var(--light-green-color);
+  }
+
+  &.light-blue::before {
+    background-color: var(--light-blue-color);
+  }
+
+  &.pure-blue::before {
+    background-color: var(--pure-blue-color);
+  }
+
+  &.purple::before {
+    background-color: var(--purple-color);
+  }
+
+  &.pink::before {
+    background-color: var(--pink-color);
+  }
+
+  &.brown::before {
+    background-color: var(--brown-color);
+  }
+
+  &.light-gray::before {
+    background-color: var(--almost-grey-color);
+  }
+
+  &.gray::before {
+    background-color: var(--pure-gray-color);
+  }
+
+  &.black::before {
+    background-color: var(--black-color);
+  }
+
+  &.rainbow::before {
+    background: var(--rainbow-color);
+  }
 }
 
 .colorName {
@@ -87,7 +155,6 @@
 
 .buttonWrapper {
   margin: auto;
-
   width: 284px;
   height: 45px;
   padding-bottom: 10px;
@@ -95,4 +162,11 @@
   p {
     font-weight: normal;
   }
+}
+
+.error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 8px;
+  text-align: center;
 }

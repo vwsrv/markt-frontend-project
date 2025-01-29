@@ -13,7 +13,7 @@ createRoot(document.getElementById("root")!).render(
       <Header companyName="Магаз" />
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="catalog" element={<Catalog />} />
+        <Route path="/catalog" element={<Catalog />} />
       </Routes>
       <Footer companyEmail="vissar2016@gmail.com" companyName="2025 Магаз" />
     </BrowserRouter>

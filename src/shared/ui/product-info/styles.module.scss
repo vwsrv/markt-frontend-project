@@ -171,7 +171,8 @@
     height: 54px;
   }
 
-  &.small {
+  &.small,
+  &.smallTypeBlack {
     width: 100%;
 
     .buttonContainer {
@@ -288,7 +289,6 @@
       overflow: hidden;
       display: -webkit-box;
       -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
       text-overflow: ellipsis;
     }
 

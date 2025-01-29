@@ -1,38 +1,33 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import classes from "./styles.module.scss";
 import cn from "classnames";
 import { typeProductInfoProps } from "./types";
 import { ButtonMain } from "../btn-main";
 import { ButtonCounter } from "../btn-counter";
+import { useMediaQuery } from "../../lib/useMediaQuery";
 
 export const ProductInfo: React.FC<typeProductInfoProps> = (props) => {
-  const { productData, type } = props;
+  const { productData, type, onAddToCartClick } = props;
 
   const [clickedItems, setClickedItems] = React.useState<{
     [id: string]: number;
   }>({});
 
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 1160);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const isMobile = useMediaQuery("(max-width: 720px)");
 
   const handleAddToCart = (id: string) => {
-    setClickedItems((prev) => ({
-      ...prev,
-      [id]: (prev[id] || 0) + 1,
-    }));
+    const product = productData.find((item) => item.id === id);
+    if (product && product.colors && product.colors.length > 2) {
+      onAddToCartClick();
+    } else {
+      setClickedItems((prev) => ({
+        ...prev,
+        [id]: (prev[id] || 0) + 1,
+      }));
+    }
   };
 
   const handleIncrease = (id: string) => {

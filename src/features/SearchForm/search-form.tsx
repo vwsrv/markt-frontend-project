@@ -109,7 +109,14 @@ export const SearchForm: React.FC<InputProps> = (props) => {
   const handleCategoryClick = (category: string) => {
     updateSearchHistory(category);
     setIsOpen(false);
-    navigate(`/category/${category}`);
+    navigate(`/catalog/${category}`);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    updateSearchHistory(searchQuery);
+    setIsOpen(false);
+    navigate(`/catalog?query=${searchQuery}`);
   };
 
   const handleProductClick = (product: BaseProductProps) => {
@@ -160,10 +167,7 @@ export const SearchForm: React.FC<InputProps> = (props) => {
       className={cn(classes.searchWrapper)}
       ref={searchFormRef}
       onSubmit={(e) => {
-        e.preventDefault();
-        updateSearchHistory(searchQuery);
-        setIsOpen(false);
-        navigate(`/search?query=${searchQuery}`);
+        handleSubmit(e);
       }}
     >
       {isMobile && !isOpen ? (
@@ -212,7 +216,7 @@ export const SearchForm: React.FC<InputProps> = (props) => {
                   key={index}
                   link={category.link}
                   name={category.name}
-                  handler={() => handleCategoryClick(category.name)}
+                  handler={() => navigate("/catalog")}
                 />
               ))}
             </div>

@@ -1,15 +1,38 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./styles.module.scss";
 import { PopupProps } from "./types";
 import { ButtonMain } from "../btn-main";
 
 export const Popup: React.FC<PopupProps> = (props) => {
   const { children, onClose } = props;
+  const popupRef = React.useRef<HTMLDivElement>(null);
+
+  const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (event.target === popupRef.current) {
+      onClose();
+    }
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onClose]);
 
   return (
-    <div className={classes.overlay}>
+    <div
+      className={classes.overlay}
+      ref={popupRef}
+      onClick={handleOverlayClick}
+    >
       <div className={classes.popup}>
         <ButtonMain
           className={classes.popupButton}

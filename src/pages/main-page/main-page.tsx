@@ -22,6 +22,7 @@ import saleImage from "../../shared/ui/sectionTitle/images/sale.svg";
 import goodsImage from "../../shared/ui/sectionTitle/images/goods.svg";
 import promoImage from "../../shared/ui/promo-banner/images/promo-banner.svg";
 import promoImageMobile from "../../shared/ui/promo-banner/images/promo-banner-small.svg";
+import { useNavigate } from "react-router-dom";
 
 export const MainPage: React.FC = () => {
   const [images, setImages] = React.useState<BaseProductProps[]>([]);
@@ -34,6 +35,7 @@ export const MainPage: React.FC = () => {
   );
   const [promoImages, setPromoImages] = React.useState<BaseProductProps[]>([]);
   const [goodsImages, setGoodsImages] = React.useState<BaseProductProps[]>([]);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     const loadData = async () => {
@@ -72,7 +74,7 @@ export const MainPage: React.FC = () => {
       <CategoryList
         categoryData={categories || []}
         handler={() => {
-          console.log("Клик на категорию");
+          navigate("/catalog");
         }}
       />
       <CardList goodsData={images || []} style="default" type="default" />

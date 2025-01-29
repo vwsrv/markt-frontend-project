@@ -10,13 +10,20 @@ import cn from "classnames";
 export const PopupFormProduct: React.FC<PopupProps> = (props) => {
   const { productData, onClose } = props;
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleColorClick = (productId: string, colorName: string) => {
-    setSelectedColor(productId);
-    console.log("Выбранный цвет:", colorName, "ID:", productId);
+  const handleColorClick = (colorName: string) => {
+    setSelectedColor(colorName);
+    setError(null);
+    console.log("Выбранный цвет:", colorName);
   };
 
   const handleAddToCart = () => {
+    if (!selectedColor) {
+      setError("Пожалуйста, выберите цвет");
+      return;
+    }
+
     const product = productData[0];
     const cartItem = {
       productId: product.id,
@@ -46,25 +53,22 @@ export const PopupFormProduct: React.FC<PopupProps> = (props) => {
       </div>
       <h2 className={classes.title}>Цвет</h2>
       <div className={classes.colorsList}>
-        {productData[0].colors?.map((color, id) => (
+        {productData[0].colors?.map((item, id) => (
           <div
+            key={id}
             className={cn(classes.colorItem, {
-              [classes.selected]: selectedColor === color.label,
+              [classes.selected]: selectedColor === item.label,
             })}
-            onClick={() =>
-              handleColorClick(color.label as string, id.toString())
-            }
+            onClick={() => handleColorClick(item.label)}
           >
-            <img
-              src={color.icon}
-              alt={color.label}
-              className={classes.colorIcon}
-            />
-            <p className="small">{color.label}</p>
+            <div className={cn(classes.colorIcon, classes[item.color])}>
+              <img src={item.icon} alt={item.label} />
+            </div>
+            <p className="small">{item.label}</p>
           </div>
         ))}
       </div>
-
+      {error && <p className={classes.error}>{error}</p>}
       <div className={classes.buttonWrapper}>
         <ButtonMain variant="red" onClick={handleAddToCart}>
           Добавить в корзину

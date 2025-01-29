@@ -415,6 +415,11 @@
   &.ten {
     height: 376px;
     width: 280px;
+    img {
+      width: 100%;
+      max-width: 100%;
+      object-fit: cover;
+    }
 
     @media (max-width: 720px) {
       &.ten {

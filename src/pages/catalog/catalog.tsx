@@ -10,8 +10,11 @@ import { fetchCategoryImages } from "../../services/api";
 import { DropdownMenu } from "../../shared/ui/dropdown-menu/dropdownMenu";
 import { Color } from "../../types/productTypes";
 import { ProductFilter } from "../../shared/ui/filter/filter";
+import { useSearchParams } from "react-router-dom";
 
 export const Catalog: React.FC = () => {
+  const [searchParams] = useSearchParams();
+  const searchQuery = searchParams.get("query") || "";
   const [categoryImages, setCategoryImages] = React.useState<
     BaseProductProps[]
   >([]);
@@ -84,7 +87,6 @@ export const Catalog: React.FC = () => {
     .map((style) => ({
       label: style,
     }));
-  console.log(styleListWithLabels);
 
   const colorListWithLabels = colorList
     .filter((color): color is Color => !!color.label)
@@ -114,29 +116,44 @@ export const Catalog: React.FC = () => {
   };
 
   const filteredProducts = React.useMemo(() => {
-    return categoryImages.filter((item) => {
-      const matchesCategory =
-        selectedCategories.length > 0
-          ? selectedCategories.includes(item.category || "")
-          : true;
-      const matchesBrand =
-        selectedBrands.length > 0
-          ? selectedBrands.includes(item.brand || "")
-          : true;
-      const matchesStyle =
-        selectedStyles.length > 0
-          ? selectedStyles.includes(item.style || "")
-          : true;
-      const matchesColor =
-        selectedColors.length > 0
-          ? item.colors &&
-            item.colors.some((color) => selectedColors.includes(color.label))
-          : true;
+    let filtered = categoryImages;
 
-      return matchesCategory && matchesBrand && matchesStyle && matchesColor;
-    });
+    if (searchQuery) {
+      filtered = filtered.filter((item) =>
+        (item.category ?? "").toLowerCase().includes(searchQuery.toLowerCase()),
+      );
+    }
+
+    if (selectedCategories.length > 0) {
+      filtered = filtered.filter((item) =>
+        selectedCategories.includes(item.category || ""),
+      );
+    }
+
+    if (selectedBrands.length > 0) {
+      filtered = filtered.filter((item) =>
+        selectedBrands.includes(item.brand || ""),
+      );
+    }
+
+    if (selectedStyles.length > 0) {
+      filtered = filtered.filter((item) =>
+        selectedStyles.includes(item.style || ""),
+      );
+    }
+
+    if (selectedColors.length > 0) {
+      filtered = filtered.filter(
+        (item) =>
+          item.colors &&
+          item.colors.some((color) => selectedColors.includes(color.label)),
+      );
+    }
+
+    return filtered;
   }, [
     categoryImages,
+    searchQuery,
     selectedCategories,
     selectedBrands,
     selectedStyles,
@@ -173,9 +190,12 @@ export const Catalog: React.FC = () => {
     setCategoryImages(sortedProducts);
   };
 
-  return (
+  return filteredProducts.length > 0 ? (
     <div className={cn(classes.catalog)}>
-      <CategoryHeader title="Магия" productQuantity={filteredProducts.length}>
+      <CategoryHeader
+        title={searchQuery ? searchQuery : "Каталог товаров"}
+        productQuantity={filteredProducts.length}
+      >
         <div className={cn(classes.catalogFilters)}>
           <div className={classes.dropDownPanel}>
             <DropdownMenu
@@ -215,5 +235,14 @@ export const Catalog: React.FC = () => {
       </CategoryHeader>
       <CardList style="category" goodsData={filteredProducts} type="small" />
     </div>
+  ) : (
+    <CategoryHeader
+      title={searchQuery ? searchQuery : "Каталог товаров"}
+      productQuantity={filteredProducts.length}
+    >
+      <p className={cn(classes.notFoundMessage, "medium")}>
+        Таких товаров у нас нет :^(
+      </p>
+    </CategoryHeader>
   );
 };
