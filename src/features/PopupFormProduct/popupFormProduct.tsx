@@ -37,7 +37,7 @@ export const PopupFormProduct: React.FC<PopupProps> = (props) => {
   };
 
   return (
-    <Popup onClose={onClose}>
+    <Popup onClose={onClose} isMounted={true}>
       <div
         className={cn(classes.imageContainer, classes[productData[0].variant])}
       >

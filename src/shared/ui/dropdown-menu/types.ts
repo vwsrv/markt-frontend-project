@@ -1,4 +1,4 @@
-type DropdownOption = {
+export type DropdownOption = {
   label: string;
   color?: string;
 };

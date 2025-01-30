@@ -13,6 +13,7 @@
 
     &::after {
       content: url("../dropdown-menu/images/arrow.svg");
+      transition: transform 0.3s ease;
     }
   }
 
@@ -31,13 +32,20 @@
 
   &:hover {
     background-color: var(--white-grey-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
   &.popup,
   &.popupColor {
+    box-shadow: none;
     &::after {
-      position: sticky;
+      position: relative;
       display: none;
+      padding: 0 12px 0;
+    }
+
+    &:hover {
+      background-color: var(--white-color);
     }
   }
 }
@@ -56,10 +64,13 @@
   background: none;
   height: 100%;
   width: 100%;
-  transition: color 0.3s ease;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
 
   &:hover {
     color: var(--primary-color);
+    background-color: rgba(0, 0, 0, 0.05);
   }
 }
 
@@ -77,7 +88,8 @@
   transform: translateY(-10px);
   transition:
     visibility 0.3s ease,
-    transform 0.3s ease;
+    transform 0.3s ease,
+    opacity 0.3s ease;
 
   &.enabled {
     display: flex;
@@ -102,7 +114,9 @@
     input {
       background-color: transparent;
       border: 1.5px solid var(--grey-color);
-      transition: border-color 0.3s ease;
+      transition:
+        border-color 0.3s ease,
+        background-color 0.3s ease;
       margin-right: 6px;
       width: 18px;
       height: 18px;
@@ -133,7 +147,12 @@
     justify-items: center;
     transition:
       background-color 0.3s ease,
-      border-color 0.3s ease;
+      border-color 0.3s ease,
+      transform 0.2s ease; // Плавность для transform
+
+    &:active {
+      transform: scale(0.95); // Эффект нажатия
+    }
 
     &.red {
       background-color: var(--red-color);
@@ -226,6 +245,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        transition: opacity 0.3s ease;
       }
     }
 
@@ -235,10 +255,27 @@
       }
     }
   }
+
+  &.popup,
+  &.popupColor {
+    gap: 4px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .inputItem {
+      border: none;
+
+      &::after {
+        content: "";
+      }
+    }
+  }
 }
 
 .option {
   cursor: pointer;
+  display: flex;
+  align-items: center;
   text-transform: capitalize;
   border-radius: 8px;
   border: none;
@@ -248,8 +285,9 @@
   padding: 7.5px 10px 8.5px;
   text-align: left;
   white-space: nowrap;
-  transition: background-color 0.3s ease;
-  align-items: center;
+  transition:
+    background-color 0.3s ease,
+    opacity 0.3s ease;
 
   &:hover {
     background-color: var(--grey-color);
@@ -259,8 +297,24 @@
     padding: 0;
   }
 
-  &.popupColor,
   &.popup {
     background-color: var(--white-grey-color);
+
+    &.checked {
+      background-color: var(--grey-color);
+    }
+
+    p {
+      margin-left: -25px;
+    }
+  }
+
+  &.popupColor {
+    background-color: var(--white-color);
+
+    &.checked {
+      opacity: 0.7;
+      filter: brightness(0.8);
+    }
   }
 }

@@ -11,7 +11,6 @@ import { DropdownMenu } from "../../shared/ui/dropdown-menu/dropdownMenu";
 import { Color } from "../../types/productTypes";
 import { ProductFilter } from "../../shared/ui/filter/filter";
 import { useSearchParams } from "react-router-dom";
-import { Popup } from "../../shared/ui/popup";
 
 export const Catalog: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -244,33 +243,6 @@ export const Catalog: React.FC = () => {
       <p className={cn(classes.notFoundMessage, "medium")}>
         {`Таких товаров у нас нет :^(`}
       </p>
-
-      <Popup>
-        <DropdownMenu
-          dataList={categoryListWithLabels}
-          setValue={(values) => handleSetValue("category", values)}
-          title="Категории"
-          variant="popup"
-        />
-        <DropdownMenu
-          dataList={brandListWithLabels}
-          setValue={(values) => handleSetValue("brand", values)}
-          title="Бренд"
-          variant="popup"
-        />
-        <DropdownMenu
-          dataList={styleListWithLabels}
-          setValue={(values) => handleSetValue("style", values)}
-          title="Стиль"
-          variant="popup"
-        />
-        <DropdownMenu
-          dataList={colorListWithLabels}
-          setValue={(values) => handleSetValue("color", values)}
-          title="Цвет"
-          variant="popupColor"
-        />
-      </Popup>
     </CategoryHeader>
   );
 };

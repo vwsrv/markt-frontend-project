@@ -16,7 +16,9 @@ export const DropdownMenu: React.FC<typeDropdownProps> = (props) => {
   const isMobile = useMediaQuery("(max-width: 675px)");
 
   const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+    if (!isMobile) {
+      setIsOpen(!isOpen);
+    }
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -89,7 +91,9 @@ export const DropdownMenu: React.FC<typeDropdownProps> = (props) => {
         {dataList.map((option, index) => (
           <label
             key={index}
-            className={cn(classes.option, classes[variant])}
+            className={cn(classes.option, classes[variant], {
+              [classes.checked]: selectedValues.includes(option.label),
+            })}
             onClick={(event) => event.stopPropagation()}
           >
             <input
