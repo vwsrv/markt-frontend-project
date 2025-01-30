@@ -4,6 +4,7 @@ import React from "react";
 import { typeDropdownProps } from "./types";
 import cn from "classnames";
 import classes from "./styles.module.scss";
+import { useMediaQuery } from "../../lib/useMediaQuery";
 
 export const DropdownMenu: React.FC<typeDropdownProps> = (props) => {
   const { variant, dataList, setValue, title } = props;
@@ -11,6 +12,8 @@ export const DropdownMenu: React.FC<typeDropdownProps> = (props) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [selectedValues, setSelectedValues] = React.useState<string[]>([]);
   const dropdownRef = React.useRef<HTMLInputElement>(null);
+
+  const isMobile = useMediaQuery("(max-width: 675px)");
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -71,9 +74,13 @@ export const DropdownMenu: React.FC<typeDropdownProps> = (props) => {
       tabIndex={0}
       ref={dropdownRef}
     >
-      <button className={cn(classes[variant], classes.button)}>
-        <p className="small">{title}</p>
-      </button>
+      {!isMobile ? (
+        <button className={cn(classes[variant], classes.button)}>
+          <p className="small">{title}</p>
+        </button>
+      ) : (
+        <h3>{title}</h3>
+      )}
       <div
         className={cn(classes.options, classes[variant], {
           [classes.enabled]: isOpen,
@@ -88,7 +95,7 @@ export const DropdownMenu: React.FC<typeDropdownProps> = (props) => {
             <input
               type="checkbox"
               className={cn(
-                classes.colorSelector,
+                classes.inputItem,
                 option.color && classes[option.color],
               )}
               checked={selectedValues.includes(option.label)}

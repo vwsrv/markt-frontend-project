@@ -4,7 +4,7 @@ type DropdownOption = {
 };
 
 export type typeDropdownProps = {
-  variant: "default" | "colorSelector";
+  variant: "default" | "popupColor" | "popup";
   dataList: DropdownOption[];
   setValue: (value: string[]) => void;
   title?: string;

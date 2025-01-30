@@ -1,7 +1,6 @@
 .selectbox {
   position: relative;
   cursor: pointer;
-  height: 44px;
   border-radius: 8px;
   transition:
     background-color 0.3s ease,
@@ -32,6 +31,14 @@
 
   &:hover {
     background-color: var(--white-grey-color);
+  }
+
+  &.popup,
+  &.popupColor {
+    &::after {
+      position: sticky;
+      display: none;
+    }
   }
 }
 
@@ -80,10 +87,18 @@
     transform: translateY(0);
   }
 
-  &.colorSelector,
-  &.default {
-    background-color: var(--white-grey-color);
+  &.popup,
+  &.popupColor {
+    display: flex;
+    visibility: visible;
+    flex-wrap: wrap;
+    position: relative;
+    opacity: 1;
+    transform: none;
+  }
 
+  &.popup,
+  &.default {
     input {
       background-color: transparent;
       border: 1.5px solid var(--grey-color);
@@ -94,7 +109,24 @@
     }
   }
 
-  .colorSelector {
+  &.popupColor {
+    input {
+      width: 44px;
+      height: 44px;
+    }
+
+    p {
+      display: none;
+    }
+  }
+
+  &.popup {
+    gap: 4px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .inputItem {
     width: auto;
     appearance: none;
     border-radius: 5px;
@@ -221,5 +253,14 @@
 
   &:hover {
     background-color: var(--grey-color);
+  }
+
+  &.popupColor {
+    padding: 0;
+  }
+
+  &.popupColor,
+  &.popup {
+    background-color: var(--white-grey-color);
   }
 }
