@@ -7,8 +7,12 @@
     transform 0.3s ease;
   width: fit-content;
 
-  &.colorSelector,
-  &.default {
+  @media (max-width: 675px) {
+    margin-top: 9px;
+  }
+
+  &.default,
+  &.colors {
     background-color: var(--white-grey-color);
 
     &::after {
@@ -35,6 +39,18 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
+  &.price {
+    background-color: var(--white-grey-color);
+  }
+
+  @media (max-width: 675px) {
+    &.price {
+      background-color: var(--white-color);
+      box-shadow: none;
+      width: 100%;
+    }
+  }
+
   &.popup,
   &.popupColor {
     box-shadow: none;
@@ -43,35 +59,25 @@
       display: none;
       padding: 0 12px 0;
     }
+    h3 {
+      font-size: 14px;
+    }
 
     &:hover {
       background-color: var(--white-color);
     }
   }
+
+  @media (max-width: 375px) {
+    max-width: 351px;
+  }
 }
 
-.button {
-  cursor: pointer;
-  padding: 10.5px 38px 12.5px 8px;
-  text-align: left;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  outline: none;
-  position: relative;
-  color: var(--black-color);
-  border: none;
-  background: none;
-  height: 100%;
-  width: 100%;
-  transition:
-    color 0.3s ease,
-    background-color 0.3s ease;
-
-  &:hover {
-    color: var(--primary-color);
-    background-color: rgba(0, 0, 0, 0.05);
-  }
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
 }
 
 .options {
@@ -80,7 +86,7 @@
   margin-top: 3px;
   position: absolute;
   display: none;
-  background-color: var(--white-color);
+  background-color: var(--white-grey-color);
   width: auto;
   border-radius: 8px;
   opacity: 0;
@@ -99,18 +105,48 @@
     transform: translateY(0);
   }
 
+  &.colors {
+    right: 0;
+  }
+
   &.popup,
   &.popupColor {
-    display: flex;
-    visibility: visible;
-    flex-wrap: wrap;
+    background-color: var(--white-color);
     position: relative;
+    visibility: visible;
     opacity: 1;
     transform: none;
   }
 
+  @media (max-width: 675px) {
+    &.price {
+      background-color: var(--white-color);
+      position: relative;
+      visibility: visible;
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   &.popup,
-  &.default {
+  &.popupColor {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    transform: none;
+  }
+
+  &.price {
+    right: 0;
+
+    label {
+      display: none;
+    }
+  }
+
+  &.popup,
+  &.default,
+  &.colors {
     input {
       background-color: transparent;
       border: 1.5px solid var(--grey-color);
@@ -148,10 +184,10 @@
     transition:
       background-color 0.3s ease,
       border-color 0.3s ease,
-      transform 0.2s ease; // Плавность для transform
+      transform 0.2s ease;
 
     &:active {
-      transform: scale(0.95); // Эффект нажатия
+      transform: scale(0.95);
     }
 
     &.red {
@@ -249,15 +285,14 @@
       }
     }
 
-    &.light-gray {
-      &:hover {
-        background-color: var(--light-grey-color);
-      }
+    &:hover {
+      background-color: transparent;
     }
   }
 
   &.popup,
-  &.popupColor {
+  &.popupColor,
+  &.price {
     gap: 4px;
     display: flex;
     flex-wrap: wrap;
@@ -290,7 +325,7 @@
     opacity 0.3s ease;
 
   &:hover {
-    background-color: var(--grey-color);
+    background-color: var(--light-grey-color);
   }
 
   &.popupColor {
@@ -309,6 +344,10 @@
     }
   }
 
+  .popupTitle {
+    font-size: 43px;
+  }
+
   &.popupColor {
     background-color: var(--white-color);
 
@@ -316,5 +355,48 @@
       opacity: 0.7;
       filter: brightness(0.8);
     }
+  }
+
+  @media (max-width: 475px) {
+    p {
+      font-size: 15px;
+    }
+  }
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  gap: 3px;
+
+  p {
+    color: var(--grey-color);
+    max-width: 351px;
+  }
+
+  @media (max-width: 675px) {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.priceInput {
+  font-family: var(--font-inter);
+  font-weight: 550;
+  color: var(--black-color);
+  outline: none;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--grey-color);
+  max-width: 63px;
+
+  ::placeholder {
+    color: var(--gery-color);
+  }
+
+  @media (max-width: 675px) {
+    width: 100%;
+    max-width: 100%;
   }
 }

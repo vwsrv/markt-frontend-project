@@ -53,14 +53,17 @@
     font-weight: bold;
   }
 
-  &.selected {
-    background-color: var(--light-grey-color);
-  }
-
-  &:hover {
+  &:not(.selected):hover {
     background-color: var(--grey-color);
     color: var(--white-color);
   }
+}
+
+/* Исправленный селектор */
+.colorItem.selected {
+  background-color: var(
+    --grey-color
+  ) !important; /* Убедитесь, что стиль применяется */
 }
 
 .colorIcon {

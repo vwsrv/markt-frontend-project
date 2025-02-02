@@ -76,6 +76,7 @@
     }
   }
 
+  &.filterReset,
   &.filter {
     color: var(--grey-color);
     border: none;
@@ -86,13 +87,65 @@
       font-size: 15px;
       font-weight: 500;
     }
+  }
 
+  &.filter {
     &:hover {
       color: var(--red-color);
     }
 
     &.active {
       color: var(--red-color);
+    }
+  }
+
+  &.filterReset {
+    p {
+      font-size: 14px;
+      line-height: 15px;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &.filterIcon {
+    background-image: url("./images/btn-filter.svg");
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: inherit;
+  }
+
+  &.dropdown {
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 10.5px 38px 12.5px 8px;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    outline: none;
+    position: relative;
+    color: var(--black-color);
+    border: none;
+    background: none;
+    height: 100%;
+    width: 100%;
+    transition:
+      color 0.3s ease,
+      background-color 0.3s ease;
+
+    &:hover {
+      color: var(--primary-color);
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    p {
+      font-size: 15px;
+      font-weight: 550;
     }
   }
 

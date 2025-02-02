@@ -2,11 +2,15 @@
   display: flex;
   flex-direction: column;
   padding: 56px 13px 0;
+
+  @media (max-width: 675px) {
+    padding: 12px 12px 0;
+  }
 }
 
 .titleContainer {
   display: flex;
-  padding-bottom: 28px;
+  padding-bottom: 16px;
 }
 
 .categoryTitle {
@@ -16,5 +20,9 @@
 .categorySubTitle {
   align-self: end;
   color: var(--grey-color);
-  line-height: 30px;
+  line-height: 29px;
+
+  @media (max-width: 675px) {
+    display: none;
+  }
 }

@@ -9,17 +9,20 @@ import cn from "classnames";
 
 export const PopupFormProduct: React.FC<PopupProps> = (props) => {
   const { productData, onClose } = props;
-  const [selectedColor, setSelectedColor] = useState<string | null>(null);
+  const [selectedColors, setSelectedColors] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   const handleColorClick = (colorName: string) => {
-    setSelectedColor(colorName);
+    setSelectedColors((prev) =>
+      prev.includes(colorName)
+        ? prev.filter((color) => color !== colorName)
+        : [...prev, colorName],
+    );
     setError(null);
-    console.log("Выбранный цвет:", colorName);
   };
 
   const handleAddToCart = () => {
-    if (!selectedColor) {
+    if (selectedColors.length === 0) {
       setError("Пожалуйста, выберите цвет");
       return;
     }
@@ -27,7 +30,7 @@ export const PopupFormProduct: React.FC<PopupProps> = (props) => {
     const product = productData[0];
     const cartItem = {
       productId: product.id,
-      selectedColor,
+      selectedColors,
     };
     const cart = JSON.parse(localStorage.getItem("cart") || "[]");
     const updatedCart = [...cart, cartItem];
@@ -57,7 +60,7 @@ export const PopupFormProduct: React.FC<PopupProps> = (props) => {
           <div
             key={id}
             className={cn(classes.colorItem, {
-              [classes.selected]: selectedColor === item.label,
+              [classes.selected]: selectedColors.includes(item.label),
             })}
             onClick={() => handleColorClick(item.label)}
           >
