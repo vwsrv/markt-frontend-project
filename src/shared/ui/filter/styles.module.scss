@@ -1,5 +1,90 @@
 .filterContainer {
+  position: relative;
   display: flex;
   justify-content: end;
   gap: 14px;
+
+  @media (max-width: 675px) {
+    justify-content: flex-end;
+  }
+}
+
+.desktopFilters {
+  display: flex;
+  gap: 14px;
+
+  @media (max-width: 675px) {
+    display: none;
+  }
+}
+
+.mobileDropdownContainer {
+  position: relative;
+  border-radius: 8px;
+  display: none;
+  background-color: var(--white-grey-color);
+
+  @media (max-width: 675px) {
+    display: block;
+  }
+}
+
+.mobileDropdown {
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background-color: var(--white-color);
+  text-align: center;
+  transition: background-color 0.3s ease;
+  position: relative;
+
+  &:hover {
+    background-color: var(--light-grey-color);
+  }
+
+  &::after {
+    position: absolute;
+    top: 55%;
+    right: 10px;
+    transform: translateY(-55%);
+    transition: transform 0.3s ease;
+    content: url("../dropdown-menu/images/arrow.svg");
+  }
+
+  &.open::after {
+    transform: translateY(-55%) rotate(180deg);
+  }
+}
+
+.mobileOptions {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--white-grey-color);
+  border: transparent;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  width: 200px;
+  margin-top: 8px;
+
+  &.open {
+    display: block;
+  }
+}
+
+.mobileOption {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--white-grey-color);
+  }
+
+  &.active {
+    background-color: var(--grey-color);
+  }
 }

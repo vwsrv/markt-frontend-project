@@ -14,6 +14,9 @@ export interface typeButtonProps
     | "like-red"
     | "remove"
     | "search"
-    | "filter";
+    | "filter"
+    | "filterIcon"
+    | "filterReset"
+    | "dropdown";
   isActive?: boolean;
 }

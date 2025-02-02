@@ -11,6 +11,9 @@ import { DropdownMenu } from "../../shared/ui/dropdown-menu/dropdownMenu";
 import { Color } from "../../types/productTypes";
 import { ProductFilter } from "../../shared/ui/filter/filter";
 import { useSearchParams } from "react-router-dom";
+import { ButtonMain } from "../../shared/ui/btn-main";
+import { PopupFormFilter } from "../../features/PopupFormFilter/PopupFormFilter";
+import { useMediaQuery } from "../../shared/lib/useMediaQuery";
 
 export const Catalog: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -24,6 +27,8 @@ export const Catalog: React.FC = () => {
   const [selectedBrands, setSelectedBrands] = React.useState<string[]>([]);
   const [selectedStyles, setSelectedStyles] = React.useState<string[]>([]);
   const [selectedColors, setSelectedColors] = React.useState<string[]>([]);
+  const [isPopupOpen, setIsPopupOpen] = React.useState(false);
+  const isMobile = useMediaQuery("(max-width: 930px)");
 
   React.useEffect(() => {
     const loadData = async () => {
@@ -117,31 +122,26 @@ export const Catalog: React.FC = () => {
 
   const filteredProducts = React.useMemo(() => {
     let filtered = categoryImages;
-
     if (searchQuery) {
       filtered = filtered.filter((item) =>
         (item.category ?? "").toLowerCase().includes(searchQuery.toLowerCase()),
       );
     }
-
     if (selectedCategories.length > 0) {
       filtered = filtered.filter((item) =>
         selectedCategories.includes(item.category || ""),
       );
     }
-
     if (selectedBrands.length > 0) {
       filtered = filtered.filter((item) =>
         selectedBrands.includes(item.brand || ""),
       );
     }
-
     if (selectedStyles.length > 0) {
       filtered = filtered.filter((item) =>
         selectedStyles.includes(item.style || ""),
       );
     }
-
     if (selectedColors.length > 0) {
       filtered = filtered.filter(
         (item) =>
@@ -190,6 +190,14 @@ export const Catalog: React.FC = () => {
     setCategoryImages(sortedProducts);
   };
 
+  const handleOpenPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
+
   return filteredProducts.length > 0 ? (
     <div className={cn(classes.catalog)}>
       <CategoryHeader
@@ -197,43 +205,75 @@ export const Catalog: React.FC = () => {
         productQuantity={filteredProducts.length}
       >
         <div className={cn(classes.catalogFilters)}>
-          <div className={classes.dropDownPanel}>
-            <DropdownMenu
-              dataList={categoryListWithLabels}
-              setValue={(values) => handleSetValue("category", values)}
-              title="Категории"
-              variant="default"
-            />
-            <DropdownMenu
-              dataList={brandListWithLabels}
-              setValue={(values) => handleSetValue("brand", values)}
-              title="Бренд"
-              variant="default"
-            />
-            <DropdownMenu
-              dataList={styleListWithLabels}
-              setValue={(values) => handleSetValue("style", values)}
-              title="Стиль"
-              variant="default"
-            />
-            <DropdownMenu
-              dataList={colorListWithLabels}
-              setValue={(values) => handleSetValue("color", values)}
-              title="Цвет"
-              variant="default"
-            />
-          </div>
-          <div className={classes.filtersPanel}>
-            <ProductFilter
-              onSortByPopularity={handleSortByPopularity}
-              onSortByRating={handleSortByRating}
-              onSortByPriceLowToHigh={handleSortByPriceLowToHigh}
-              onSortByPriceHighToLow={handleSortByPriceHighToLow}
-            />
-          </div>
+          {isMobile && (
+            <>
+              <ButtonMain
+                variant="filterIcon"
+                aria-label="Фильтровать"
+                onClick={handleOpenPopup}
+              />
+
+              <ProductFilter
+                onSortByPopularity={handleSortByPopularity}
+                onSortByRating={handleSortByRating}
+                onSortByPriceLowToHigh={handleSortByPriceLowToHigh}
+                onSortByPriceHighToLow={handleSortByPriceHighToLow}
+              />
+            </>
+          )}
+          {!isMobile ? (
+            <div className={classes.dropDownPanel}>
+              <DropdownMenu
+                dataList={categoryListWithLabels}
+                setValue={(values) => handleSetValue("category", values)}
+                title="Категории"
+                variant="default"
+              />
+              <DropdownMenu
+                dataList={brandListWithLabels}
+                setValue={(values) => handleSetValue("brand", values)}
+                title="Бренд"
+                variant="default"
+              />
+              <DropdownMenu
+                dataList={styleListWithLabels}
+                setValue={(values) => handleSetValue("style", values)}
+                title="Стиль"
+                variant="default"
+              />
+              <DropdownMenu
+                dataList={colorListWithLabels}
+                setValue={(values) => handleSetValue("color", values)}
+                title="Цвет"
+                variant="default"
+              />
+            </div>
+          ) : null}
+          {!isMobile ? (
+            <div className={classes.filtersPanel}>
+              <ProductFilter
+                onSortByPopularity={handleSortByPopularity}
+                onSortByRating={handleSortByRating}
+                onSortByPriceLowToHigh={handleSortByPriceLowToHigh}
+                onSortByPriceHighToLow={handleSortByPriceHighToLow}
+              />
+            </div>
+          ) : null}
         </div>
       </CategoryHeader>
       <CardList style="category" goodsData={filteredProducts} type="small" />
+      {isPopupOpen && (
+        <PopupFormFilter
+          onClose={handleClosePopup}
+          filters={{
+            category: categoryListWithLabels,
+            brand: brandListWithLabels,
+            style: styleListWithLabels,
+            color: colorListWithLabels,
+          }}
+          onFilterChange={handleSetValue}
+        />
+      )}
     </div>
   ) : (
     <CategoryHeader

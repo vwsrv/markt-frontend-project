@@ -5,6 +5,7 @@ import { typeDropdownProps } from "./types";
 import cn from "classnames";
 import classes from "./styles.module.scss";
 import { useMediaQuery } from "../../lib/useMediaQuery";
+import { ButtonMain } from "../btn-main";
 
 export const DropdownMenu: React.FC<typeDropdownProps> = (props) => {
   const { variant, dataList, setValue, title } = props;
@@ -55,6 +56,10 @@ export const DropdownMenu: React.FC<typeDropdownProps> = (props) => {
     }
   };
 
+  const handleReset = () => {
+    setSelectedValues([]);
+  };
+
   React.useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -77,11 +82,19 @@ export const DropdownMenu: React.FC<typeDropdownProps> = (props) => {
       ref={dropdownRef}
     >
       {!isMobile ? (
-        <button className={cn(classes[variant], classes.button)}>
-          <p className="small">{title}</p>
-        </button>
+        <ButtonMain variant="dropdown">{title}</ButtonMain>
       ) : (
-        <h3>{title}</h3>
+        <div className={cn(classes.titleContainer)}>
+          <h3>{title}</h3>
+          <ButtonMain
+            variant="filterReset"
+            type="reset"
+            aria-label="Сбросить"
+            onClick={handleReset}
+          >
+            Сбросить
+          </ButtonMain>
+        </div>
       )}
       <div
         className={cn(classes.options, classes[variant], {

@@ -8,7 +8,7 @@ import cn from "classnames";
 import { createPortal } from "react-dom";
 
 export const Popup: React.FC<PopupProps> = (props) => {
-  const { children, onClose } = props;
+  const { children, onClose, title } = props;
   const [isActive, setIsActive] = useState(false);
   const popupRef = React.useRef<HTMLDivElement>(null);
   const [isMounted, setIsMounted] = useState<boolean>(true);
@@ -47,6 +47,7 @@ export const Popup: React.FC<PopupProps> = (props) => {
           onClick={handleOverlayClick}
         >
           <div className={classes.popup}>
+            {title && <h2 className={cn(classes.popupTitle)}>Фильтры</h2>}
             <ButtonMain
               className={classes.popupButton}
               type="button"
