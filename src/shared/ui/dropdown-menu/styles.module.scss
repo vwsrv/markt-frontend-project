@@ -11,7 +11,8 @@
     margin-top: 9px;
   }
 
-  &.default {
+  &.default,
+  &.colors {
     background-color: var(--white-grey-color);
 
     &::after {
@@ -36,6 +37,18 @@
   &:hover {
     background-color: var(--white-grey-color);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  &.price {
+    background-color: var(--white-grey-color);
+  }
+
+  @media (max-width: 675px) {
+    &.price {
+      background-color: var(--white-color);
+      box-shadow: none;
+      width: 100%;
+    }
   }
 
   &.popup,
@@ -92,19 +105,48 @@
     transform: translateY(0);
   }
 
+  &.colors {
+    right: 0;
+  }
+
   &.popup,
   &.popupColor {
     background-color: var(--white-color);
-    display: flex;
-    visibility: visible;
-    flex-wrap: wrap;
     position: relative;
+    visibility: visible;
     opacity: 1;
     transform: none;
   }
 
+  @media (max-width: 675px) {
+    &.price {
+      background-color: var(--white-color);
+      position: relative;
+      visibility: visible;
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   &.popup,
-  &.default {
+  &.popupColor {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    transform: none;
+  }
+
+  &.price {
+    right: 0;
+
+    label {
+      display: none;
+    }
+  }
+
+  &.popup,
+  &.default,
+  &.colors {
     input {
       background-color: transparent;
       border: 1.5px solid var(--grey-color);
@@ -249,7 +291,8 @@
   }
 
   &.popup,
-  &.popupColor {
+  &.popupColor,
+  &.price {
     gap: 4px;
     display: flex;
     flex-wrap: wrap;
@@ -318,5 +361,42 @@
     p {
       font-size: 15px;
     }
+  }
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  gap: 3px;
+
+  p {
+    color: var(--grey-color);
+    max-width: 351px;
+  }
+
+  @media (max-width: 675px) {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.priceInput {
+  font-family: var(--font-inter);
+  font-weight: 550;
+  color: var(--black-color);
+  outline: none;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--grey-color);
+  max-width: 63px;
+
+  ::placeholder {
+    color: var(--gery-color);
+  }
+
+  @media (max-width: 675px) {
+    width: 100%;
+    max-width: 100%;
   }
 }

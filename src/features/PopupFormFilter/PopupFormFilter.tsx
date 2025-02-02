@@ -23,6 +23,12 @@ export const PopupFormFilter: React.FC<typePopupFormFilterProps> = (props) => {
           title="Категории"
         />
         <DropdownMenu
+          variant="price"
+          dataList={filters.price}
+          setValue={handleFilterChange("price")}
+          title="Цена"
+        />
+        <DropdownMenu
           variant="popup"
           dataList={filters.brand}
           setValue={handleFilterChange("brand")}

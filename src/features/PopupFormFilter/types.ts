@@ -7,6 +7,7 @@ export interface typePopupFormFilterProps {
     brand: DropdownOption[];
     style: DropdownOption[];
     color: DropdownOption[];
+    price: DropdownOption[];
   };
   onFilterChange: (filterType: string, value: string[]) => void;
 }

@@ -16,17 +16,17 @@ import { PopupFormFilter } from "../../features/PopupFormFilter/PopupFormFilter"
 import { useMediaQuery } from "../../shared/lib/useMediaQuery";
 
 export const Catalog: React.FC = () => {
+  const [dataList, setDataList] = React.useState<BaseProductProps[]>([]);
   const [searchParams] = useSearchParams();
   const searchQuery = searchParams.get("query") || "";
-  const [categoryImages, setCategoryImages] = React.useState<
-    BaseProductProps[]
-  >([]);
   const [selectedCategories, setSelectedCategories] = React.useState<string[]>(
     [],
   );
   const [selectedBrands, setSelectedBrands] = React.useState<string[]>([]);
   const [selectedStyles, setSelectedStyles] = React.useState<string[]>([]);
   const [selectedColors, setSelectedColors] = React.useState<string[]>([]);
+  const [minPrice, setMinPrice] = React.useState("");
+  const [maxPrice, setMaxPrice] = React.useState("");
   const [isPopupOpen, setIsPopupOpen] = React.useState(false);
   const isMobile = useMediaQuery("(max-width: 930px)");
 
@@ -34,7 +34,7 @@ export const Catalog: React.FC = () => {
     const loadData = async () => {
       try {
         const categoryImagesData = await fetchCategoryImages();
-        setCategoryImages(categoryImagesData);
+        setDataList(categoryImagesData);
       } catch (err) {
         console.log(err);
       }
@@ -43,36 +43,36 @@ export const Catalog: React.FC = () => {
   }, []);
 
   const categoryList = React.useMemo(
-    () => Array.from(new Set(categoryImages.map((item) => item.category))),
-    [categoryImages],
+    () => Array.from(new Set(dataList.map((item) => item.category))),
+    [dataList],
   );
 
   const brandList = React.useMemo(
     () =>
       Array.from(
-        new Set(categoryImages.map((item) => item.brand || "").filter(Boolean)),
+        new Set(dataList.map((item) => item.brand || "").filter(Boolean)),
       ),
-    [categoryImages],
+    [dataList],
   );
 
   const styleList = React.useMemo(
     () =>
       Array.from(
-        new Set(categoryImages.map((item) => item.style || "").filter(Boolean)),
+        new Set(dataList.map((item) => item.style || "").filter(Boolean)),
       ),
-    [categoryImages],
+    [dataList],
   );
 
   const colorList = React.useMemo(
     () =>
       Array.from(
         new Set(
-          categoryImages
+          dataList
             .filter((item) => item.colors)
             .flatMap((item) => (item.colors as Color[]).map((color) => color)),
         ),
       ),
-    [categoryImages],
+    [dataList],
   );
 
   const categoryListWithLabels = categoryList
@@ -101,27 +101,63 @@ export const Catalog: React.FC = () => {
       icon: color.icon || "",
     }));
 
-  const handleSetValue = (type: string, values: string[]) => {
+  const getPriceRange = (products: BaseProductProps[]) => {
+    if (products.length === 0) return { min: 0, max: 0 };
+
+    const prices = products.map((product) => product.price);
+    const minPrice = Math.min(...prices);
+    const maxPrice = Math.max(...prices);
+
+    return { min: minPrice, max: maxPrice };
+  };
+
+  const priceRange = getPriceRange(dataList);
+  const priceListWithLabels = [
+    { label: `от ${priceRange.min}`, value: priceRange.min.toString() },
+    { label: `до ${priceRange.max}`, value: priceRange.max.toString() },
+  ];
+
+  const handleSetValue = (
+    type: string,
+    values: string[] | [string, string],
+  ) => {
     switch (type) {
       case "category":
-        setSelectedCategories(values);
+        setSelectedCategories(values as string[]);
         break;
       case "brand":
-        setSelectedBrands(values);
+        setSelectedBrands(values as string[]);
         break;
       case "style":
-        setSelectedStyles(values);
+        setSelectedStyles(values as string[]);
         break;
       case "color":
-        setSelectedColors(values);
+        setSelectedColors(values as string[]);
         break;
+      case "price": {
+        const [minPrice, maxPrice] = values as [string, string];
+        setMinPrice(minPrice);
+        setMaxPrice(maxPrice);
+        break;
+      }
       default:
         break;
     }
   };
 
   const filteredProducts = React.useMemo(() => {
-    let filtered = categoryImages;
+    const filterByPrice = (items: BaseProductProps[]) => {
+      return items.filter((item) => {
+        const price = item.price;
+        return (
+          (!minPrice || price >= parseFloat(minPrice)) &&
+          (!maxPrice || price <= parseFloat(maxPrice))
+        );
+      });
+    };
+
+    let filtered = dataList;
+
     if (searchQuery) {
       filtered = filtered.filter((item) =>
         (item.category ?? "").toLowerCase().includes(searchQuery.toLowerCase()),
@@ -132,16 +168,19 @@ export const Catalog: React.FC = () => {
         selectedCategories.includes(item.category || ""),
       );
     }
+
     if (selectedBrands.length > 0) {
       filtered = filtered.filter((item) =>
         selectedBrands.includes(item.brand || ""),
       );
     }
+
     if (selectedStyles.length > 0) {
       filtered = filtered.filter((item) =>
         selectedStyles.includes(item.style || ""),
       );
     }
+
     if (selectedColors.length > 0) {
       filtered = filtered.filter(
         (item) =>
@@ -150,14 +189,18 @@ export const Catalog: React.FC = () => {
       );
     }
 
+    filtered = filterByPrice(filtered);
+
     return filtered;
   }, [
-    categoryImages,
+    dataList,
     searchQuery,
     selectedCategories,
     selectedBrands,
     selectedStyles,
     selectedColors,
+    minPrice,
+    maxPrice,
   ]);
 
   const handleSortByPopularity = () => {
@@ -166,28 +209,28 @@ export const Catalog: React.FC = () => {
       const popularityB = parseFloat(b.popularity);
       return popularityB - popularityA;
     });
-    setCategoryImages(sortedProducts);
+    setDataList(sortedProducts);
   };
 
   const handleSortByRating = () => {
     const sortedProducts = [...filteredProducts].sort(
       (a, b) => b.rating - a.rating,
     );
-    setCategoryImages(sortedProducts);
+    setDataList(sortedProducts);
   };
 
   const handleSortByPriceLowToHigh = () => {
     const sortedProducts = [...filteredProducts].sort(
       (a, b) => a.price - b.price,
     );
-    setCategoryImages(sortedProducts);
+    setDataList(sortedProducts);
   };
 
   const handleSortByPriceHighToLow = () => {
     const sortedProducts = [...filteredProducts].sort(
       (a, b) => b.price - a.price,
     );
-    setCategoryImages(sortedProducts);
+    setDataList(sortedProducts);
   };
 
   const handleOpenPopup = () => {
@@ -198,7 +241,7 @@ export const Catalog: React.FC = () => {
     setIsPopupOpen(false);
   };
 
-  return filteredProducts.length > 0 ? (
+  return (
     <div className={cn(classes.catalog)}>
       <CategoryHeader
         title={searchQuery ? searchQuery : "Каталог товаров"}
@@ -230,6 +273,12 @@ export const Catalog: React.FC = () => {
                 variant="default"
               />
               <DropdownMenu
+                dataList={priceListWithLabels}
+                setValue={(values) => handleSetValue("price", values)}
+                title="Цена"
+                variant="price"
+              />
+              <DropdownMenu
                 dataList={brandListWithLabels}
                 setValue={(values) => handleSetValue("brand", values)}
                 title="Бренд"
@@ -245,7 +294,7 @@ export const Catalog: React.FC = () => {
                 dataList={colorListWithLabels}
                 setValue={(values) => handleSetValue("color", values)}
                 title="Цвет"
-                variant="default"
+                variant="colors"
               />
             </div>
           ) : null}
@@ -261,7 +310,15 @@ export const Catalog: React.FC = () => {
           ) : null}
         </div>
       </CategoryHeader>
-      <CardList style="category" goodsData={filteredProducts} type="small" />
+      {filteredProducts.length > 0 ? (
+        <CardList style="category" goodsData={filteredProducts} type="small" />
+      ) : (
+        <p className={cn(classes.notFoundMessage, "medium")}>
+          {searchQuery
+            ? "Таких товаров у нас нет :^("
+            : "Кажется, вы перестарались с фильтрами. Такого еще не завозили."}
+        </p>
+      )}
       {isPopupOpen && (
         <PopupFormFilter
           onClose={handleClosePopup}
@@ -270,19 +327,11 @@ export const Catalog: React.FC = () => {
             brand: brandListWithLabels,
             style: styleListWithLabels,
             color: colorListWithLabels,
+            price: priceListWithLabels,
           }}
           onFilterChange={handleSetValue}
         />
       )}
     </div>
-  ) : (
-    <CategoryHeader
-      title={searchQuery ? searchQuery : "Каталог товаров"}
-      productQuantity={filteredProducts.length}
-    >
-      <p className={cn(classes.notFoundMessage, "medium")}>
-        {`Таких товаров у нас нет :^(`}
-      </p>
-    </CategoryHeader>
   );
 };
