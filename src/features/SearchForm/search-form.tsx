@@ -23,9 +23,9 @@ export const SearchForm: React.FC<InputProps> = (props) => {
   const [categories, setCategories] = useState<
     typeCategoryListProps["categoryData"]
   >([]);
-  const [products, setProducts] = useState<BaseProductProps[]>([]);
+  const [productsData, setProductsData] = useState<BaseProductProps[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<BaseProductProps[]>(
-    [],
+    []
   );
   const [filteredCategories, setFilteredCategories] = useState<
     typeCategoryListProps["categoryData"]
@@ -44,7 +44,7 @@ export const SearchForm: React.FC<InputProps> = (props) => {
     ];
 
     const localQueries = JSON.parse(
-      localStorage.getItem("searchHistory") || "[]",
+      localStorage.getItem("searchHistory") || "[]"
     );
     const combinedQueries = [
       ...localQueries,
@@ -64,7 +64,7 @@ export const SearchForm: React.FC<InputProps> = (props) => {
           ...data.sleepImages,
           ...data.goodsImages,
         ];
-        setProducts(combinedProducts);
+        setProductsData(combinedProducts);
         setFilteredProducts(combinedProducts);
       } catch (err) {
         console.error(err);
@@ -81,19 +81,19 @@ export const SearchForm: React.FC<InputProps> = (props) => {
 
     if (query.trim() === "") {
       setFilteredCategories(categories);
-      setFilteredProducts(products);
+      setFilteredProducts(productsData);
     } else {
       setFilteredCategories(
         categories.filter(
           (category) =>
             category.name.toLowerCase().includes(query.toLowerCase()) ||
-            category.link.toLowerCase().includes(query.toLowerCase()),
-        ),
+            category.link.toLowerCase().includes(query.toLowerCase())
+        )
       );
       setFilteredProducts(
-        products.filter((product) =>
-          (product.title ?? "").toLowerCase().includes(query.toLowerCase()),
-        ),
+        productsData.filter((product) =>
+          (product.title ?? "").toLowerCase().includes(query.toLowerCase())
+        )
       );
     }
   };
@@ -107,22 +107,21 @@ export const SearchForm: React.FC<InputProps> = (props) => {
   };
 
   const handleCategoryClick = (category: string) => {
+    setSearchQuery(category);
     updateSearchHistory(category);
-    setIsOpen(false);
-    navigate(`/catalog/${category}`);
+    navigate(`/catalog?query=${category}`);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     updateSearchHistory(searchQuery);
-    setIsOpen(false);
     navigate(`/catalog?query=${searchQuery}`);
   };
 
   const handleProductClick = (product: BaseProductProps) => {
+    setSearchQuery(product.title as string);
     updateSearchHistory(product.title as string);
-    setIsOpen(false);
-    navigate(`/product/${product.id}`);
+    navigate(`/catalog?query=${product.title}`);
   };
 
   const updateSearchHistory = (query: string) => {
@@ -152,8 +151,6 @@ export const SearchForm: React.FC<InputProps> = (props) => {
   const handleInputFocus = () => {
     setIsOpen(true);
   };
-
-  useEffect(() => {}, [isOpen]);
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -237,7 +234,7 @@ export const SearchForm: React.FC<InputProps> = (props) => {
                       type="button"
                       onClick={() =>
                         setFilteredProducts((prev) =>
-                          prev.filter((p) => p.id !== product.id),
+                          prev.filter((p) => p.id !== product.id)
                         )
                       }
                     />
