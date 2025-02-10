@@ -7,27 +7,20 @@ import { PromoBanner } from "../../shared/ui/promo-banner";
 import { CategoryList } from "../../shared/ui/category-list/category-list";
 import { CardList } from "../../shared/ui/card-list";
 import { SectionTitle } from "../../shared/ui/sectionTitle";
-import {
-  fetchCategories,
-  fetchImages,
-  fetchForHomeImage,
-  fetchForSleepImage,
-  fetchGoodsImages,
-  fetchAllData,
-  fetchAllProductsData,
-} from "../../services/api";
+import { fetchAllProductsData } from "../../services/api";
 import { BaseProductProps } from "../../types/productTypes";
+import { useNavigate } from "react-router-dom";
+import { Category } from "../../types/productTypes";
 import forHomeImage from "../../shared/ui/sectionTitle/images/for-home.svg";
 import forSleepImage from "../../shared/ui/sectionTitle/images/for-sleep.svg";
 import saleImage from "../../shared/ui/sectionTitle/images/sale.svg";
 import goodsImage from "../../shared/ui/sectionTitle/images/goods.svg";
 import promoImage from "../../shared/ui/promo-banner/images/promo-banner.svg";
 import promoImageMobile from "../../shared/ui/promo-banner/images/promo-banner-small.svg";
-import { useNavigate } from "react-router-dom";
 
 export const MainPage: React.FC = () => {
   const [images, setImages] = React.useState<BaseProductProps[]>([]);
-  const [categories, setCategories] = React.useState<BaseProductProps[]>([]);
+  const [categories, setCategories] = React.useState<Category[]>([]);
   const [forHomeImages, setForHomeImages] = React.useState<BaseProductProps[]>(
     [],
   );
@@ -41,45 +34,33 @@ export const MainPage: React.FC = () => {
   React.useEffect(() => {
     const loadData = async () => {
       try {
-        const productsData = await fetchImages();
-        setImages(productsData);
-
-        const forHomeData = await fetchForHomeImage();
-        setForHomeImages(forHomeData);
-
-        const promoData = await fetchForSleepImage();
-        setPromoImages(promoData);
-
-        const goodsData = await fetchGoodsImages();
-        setGoodsImages(goodsData);
-
         const allProducts = await fetchAllProductsData();
         setAllProductsData(allProducts);
-
-        // организовать получение из общего массива json
-        const categories = allProducts.map((item) => ({
-          name: item.category.name,
-          link: item.category.link,
-        }));
-        const uniqueCategoriesSet = new Set(
-          categories.map((category) => JSON.stringify(category)),
-        );
-        const uniqueCategories = Array.from(uniqueCategoriesSet).map(
-          (category) => JSON.parse(category),
-        );
-
-        const getFirstThreeItems = (allProducts) => {
-          return setImages(allProducts.slice(0, 3));
-        };
-
+        const uniqueCategories = Array.from(
+          new Set(
+            allProducts.map((item) =>
+              JSON.stringify({
+                name: item.category?.name,
+                link: item.category?.link,
+              }),
+            ),
+          ),
+        ).map((category) => JSON.parse(category));
         setCategories(uniqueCategories);
+
+        const getSlice = (start: number, end: number) =>
+          allProducts.slice(start, end);
+
+        setImages(getSlice(0, 3));
+        setForHomeImages(getSlice(3, 13));
+        setPromoImages(getSlice(13, 16));
+        setGoodsImages(getSlice(17, 25));
       } catch (error) {
         console.error("Ошибка при загрузке данных:", error);
       }
     };
-
     loadData();
-  }, []);
+  }, [allProducts]);
 
   return (
     <div className={cn(classes.mainPage)}>
