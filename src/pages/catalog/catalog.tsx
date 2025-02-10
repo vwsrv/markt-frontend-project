@@ -6,7 +6,6 @@ import classes from "./styles.module.scss";
 import { CategoryHeader } from "../../shared/ui/category-header";
 import { CardList } from "../../shared/ui/card-list";
 import { BaseProductProps } from "../../types/productTypes";
-import { fetchCategoryImages } from "../../services/api";
 import { DropdownMenu } from "../../shared/ui/dropdown-menu/dropdownMenu";
 import { Color } from "../../types/productTypes";
 import { ProductFilter } from "../../shared/ui/filter/filter";
@@ -14,6 +13,7 @@ import { useSearchParams } from "react-router-dom";
 import { ButtonMain } from "../../shared/ui/btn-main";
 import { PopupFormFilter } from "../../features/PopupFormFilter/PopupFormFilter";
 import { useMediaQuery } from "../../shared/lib/useMediaQuery";
+import { fetchAllProductsData } from "../../services/api";
 
 export const Catalog: React.FC = () => {
   const [dataList, setDataList] = React.useState<BaseProductProps[]>([]);
@@ -33,8 +33,11 @@ export const Catalog: React.FC = () => {
   React.useEffect(() => {
     const loadData = async () => {
       try {
-        const categoryImagesData = await fetchCategoryImages();
-        setDataList(categoryImagesData);
+        const allProducts = await fetchAllProductsData();
+        const filteredProducts = allProducts.filter(
+          (product) => product.layout === "ten",
+        );
+        setDataList(filteredProducts);
       } catch (err) {
         console.log(err);
       }
@@ -43,7 +46,7 @@ export const Catalog: React.FC = () => {
   }, []);
 
   const categoryList = React.useMemo(
-    () => Array.from(new Set(dataList.map((item) => item.category))),
+    () => Array.from(new Set(dataList.map((item) => item.category?.name))),
     [dataList],
   );
 
@@ -160,12 +163,14 @@ export const Catalog: React.FC = () => {
 
     if (searchQuery) {
       filtered = filtered.filter((item) =>
-        (item.category ?? "").toLowerCase().includes(searchQuery.toLowerCase()),
+        (item.category?.name ?? "")
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase()),
       );
     }
     if (selectedCategories.length > 0) {
       filtered = filtered.filter((item) =>
-        selectedCategories.includes(item.category || ""),
+        selectedCategories.includes(item.category?.name || ""),
       );
     }
 
@@ -255,7 +260,6 @@ export const Catalog: React.FC = () => {
                 aria-label="Фильтровать"
                 onClick={handleOpenPopup}
               />
-
               <ProductFilter
                 onSortByPopularity={handleSortByPopularity}
                 onSortByRating={handleSortByRating}

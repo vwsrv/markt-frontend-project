@@ -30,7 +30,6 @@ export const MainPage: React.FC = () => {
     [],
   );
   const navigate = useNavigate();
-
   React.useEffect(() => {
     const loadData = async () => {
       try {

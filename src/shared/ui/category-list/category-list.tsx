@@ -11,18 +11,14 @@ export const CategoryList: React.FC<typeCategoryListProps> = (props) => {
 
   return (
     <section className={cn(classes.sectionCategories)}>
-      {Array.isArray(categoryData) && categoryData.length > 0 ? (
-        categoryData.map((category, index) => (
-          <CategoryIcon
-            key={index}
-            link={category.link}
-            name={category.name}
-            handler={handler}
-          />
-        ))
-      ) : (
-        <p>No categories available</p>
-      )}
+      {categoryData.map((category, index) => (
+        <CategoryIcon
+          key={index}
+          link={category.link}
+          name={category.name}
+          handler={handler}
+        />
+      ))}
     </section>
   );
 };
