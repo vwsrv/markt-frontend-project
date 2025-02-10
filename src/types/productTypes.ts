@@ -4,6 +4,12 @@ export type Color = {
   color: string;
 };
 
+export type Category = {
+  id?: number;
+  name: string;
+  link: string;
+};
+
 export type BaseProductProps = {
   id?: number | string;
   images?: Record<string, string>;
@@ -30,7 +36,7 @@ export type BaseProductProps = {
   colors?: Array<Color>;
   saleName?: string;
   saleValue?: string;
-  category?: string;
+  category?: Array<Category>;
   brand?: string;
   style?: string;
   popularity: string;

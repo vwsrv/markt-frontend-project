@@ -13,9 +13,10 @@ import {
   fetchForHomeImage,
   fetchForSleepImage,
   fetchGoodsImages,
+  fetchAllData,
+  fetchAllProductsData,
 } from "../../services/api";
 import { BaseProductProps } from "../../types/productTypes";
-import { typeCategoryListProps } from "../../shared/ui/category-list/types";
 import forHomeImage from "../../shared/ui/sectionTitle/images/for-home.svg";
 import forSleepImage from "../../shared/ui/sectionTitle/images/for-sleep.svg";
 import saleImage from "../../shared/ui/sectionTitle/images/sale.svg";
@@ -26,15 +27,15 @@ import { useNavigate } from "react-router-dom";
 
 export const MainPage: React.FC = () => {
   const [images, setImages] = React.useState<BaseProductProps[]>([]);
-  const [categories, setCategories] = React.useState<
-    typeCategoryListProps["categoryData"]
-  >([]);
-
+  const [categories, setCategories] = React.useState<BaseProductProps[]>([]);
   const [forHomeImages, setForHomeImages] = React.useState<BaseProductProps[]>(
     [],
   );
   const [promoImages, setPromoImages] = React.useState<BaseProductProps[]>([]);
   const [goodsImages, setGoodsImages] = React.useState<BaseProductProps[]>([]);
+  const [allProducts, setAllProductsData] = React.useState<BaseProductProps[]>(
+    [],
+  );
   const navigate = useNavigate();
 
   React.useEffect(() => {
@@ -42,9 +43,6 @@ export const MainPage: React.FC = () => {
       try {
         const productsData = await fetchImages();
         setImages(productsData);
-
-        const categoriesData = await fetchCategories();
-        setCategories(categoriesData);
 
         const forHomeData = await fetchForHomeImage();
         setForHomeImages(forHomeData);
@@ -54,6 +52,27 @@ export const MainPage: React.FC = () => {
 
         const goodsData = await fetchGoodsImages();
         setGoodsImages(goodsData);
+
+        const allProducts = await fetchAllProductsData();
+        setAllProductsData(allProducts);
+
+        // организовать получение из общего массива json
+        const categories = allProducts.map((item) => ({
+          name: item.category.name,
+          link: item.category.link,
+        }));
+        const uniqueCategoriesSet = new Set(
+          categories.map((category) => JSON.stringify(category)),
+        );
+        const uniqueCategories = Array.from(uniqueCategoriesSet).map(
+          (category) => JSON.parse(category),
+        );
+
+        const getFirstThreeItems = (allProducts) => {
+          return setImages(allProducts.slice(0, 3));
+        };
+
+        setCategories(uniqueCategories);
       } catch (error) {
         console.error("Ошибка при загрузке данных:", error);
       }

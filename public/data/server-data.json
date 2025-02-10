@@ -12,6 +12,11 @@
       "2": "/images/resource-images/54.png"
     },
     "variant": "grey",
+    "category": {
+      "id": 1,
+      "name": "Помощь психолога",
+      "link": "/images/category-images/1.png"
+    },
     "layout": "two"
   },
   {
@@ -24,6 +29,11 @@
     "likes": 8492,
     "src": "/images/resource-images/3.png",
     "variant": "blue",
+    "category": {
+      "id": 12,
+      "name": "Могущество",
+      "link": "/images/category-images/11.png"
+    },
     "layout": "one"
   },
   {
@@ -39,6 +49,11 @@
       "2": "/images/resource-images/38.png"
     },
     "variant": "yellow",
+    "category": {
+      "id": 12,
+      "name": "Могущество",
+      "link": "/images/category-images/11.png"
+    },
     "layout": "two"
   },
   {
@@ -52,7 +67,12 @@
       "1": "/images/resource-images/69.png"
     },
     "variant": "yellow",
-    "layout": "ten"
+    "layout": "ten",
+    "category": {
+      "id": 4,
+      "name": "Товары для дома",
+      "link": "/images/category-images/4.png"
+    }
   },
   {
     "id": 5,
@@ -94,7 +114,11 @@
       }
     ],
     "popularity": 90,
-    "category": "магия",
+    "category": {
+      "id": 6,
+      "name": "Магия",
+      "link": "/images/category-images/8.png"
+    },
     "brand": "versace",
     "style": "Повседневный"
   },
@@ -118,7 +142,11 @@
       }
     ],
     "popularity": 70,
-    "category": "магия",
+    "category": {
+      "id": 6,
+      "name": "Магия",
+      "link": "/images/category-images/8.png"
+    },
     "brand": "ИП Булина",
     "style": "Спортивный"
   },
@@ -142,7 +170,11 @@
       }
     ],
     "popularity": 50,
-    "category": "магия",
+    "category": {
+      "id": 6,
+      "name": "Магия",
+      "link": "/images/category-images/8.png"
+    },
     "brand": "Мой карапуз",
     "style": "Эротический"
   },
@@ -166,7 +198,11 @@
       }
     ],
     "popularity": 40,
-    "category": "магия",
+    "category": {
+      "id": 6,
+      "name": "Магия",
+      "link": "/images/category-images/8.png"
+    },
     "brand": "мс кисуля",
     "style": "Панк"
   },
@@ -190,7 +226,11 @@
       }
     ],
     "popularity": 30,
-    "category": "магия",
+    "category": {
+      "id": 6,
+      "name": "Магия",
+      "link": "/images/category-images/8.png"
+    },
     "brand": "Yves Saint Laurent",
     "style": "Y2K"
   },
@@ -206,7 +246,11 @@
     },
     "variant": "blue",
     "layout": "ten",
-    "category": "магия",
+    "category": {
+      "id": 6,
+      "name": "Магия",
+      "link": "/images/category-images/8.png"
+    },
     "brand": "Abibas",
     "style": "Потрясяющий"
   },
@@ -230,7 +274,11 @@
       }
     ],
     "popularity": 25,
-    "category": "магия",
+    "category": {
+      "id": 6,
+      "name": "Магия",
+      "link": "/images/category-images/8.png"
+    },
     "brand": "Adidas",
     "style": "Военный"
   },
@@ -254,7 +302,11 @@
       }
     ],
     "popularity": 20,
-    "category": "магия"
+    "category": {
+      "id": 6,
+      "name": "Магия",
+      "link": "/images/category-images/8.png"
+    }
   },
   {
     "id": 13,
@@ -276,7 +328,11 @@
       }
     ],
     "popularity": 19,
-    "category": "магия"
+    "category": {
+      "id": 6,
+      "name": "Магия",
+      "link": "/images/category-images/8.png"
+    }
   },
   {
     "id": 14,
@@ -291,7 +347,12 @@
       "2": "/images/resource-images/14.png"
     },
     "variant": "red",
-    "layout": "wideAndShort"
+    "layout": "wideAndShort",
+    "category": {
+      "id": 7,
+      "name": "Релакс",
+      "link": "/images/category-images/6.png"
+    }
   },
   {
     "id": 15,
@@ -303,7 +364,12 @@
     "likes": 8492,
     "src": "/images/resource-images/17.png",
     "variant": "blue",
-    "layout": "one"
+    "layout": "one",
+    "category": {
+      "id": 3,
+      "name": "Предметы искусства",
+      "link": "/images/category-images/3.png"
+    }
   },
   {
     "id": 16,
@@ -339,7 +405,11 @@
       }
     ],
     "popularity": 80,
-    "category": "магия",
+    "category": {
+      "id": 6,
+      "name": "Магия",
+      "link": "/images/category-images/8.png"
+    },
     "brand": "Dior",
     "style": "Праздничный"
   },
@@ -356,7 +426,12 @@
       "2": "/images/resource-images/9.png"
     },
     "variant": "yellow",
-    "layout": "two-tshirts"
+    "layout": "two-tshirts",
+    "category": {
+      "id": 6,
+      "name": "Магия",
+      "link": "/images/category-images/8.png"
+    }
   },
   {
     "id": 18,
@@ -368,7 +443,12 @@
     "likes": 8492,
     "src": "/images/resource-images/6.png",
     "variant": "one",
-    "layout": "red"
+    "layout": "red",
+    "category": {
+      "id": 8,
+      "name": "Развлечения",
+      "link": "/images/category-images/9.png"
+    }
   },
   {
     "id": 19,
@@ -383,7 +463,12 @@
       "2": "/images/resource-images/36.png"
     },
     "variant": "grey",
-    "layout": "two-fake-rings"
+    "layout": "two-fake-rings",
+    "category": {
+      "id": 6,
+      "name": "Магия",
+      "link": "/images/category-images/8.png"
+    }
   },
   {
     "id": 20,
@@ -398,7 +483,12 @@
       "2": "/images/resource-images/12.png"
     },
     "variant": "red",
-    "layout": "wideAndShort-family"
+    "layout": "wideAndShort-family",
+    "category": {
+      "id": 9,
+      "name": "Сокровища",
+      "link": "/images/category-images/13.png"
+    }
   },
   {
     "id": 21,
@@ -412,7 +502,12 @@
       "1": "/images/resource-images/66.png"
     },
     "variant": "yellow",
-    "layout": "one"
+    "layout": "one",
+    "category": {
+      "id": 11,
+      "name": "Красота и здоровье",
+      "link": "/images/category-images/7.png"
+    }
   },
   {
     "id": 22,
@@ -429,7 +524,12 @@
       "4": "/images/resource-images/4.png"
     },
     "variant": "grey",
-    "layout": "four-rings"
+    "layout": "four-rings",
+    "category": {
+      "id": 6,
+      "name": "Магия",
+      "link": "/images/category-images/8.png"
+    }
   },
   {
     "id": 23,
@@ -444,7 +544,12 @@
       "2": "/images/resource-images/11.png"
     },
     "variant": "blue",
-    "layout": "two"
+    "layout": "two",
+    "category": {
+      "id": 10,
+      "name": "Недвижимость",
+      "link": "/images/category-images/10.png"
+    }
   },
   {
     "id": 24,
@@ -456,7 +561,12 @@
     "likes": 8492,
     "src": "/images/resource-images/69.png",
     "variant": "red",
-    "layout": "one-fork"
+    "layout": "one-fork",
+    "category": {
+      "id": 13,
+      "name": "Стиль",
+      "link": "/images/category-images/12.png"
+    }
   },
   {
     "id": 25,
@@ -471,7 +581,12 @@
       "2": "/images/resource-images/15.png"
     },
     "variant": "grey",
-    "layout": "two-frodo"
+    "layout": "two-frodo",
+    "category": {
+      "id": 11,
+      "name": "Красота и здоровье",
+      "link": "/images/category-images/7.png"
+    }
   },
 
   {
@@ -494,7 +609,11 @@
       }
     ],
     "popularity": 60,
-    "category": "магия",
+    "category": {
+      "id": 6,
+      "name": "Магия",
+      "link": "/images/category-images/8.png"
+    },
     "brand": "Prada",
     "style": "Масленица"
   },
@@ -512,6 +631,10 @@
     "variant": "red",
     "layout": "ten",
     "popularity": 10,
-    "category": "магия"
+    "category": {
+      "id": 6,
+      "name": "Магия",
+      "link": "/images/category-images/8.png"
+    }
   }
 ]
