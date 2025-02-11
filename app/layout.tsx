@@ -5,6 +5,7 @@ import { Header } from "../src/shared/ui/header";
 import { Footer } from "../src/shared/ui/footer/footer";
 import { MainPage } from "../src/pages/main-page";
 import { Catalog } from "../src/pages/catalog";
+import { ProfilePage } from "../src/pages/profile/profile";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 createRoot(document.getElementById("root")!).render(
@@ -14,6 +15,7 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/catalog" element={<Catalog />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
       <Footer companyEmail="vissar2016@gmail.com" companyName="2025 Магаз" />
     </BrowserRouter>
