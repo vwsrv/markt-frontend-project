@@ -8,11 +8,11 @@ import { InputProps } from "./types";
 import { Input } from "../../shared/ui/input";
 import { ButtonMain } from "../../shared/ui/btn-main";
 import { BaseProductProps } from "../../types/productTypes";
-import { typeCategoryListProps } from "../../shared/ui/category-list/types";
 import { CategoryIcon } from "../../shared/ui/category-icon";
 import { fetchAllData } from "../../services/api";
 import { Navigation } from "../../shared/ui/navigation/navigation.js";
 import { useNavigate } from "react-router-dom";
+import { Category } from "../../types/productTypes";
 
 export const SearchForm: React.FC<InputProps> = (props) => {
   const { name, required, onChange, type = "text", placeholder } = props;
@@ -20,16 +20,12 @@ export const SearchForm: React.FC<InputProps> = (props) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [historyQueries, setHistoryQueries] = useState<string[]>([]);
-  const [categories, setCategories] = useState<
-    typeCategoryListProps["categoryData"]
-  >([]);
+  const [categories, setCategories] = useState<Category[]>([]);
   const [products, setProducts] = useState<BaseProductProps[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<BaseProductProps[]>(
     [],
   );
-  const [filteredCategories, setFilteredCategories] = useState<
-    typeCategoryListProps["categoryData"]
-  >([]);
+  const [filteredCategories, setFilteredCategories] = useState<Category[]>([]);
   const searchFormRef = useRef<HTMLFormElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
@@ -56,14 +52,28 @@ export const SearchForm: React.FC<InputProps> = (props) => {
     const loadData = async () => {
       try {
         const data = await fetchAllData();
-        setCategories(data.categories);
-        setFilteredCategories(data.categories);
-        const combinedProducts = [
-          ...data.images,
-          ...data.homeImages,
-          ...data.sleepImages,
-          ...data.goodsImages,
-        ];
+        const combinedProducts = data.allProductsData || [];
+
+        const uniqueCategories = Array.from(
+          new Set(
+            combinedProducts
+              .map((product) => product.category?.name)
+              .filter((name): name is string => name !== undefined),
+          ),
+        ).map((name) => {
+          const category = combinedProducts.find(
+            (product) => product.category?.name === name,
+          )?.category;
+
+          return {
+            id: category?.id || 0,
+            name,
+            link: category?.link || "",
+          };
+        });
+
+        setCategories(uniqueCategories);
+
         setProducts(combinedProducts);
         setFilteredProducts(combinedProducts);
       } catch (err) {
@@ -106,12 +116,6 @@ export const SearchForm: React.FC<InputProps> = (props) => {
     }, 200);
   };
 
-  const handleCategoryClick = (category: string) => {
-    updateSearchHistory(category);
-    setIsOpen(false);
-    navigate(`/catalog/${category}`);
-  };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     updateSearchHistory(searchQuery);
@@ -123,6 +127,12 @@ export const SearchForm: React.FC<InputProps> = (props) => {
     updateSearchHistory(product.title as string);
     setIsOpen(false);
     navigate(`/product/${product.id}`);
+  };
+
+  const handleCategoryClick = (category: string) => {
+    updateSearchHistory(category);
+    setIsOpen(false);
+    navigate(`/catalog`);
   };
 
   const updateSearchHistory = (query: string) => {
@@ -153,8 +163,6 @@ export const SearchForm: React.FC<InputProps> = (props) => {
     setIsOpen(true);
   };
 
-  useEffect(() => {}, [isOpen]);
-
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -166,9 +174,7 @@ export const SearchForm: React.FC<InputProps> = (props) => {
     <form
       className={cn(classes.searchWrapper)}
       ref={searchFormRef}
-      onSubmit={(e) => {
-        handleSubmit(e);
-      }}
+      onSubmit={handleSubmit}
     >
       {isMobile && !isOpen ? (
         <ButtonMain
@@ -216,7 +222,7 @@ export const SearchForm: React.FC<InputProps> = (props) => {
                   key={index}
                   link={category.link}
                   name={category.name}
-                  handler={() => navigate("/catalog")}
+                  handler={() => handleCategoryClick(category.name)}
                 />
               ))}
             </div>
