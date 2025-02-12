@@ -12,11 +12,13 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <Header companyName="Магаз" />
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/catalog" element={<Catalog />} />
-        <Route path="/profile" element={<ProfilePage />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/profile" element={<ProfilePage />} />
+        </Routes>
+      </main>
       <Footer companyEmail="vissar2016@gmail.com" companyName="2025 Магаз" />
     </BrowserRouter>
   </StrictMode>,

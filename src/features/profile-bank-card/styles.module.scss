@@ -23,17 +23,28 @@ label {
 
 .cardSecretCode {
   position: relative;
-  &::before {
-    content: "";
-    cursor: pointer;
-    position: absolute;
-    background-image: url("./images/eye-icon.svg");
-    width: 32px;
-    height: 32px;
-    background-position: center;
-    background-repeat: no-repeat;
-    right: 0;
-    bottom: 0;
-    background-size: contain;
-  }
+}
+
+.cardRemoveIcon,
+.cardSecretIcon {
+  content: "";
+  cursor: pointer;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background-position: center;
+  background-repeat: no-repeat;
+  right: 0;
+
+  background-size: contain;
+}
+
+.cardSecretIcon {
+  background-image: url("./images/eye-icon.svg");
+  bottom: 0;
+}
+
+.cardRemoveIcon {
+  background-image: url("./images/remove-icon.svg");
+  top: 20px;
 }

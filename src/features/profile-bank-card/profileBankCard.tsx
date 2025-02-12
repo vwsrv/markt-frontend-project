@@ -11,6 +11,7 @@ export const ProfileBankCard = () => {
   const [cardDate, setCardDate] = React.useState("");
   const [cardSecret, setCardSecret] = React.useState("");
   const isFormValid = cardNumber && cardDate && cardSecret;
+  const [showSecret, setShowSecret] = React.useState(false);
 
   React.useEffect(() => {
     if (!cardNumber && !cardDate && !cardSecret) {
@@ -60,11 +61,26 @@ export const ProfileBankCard = () => {
     localStorage.setItem("cardNumber", cardNumber);
     localStorage.setItem("cardDate", cardDate);
     localStorage.setItem("cardSecret", cardSecret);
-    alert("Данные карты успешно сохранены!");
+    alert("Данные карты успешно добавлены, спасибо за донат!");
+  };
+
+  const handleResetForm = () => {
+    setCardDate("");
+    setCardNumber("");
+    setCardSecret("");
+    localStorage.removeItem("cardNumber");
+    localStorage.removeItem("cardDate");
+    localStorage.removeItem("cardSecret");
+    alert("Данные карты успешно удалены, все равно спасибо за донат!");
+  };
+
+  const toggleSecretVisibility = () => {
+    setShowSecret(!showSecret);
   };
 
   return (
     <ProfileForm title="Карта">
+      <span className={cn(classes.cardRemoveIcon)} onClick={handleResetForm} />
       <div className={cn(classes.profileCard)}>
         <label htmlFor="card-number">
           <input
@@ -89,11 +105,15 @@ export const ProfileBankCard = () => {
           </label>
           <label htmlFor="card-secret" className={cn(classes.cardSecretCode)}>
             <input
-              type="text"
+              type={showSecret ? "text" : "password"}
               id="card-secret"
               placeholder="CVC/CVV"
               value={cardSecret}
               onChange={handleCardSecretChange}
+            />
+            <span
+              className={cn(classes.cardSecretIcon)}
+              onClick={toggleSecretVisibility}
             />
           </label>
         </div>

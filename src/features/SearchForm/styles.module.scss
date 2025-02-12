@@ -62,17 +62,24 @@
   overflow-y: hidden;
 }
 
+.popularQueries div {
+  border-bottom: 1px solid var(--light-grey-color);
+}
+
 .popularQueries div,
 .categories div {
   padding: 0;
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.2s ease;
-  border-bottom: 1px solid var(--light-grey-color);
 
   :active {
     transform: translateY(2px);
   }
+}
+
+.categories {
+  padding-bottom: 15px;
 }
 
 .searchFromNavContainer {

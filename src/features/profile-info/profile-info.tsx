@@ -2,11 +2,10 @@
 
 import React from "react";
 import classes from "./styles.module.scss";
-import { typeProfileInfoProps } from "./types";
 import cn from "classnames";
 import { ProfileForm } from "../../shared/ui/profile-form/profileOwner";
 
-export const ProfileInfo: React.FC<typeProfileInfoProps> = () => {
+export const ProfileInfo: React.FC = () => {
   const [name, setName] = React.useState("");
   const [tel, setTel] = React.useState("");
   const [email, setEmail] = React.useState("");

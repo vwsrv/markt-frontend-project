@@ -15,7 +15,7 @@
     width: 100%;
     height: 100%;
 
-    &:hover {
+    &:not(:disabled):hover {
       background: var(--red-orange-gradient);
     }
   }
