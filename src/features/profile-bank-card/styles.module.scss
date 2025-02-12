@@ -1,0 +1,39 @@
+.profileCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cardInfoContainer {
+  display: flex;
+  gap: 16px;
+}
+
+label {
+  display: flex;
+}
+
+.buttonContainer {
+  padding-top: 25px;
+  max-width: 152px;
+  button {
+    padding: 13.5px 20.5px 15.5px;
+  }
+}
+
+.cardSecretCode {
+  position: relative;
+  &::before {
+    content: "";
+    cursor: pointer;
+    position: absolute;
+    background-image: url("./images/eye-icon.svg");
+    width: 32px;
+    height: 32px;
+    background-position: center;
+    background-repeat: no-repeat;
+    right: 0;
+    bottom: 0;
+    background-size: contain;
+  }
+}

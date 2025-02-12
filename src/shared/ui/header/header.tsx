@@ -30,7 +30,11 @@ export const Header: React.FC<typeHeaderProps> = (props) => {
         <Icon src={cartLogo} alt="Корзина" />
         <Icon src={deliveryLogo} alt="Доставки" />
         <Icon src={favoritesLogo} alt="Избранное" />
-        <Icon src={profileLogo} alt="Личный кабинет" />
+        <Icon
+          src={profileLogo}
+          alt="Личный кабинет"
+          onClick={() => navigate("/profile")}
+        />
       </nav>
     </header>
   );

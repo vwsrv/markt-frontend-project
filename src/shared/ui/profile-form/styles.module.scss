@@ -1,0 +1,30 @@
+.profileOwner {
+  display: flex;
+  flex-direction: column;
+}
+
+.profileFormContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 446px;
+}
+
+.profileFormTitle {
+  padding-bottom: 28px;
+}
+
+input {
+  border: none;
+  width: 100%;
+  border-bottom: 0.7px solid var(--grey-color);
+  box-sizing: border-box;
+  outline: none;
+  font-weight: 412;
+  font-size: 22px;
+  line-height: 22px;
+  letter-spacing: 0%;
+
+  &::placeholder {
+    color: var(--grey-color);
+  }
+}
