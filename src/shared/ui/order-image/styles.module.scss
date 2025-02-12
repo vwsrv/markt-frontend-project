@@ -1,0 +1,26 @@
+.orderCard {
+  border-radius: 8px;
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+  background-color: var(--grey-color);
+  &.red {
+    background-color: var(--red-color);
+  }
+
+  &.blue {
+    background-color: var(--blue-color);
+  }
+
+  &.grey {
+    background-color: var(--grey-color);
+  }
+
+  &.yellow {
+    background-color: var(--yellow-color);
+  }
+
+  &.blueGradient {
+    background: var(--blue-gradient-color);
+  }
+}

@@ -6,5 +6,175 @@
     "cardNumber": "",
     "cardDate": "",
     "cardSecret": ""
-  }
+  },
+  "orders": [
+    {
+      "orderNumber": "2714812",
+      "date": "27 ноября",
+      "status": "готов к выдаче",
+      "totalAmount": "247 132",
+      "items": [
+        {
+          "productId": "PROD001",
+          "name": "Басс-гитара",
+          "quantity": 1,
+          "price": 49426.5,
+          "image": "/images/category-images/5.png",
+          "variant": "red"
+        },
+        {
+          "productId": "PROD002",
+          "name": "Пингвин обыкновенный",
+          "quantity": 2,
+          "price": 49426.5,
+          "image": "/images/resource-images/70.png",
+          "variant": "Черный"
+        },
+        {
+          "productId": "PROD003",
+          "name": "Мысли Джокера",
+          "quantity": 1,
+          "price": 49426.5,
+          "image": "/images/resource-images/30.png",
+          "variant": "Белые"
+        },
+        {
+          "productId": "PROD003",
+          "name": "Шуба славика Бимбо",
+          "quantity": 1,
+          "price": 49426.5,
+          "image": "/images/resource-images/12.png",
+          "variant": "Белые"
+        }
+      ]
+    },
+    {
+      "orderId": "2714433",
+      "date": "21 ноября",
+      "status": "Соберем к 1 декабря",
+      "totalAmount": 75.0,
+      "items": [
+        {
+          "productId": "PROD001",
+          "name": "Властелин овец",
+          "quantity": 1,
+          "price": 75.0,
+          "image": "/images/category-images/11.png",
+          "variant": "Белые"
+        },
+        {
+          "productId": "PROD002",
+          "name": "ERROR",
+          "quantity": 1,
+          "price": 75.0,
+          "image": "/images/resource-images/34.png",
+          "variant": "Белые"
+        },
+        {
+          "productId": "PROD012",
+          "name": "Аниме журнал",
+          "quantity": 1,
+          "price": 75.0,
+          "image": "/images/resource-images/46.png",
+          "variant": "Белые"
+        },
+        {
+          "productId": "PROD003",
+          "name": "Аниме-видео-онлайн",
+          "quantity": 1,
+          "price": 75.0,
+          "image": "/images/resource-images/16.png",
+          "variant": "Белые"
+        },
+        {
+          "productId": "PROD004",
+          "name": "Ну давай я пройду",
+          "quantity": 1,
+          "price": 75.0,
+          "image": "/images/category-images/1.png",
+          "variant": "Белые"
+        },
+        {
+          "productId": "PROD005",
+          "name": "Палочки на кружочке",
+          "quantity": 1,
+          "price": 75.0,
+          "image": "/images/resource-images/24.png",
+          "variant": "Белые"
+        },
+        {
+          "productId": "PROD006",
+          "name": "Замок едить твою налево",
+          "quantity": 1,
+          "price": 75.0,
+          "image": "/images/resource-images/28.png",
+          "variant": "Белые"
+        },
+        {
+          "productId": "PROD007",
+          "name": "Друг",
+          "quantity": 1,
+          "price": 75.0,
+          "image": "/images/resource-images/26.png",
+          "variant": "Белые"
+        },
+        {
+          "productId": "PROD008",
+          "name": "Технично",
+          "quantity": 1,
+          "price": 75.0,
+          "image": "/images/resource-images/33.png",
+          "variant": "Белые"
+        },
+        {
+          "productId": "PROD009",
+          "name": "Тату",
+          "quantity": 1,
+          "price": 75.0,
+          "image": "/images/resource-images/27.png",
+          "variant": "Белые"
+        },
+        {
+          "productId": "PROD010",
+          "name": "Рембо",
+          "quantity": 1,
+          "price": 75.0,
+          "image": "/images/resource-images/20.png",
+          "variant": "Белые"
+        },
+        {
+          "productId": "PROD011",
+          "name": "Кольцо",
+          "quantity": 1,
+          "price": 75.0,
+          "image": "/images/resource-images/4.png",
+          "variant": "Белые"
+        },
+        {
+          "orderNumber": "2714144",
+          "date": "21 ноября",
+          "status": "получен",
+          "totalAmount": "22 199",
+          "items": [
+            {
+              "productId": "PROD001",
+              "name": "Айкос",
+              "quantity": 1,
+              "price": 49426.5,
+              "image": "/images/resource-images/57.png",
+              "variant": "red"
+            },
+            {
+              "productId": "PROD002",
+              "name": "Философский камень",
+              "quantity": 2,
+              "price": 49426.5,
+              "image": "/images/resource-images/14.png",
+              "variant": "Черный"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

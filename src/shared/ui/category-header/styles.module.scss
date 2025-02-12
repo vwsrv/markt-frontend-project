@@ -2,10 +2,10 @@
   display: flex;
   flex-direction: column;
   justify-items: end;
-  padding: 56px 13px 0;
+  padding: 56px 0 0;
 
   @media (max-width: 675px) {
-    padding: 12px 12px 0;
+    padding: 12px 0 0;
   }
 }
 

@@ -28,7 +28,11 @@ export const Header: React.FC<typeHeaderProps> = (props) => {
       <SearchForm name="Поиск" placeholder="Поиск товаров" />
       <nav className={cn(classes.headerNav)}>
         <Icon src={cartLogo} alt="Корзина" />
-        <Icon src={deliveryLogo} alt="Доставки" />
+        <Icon
+          src={deliveryLogo}
+          alt="Заказы"
+          onClick={() => navigate("/orders")}
+        />
         <Icon src={favoritesLogo} alt="Избранное" />
         <Icon
           src={profileLogo}
