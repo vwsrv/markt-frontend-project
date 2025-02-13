@@ -6,13 +6,13 @@ import classes from "./styles.module.scss";
 import { typeOrderImageProps } from "./types";
 
 export const OrderImage: React.FC<typeOrderImageProps> = (props) => {
-  const { link, name, variant } = props;
+  const { image, name, variant } = props;
 
   return (
-    <div className={cn(classes.orderCard)}>
+    <div className={cn(classes.orderImageContainer, classes[variant])}>
       <img
         className={cn(classes.orderImage, classes[variant])}
-        src={link}
+        src={image}
         alt={name}
       />
     </div>

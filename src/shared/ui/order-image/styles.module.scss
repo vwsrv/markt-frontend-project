@@ -1,9 +1,15 @@
-.orderCard {
+.orderImageContainer {
+  display: flex;
   border-radius: 8px;
   object-fit: contain;
-  height: 100%;
+  max-width: 101px;
+}
+
+.orderImage {
   width: 100%;
-  background-color: var(--grey-color);
+  object-fit: cover;
+  border-radius: 8px;
+
   &.red {
     background-color: var(--red-color);
   }
@@ -20,7 +26,7 @@
     background-color: var(--yellow-color);
   }
 
-  &.blueGradient {
-    background: var(--blue-gradient-color);
+  &.orange {
+    background-color: var(--yellow-color);
   }
 }

@@ -11,7 +11,7 @@
     {
       "orderNumber": "2714812",
       "date": "27 ноября",
-      "status": "готов к выдаче",
+      "status": "ready",
       "totalAmount": "247 132",
       "items": [
         {
@@ -27,8 +27,8 @@
           "name": "Пингвин обыкновенный",
           "quantity": 2,
           "price": 49426.5,
-          "image": "/images/resource-images/70.png",
-          "variant": "Черный"
+          "image": "/images/resource-images/70.svg",
+          "variant": "blue"
         },
         {
           "productId": "PROD003",
@@ -36,7 +36,7 @@
           "quantity": 1,
           "price": 49426.5,
           "image": "/images/resource-images/30.png",
-          "variant": "Белые"
+          "variant": "red"
         },
         {
           "productId": "PROD003",
@@ -44,14 +44,14 @@
           "quantity": 1,
           "price": 49426.5,
           "image": "/images/resource-images/12.png",
-          "variant": "Белые"
+          "variant": "red"
         }
       ]
     },
     {
-      "orderId": "2714433",
+      "orderNumber": "2714433",
       "date": "21 ноября",
-      "status": "Соберем к 1 декабря",
+      "status": "assembly",
       "totalAmount": 75.0,
       "items": [
         {
@@ -60,7 +60,7 @@
           "quantity": 1,
           "price": 75.0,
           "image": "/images/category-images/11.png",
-          "variant": "Белые"
+          "variant": "red"
         },
         {
           "productId": "PROD002",
@@ -68,7 +68,15 @@
           "quantity": 1,
           "price": 75.0,
           "image": "/images/resource-images/34.png",
-          "variant": "Белые"
+          "variant": "black"
+        },
+        {
+          "productId": "PROD012",
+          "name": "Распальцовка",
+          "quantity": 1,
+          "price": 75.0,
+          "image": "/images/resource-images/1.png",
+          "variant": "red"
         },
         {
           "productId": "PROD012",
@@ -76,7 +84,7 @@
           "quantity": 1,
           "price": 75.0,
           "image": "/images/resource-images/46.png",
-          "variant": "Белые"
+          "variant": "red"
         },
         {
           "productId": "PROD003",
@@ -84,7 +92,7 @@
           "quantity": 1,
           "price": 75.0,
           "image": "/images/resource-images/16.png",
-          "variant": "Белые"
+          "variant": "grey"
         },
         {
           "productId": "PROD004",
@@ -92,7 +100,7 @@
           "quantity": 1,
           "price": 75.0,
           "image": "/images/category-images/1.png",
-          "variant": "Белые"
+          "variant": "red"
         },
         {
           "productId": "PROD005",
@@ -100,7 +108,7 @@
           "quantity": 1,
           "price": 75.0,
           "image": "/images/resource-images/24.png",
-          "variant": "Белые"
+          "variant": "grey"
         },
         {
           "productId": "PROD006",
@@ -108,7 +116,7 @@
           "quantity": 1,
           "price": 75.0,
           "image": "/images/resource-images/28.png",
-          "variant": "Белые"
+          "variant": "blue"
         },
         {
           "productId": "PROD007",
@@ -116,7 +124,15 @@
           "quantity": 1,
           "price": 75.0,
           "image": "/images/resource-images/26.png",
-          "variant": "Белые"
+          "variant": "blue"
+        },
+        {
+          "productId": "PROD008",
+          "name": "Сундук",
+          "quantity": 1,
+          "price": 75.0,
+          "image": "/images/resource-images/6.png",
+          "variant": "orange"
         },
         {
           "productId": "PROD008",
@@ -124,7 +140,7 @@
           "quantity": 1,
           "price": 75.0,
           "image": "/images/resource-images/33.png",
-          "variant": "Белые"
+          "variant": "orange"
         },
         {
           "productId": "PROD009",
@@ -132,7 +148,7 @@
           "quantity": 1,
           "price": 75.0,
           "image": "/images/resource-images/27.png",
-          "variant": "Белые"
+          "variant": "grey"
         },
         {
           "productId": "PROD010",
@@ -140,7 +156,7 @@
           "quantity": 1,
           "price": 75.0,
           "image": "/images/resource-images/20.png",
-          "variant": "Белые"
+          "variant": "blue"
         },
         {
           "productId": "PROD011",
@@ -148,31 +164,31 @@
           "quantity": 1,
           "price": 75.0,
           "image": "/images/resource-images/4.png",
-          "variant": "Белые"
+          "variant": "red"
+        }
+      ]
+    },
+    {
+      "orderNumber": "2714144",
+      "date": "21 ноября",
+      "status": "received",
+      "totalAmount": "22 199",
+      "items": [
+        {
+          "productId": "PROD001",
+          "name": "Айкос",
+          "quantity": 1,
+          "price": 49426.5,
+          "image": "/images/resource-images/57.png",
+          "variant": "blue"
         },
         {
-          "orderNumber": "2714144",
-          "date": "21 ноября",
-          "status": "получен",
-          "totalAmount": "22 199",
-          "items": [
-            {
-              "productId": "PROD001",
-              "name": "Айкос",
-              "quantity": 1,
-              "price": 49426.5,
-              "image": "/images/resource-images/57.png",
-              "variant": "red"
-            },
-            {
-              "productId": "PROD002",
-              "name": "Философский камень",
-              "quantity": 2,
-              "price": 49426.5,
-              "image": "/images/resource-images/14.png",
-              "variant": "Черный"
-            }
-          ]
+          "productId": "PROD002",
+          "name": "Философский камень",
+          "quantity": 2,
+          "price": 49426.5,
+          "image": "/images/resource-images/14.png",
+          "variant": "red"
         }
       ]
     }

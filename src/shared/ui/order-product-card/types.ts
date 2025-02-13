@@ -6,7 +6,7 @@ export type typeOrderProductCardProps = {
   variant: BaseProductProps["variant"];
   orderNumber: string;
   status: "ready" | "ship" | "received" | "assembly";
-  orderCount: string;
+  orderCount: number;
   sum: string;
   date: string;
 };

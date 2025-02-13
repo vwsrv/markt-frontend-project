@@ -1,7 +1,7 @@
 import { BaseProductProps } from "../../../types/productTypes";
 
 export type typeOrderImageProps = {
-  link: string;
+  image: string;
   name: string;
   variant: BaseProductProps["variant"];
 };

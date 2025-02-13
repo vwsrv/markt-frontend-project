@@ -1,26 +1,40 @@
 .orderCard {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 4px 10px;
+  margin-bottom: 28px;
   border-radius: 8px;
   object-fit: contain;
   height: 100%;
   width: 100%;
-  background-color: var(--grey-color);
-  &.red {
-    background-color: var(--red-color);
+  background: var(--red-orange-gradient);
+  color: var(--white-color);
+
+  &.assembly,
+  &.received,
+  &.ship {
+    color: var(--black-color);
+    padding: 0;
+    background: 0;
   }
 
-  &.blue {
-    background-color: var(--blue-color);
+  &.ready {
+    max-width: fit-content;
   }
+}
 
-  &.grey {
-    background-color: var(--grey-color);
-  }
+.orderCardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding-bottom: 10px;
+}
 
-  &.yellow {
-    background-color: var(--yellow-color);
-  }
+.orderNumberContainer {
+  display: flex;
+}
 
-  &.blueGradient {
-    background: var(--blue-gradient-color);
-  }
+.orderDate {
+  display: flex;
+  gap: 15px;
 }
